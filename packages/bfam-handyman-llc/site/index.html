@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bfam Handyman Llc | Repairs Done Right, Every Time</title>
+<meta name="description" content="Your trusted handyman in Commerce City, delivering quality repairs and installations for your home."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"HomeAndConstructionBusiness",
+  "name":"Bfam Handyman Llc",
+  "telephone":"(720) 656-4420",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"8431 Brighton Rd",
+    "addressLocality":"Commerce City",
+    "addressRegion":"CO",
+    "postalCode":"80022"
+  },
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"10"}
+}</script>
+<style>
+:root{--p:#9a5b2e;--pd:#7a4622;--pl:#ebd9c7;--tx:#211b16;--mu:#5c5249;--bg:#faf6f1;--wh:#fff;--ac:#2e6e63;
+      --hf:'Raleway',sans-serif;--bf:'Open Sans',sans-serif;--rr:12px;--rr2:20px;
+      --ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bf);color:var(--tx);background:var(--wh);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+svg{display:block}
+
+/* AOS fallback: content fully visible if JS/AOS never runs */
+html:not(.aos-ready) [data-aos]{opacity:1!important;transform:none!important}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:var(--wh);border-bottom:2px solid var(--pl)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--hf);font-size:18px;font-weight:800;color:var(--tx)}
+.nav-phone{color:var(--p);font-weight:700;font-size:15px}
+.nav-cta{background:var(--p);color:#fff;padding:10px 22px;border-radius:30px;font-weight:700;font-size:14px;transition:background .2s var(--ease),transform .2s var(--ease)}
+.nav-cta:hover{background:var(--pd);transform:translateY(-1px)}
+.nav-cta .cta-short{display:none}
+
+/* HERO */
+#hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(135deg,var(--pd) 0%,var(--p) 100%)}
+#hero::before{content:"";position:absolute;inset:0;background:url("assets/hero.png") center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(33,27,22,.45) 0%,rgba(33,27,22,.62) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 28px;max-width:780px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);color:#fff;
+  padding:8px 20px;border-radius:30px;font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:24px;border:1px solid rgba(255,255,255,.3)}
+.hero-pill svg{width:15px;height:15px}
+.hero-title{font-family:var(--hf);font-size:clamp(42px,6.5vw,76px);font-weight:800;color:#fff;
+  line-height:1.05;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-main{background:var(--p);color:#fff;padding:16px 36px;border-radius:30px;font-family:var(--hf);
+  font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:10px;transition:transform .2s var(--ease),background .2s var(--ease),box-shadow .2s var(--ease)}
+.btn-main:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 12px 28px rgba(122,70,34,.32)}
+.btn-main svg,.btn-sec svg{width:18px;height:18px}
+.btn-sec{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);color:#fff;padding:16px 32px;
+  border-radius:30px;font-family:var(--hf);font-size:16px;font-weight:700;border:2px solid rgba(255,255,255,.5);
+  display:inline-block;transition:all .2s}
+.btn-sec:hover{background:rgba(255,255,255,.25)}
+
+/* FLOATING BADGE */
+.float-badge{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:3;
+  background:var(--wh);border-radius:40px;padding:12px 28px;box-shadow:0 8px 32px rgba(0,0,0,.15);
+  display:flex;gap:28px}
+.fb-item{text-align:center}
+.fb-num{font-family:var(--hf);font-size:20px;font-weight:800;color:var(--p)}
+.fb-lbl{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+
+/* SERVICES */
+#services{padding:100px 0;background:var(--bg)}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.sec-title{font-family:var(--hf);font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:48px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.svc-card{background:var(--wh);border-radius:var(--rr2);padding:32px 24px;text-align:center;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease);border:1px solid var(--pl)}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(122,70,34,.12);border-color:var(--p)}
+.svc-ic{width:52px;height:52px;margin:0 auto 16px;border-radius:14px;background:var(--pl);color:var(--pd);
+  display:flex;align-items:center;justify-content:center}
+.svc-ic svg{width:28px;height:28px}
+.svc-card h3{font-family:var(--hf);font-size:18px;font-weight:700;margin-bottom:10px;color:var(--tx)}
+.svc-card p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* SHOWCASE BAND */
+.showcase{position:relative;min-height:340px;background:linear-gradient(135deg,var(--pd),var(--p));overflow:hidden}
+.showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.showcase-tint{position:absolute;inset:0;background:linear-gradient(90deg,rgba(33,27,22,.6) 0%,rgba(33,27,22,.15) 70%)}
+.showcase-cap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 32px;color:#fff}
+.showcase-cap h3{font-family:var(--hf);font-size:clamp(24px,3.4vw,38px);font-weight:800;max-width:560px;line-height:1.15}
+.showcase-cap p{margin-top:12px;max-width:480px;font-size:16px;color:rgba(255,255,255,.9);line-height:1.6}
+
+/* PROCESS */
+#process{padding:80px 0;background:var(--wh)}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.step{text-align:center}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--p);color:#fff;
+  font-family:var(--hf);font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px}
+.step h3{font-family:var(--hf);font-size:18px;font-weight:700;margin-bottom:8px}
+.step p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* REVIEWS */
+#reviews{padding:90px 0;background:var(--bg)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.rev-card{background:var(--wh);border-radius:var(--rr2);padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.rev-stars{color:var(--ac);display:flex;gap:4px;margin-bottom:12px}
+.rev-stars svg{width:18px;height:18px}
+.rev-card p{font-size:15px;color:var(--mu);line-height:1.7;font-style:italic;margin-bottom:18px}
+.rev-author{display:flex;align-items:center;gap:12px}
+.rev-av{width:40px;height:40px;border-radius:50%;background:var(--p);color:#fff;
+  font-family:var(--hf);font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center}
+.rev-author strong{font-size:14px}
+.rev-author small{font-size:12px;color:var(--mu)}
+
+/* FAQ */
+#faq{padding:80px 0;background:var(--wh)}
+.faq-list{max-width:760px;margin-top:36px;display:flex;flex-direction:column;gap:8px}
+.faq-item{background:var(--bg);border-radius:var(--rr);overflow:hidden}
+.faq-item summary{padding:18px 22px;font-weight:700;cursor:pointer;font-size:15px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:var(--hf)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-q-ic{flex-shrink:0;width:20px;height:20px;color:var(--p);transition:transform .25s var(--ease)}
+.faq-item[open] .faq-q-ic{transform:rotate(45deg)}
+.faq-item p{padding:0 22px 18px;color:var(--mu);font-size:14px;line-height:1.7}
+
+/* CTA */
+#cta{padding:100px 32px;text-align:center;background:linear-gradient(135deg,var(--p) 0%,var(--pd) 100%)}
+#cta h2{font-family:var(--hf);font-size:clamp(32px,5vw,52px);color:#fff;font-weight:800;margin-bottom:14px}
+#cta p{color:rgba(255,255,255,.85);font-size:17px;margin-bottom:36px}
+.cta-main{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--pd);padding:18px 44px;border-radius:30px;
+  font-family:var(--hf);font-weight:800;font-size:18px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.cta-main:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.cta-main svg{width:20px;height:20px}
+
+footer{background:#1c1917;color:rgba(255,255,255,.4);text-align:center;padding:28px;font-size:13px}
+footer strong{color:rgba(255,255,255,.7)}
+
+/* Hero entrance */
+@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-content{animation:heroIn .8s var(--ease) both}
+
+.btn-sec{transition:background .2s var(--ease),transform .2s var(--ease)}
+.btn-sec:hover{transform:translateY(-2px)}
+
+@media(max-width:720px){
+  .process-steps{grid-template-columns:1fr}
+  .float-badge{display:none}
+}
+
+@media(max-width:560px){
+  .nav-inner{padding:0 16px;gap:12px}
+  .nav-logo{font-size:16px}
+  .nav-phone{display:none}
+  .nav-cta{padding:9px 16px;font-size:13px;white-space:nowrap}
+  .nav-cta .cta-full{display:none}
+  .nav-cta .cta-short{display:inline}
+  #hero{min-height:80vh}
+  .hero-title{font-size:clamp(34px,9vw,76px)}
+  .hero-actions .btn-main,.hero-actions .btn-sec{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero-content{animation:none}
+  [data-aos]{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Bfam Handyman Llc</span>
+    <div style="display:flex;align-items:center;gap:20px">
+      <a class="nav-phone" href="tel:17206564420">(720) 656-4420</a>
+      <a class="nav-cta" href="#cta"><span class="cta-full">Schedule Your Free Estimate Today</span><span class="cta-short">Free Estimate</span></a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content" data-aos="fade-up">
+    <div class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Commerce City &amp; Denver Metro</div>
+    <h1 class="hero-title">Repairs Done Right, Every Time</h1>
+    <p class="hero-sub">Your trusted handyman in Commerce City, delivering quality repairs and installations for your home.</p>
+    <div class="hero-actions">
+      <a class="btn-main" href="#cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>Schedule Your Free Estimate</a>
+      <a class="btn-sec" href="tel:17206564420"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.4 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>(720) 656-4420</a>
+    </div>
+  </div>
+  <div class="float-badge">
+    <div class="fb-item"><div class="fb-num" style="display:flex;align-items:center;gap:4px;justify-content:center">5<svg viewBox="0 0 24 24" width="18" height="18" fill="var(--ac)" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg></div><div class="fb-lbl">Google</div></div>
+    <div class="fb-item"><div class="fb-num">10</div><div class="fb-lbl">Reviews</div></div>
+    <div class="fb-item"><div class="fb-num">Free</div><div class="fb-lbl">Estimates</div></div>
+    <div class="fb-item"><div class="fb-num" style="display:flex;align-items:center;gap:5px;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>Insured</div><div class="fb-lbl">Licensed</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <h2 class="sec-title">What We Do</h2>
+    <div class="svc-grid">
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="0">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>TV &amp; Shelf Mounting</h3>
+        <p>Expertly mount your TV or shelves for a clean, organized look.</p>
+      </div>
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="70">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3"/><path d="M3 10h18v5H3z"/><path d="M5 15v4M19 15v4"/></svg></div>
+        <h3>Furniture Assembly</h3>
+        <p>We assemble your furniture quickly, sturdy and ready to use.</p>
+      </div>
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="140">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 4 5 5L9 20l-5 1 1-5L15 4Z"/><path d="m13 6 5 5"/></svg></div>
+        <h3>Drywall Repair</h3>
+        <p>Clean drywall repairs that make your walls look like new.</p>
+      </div>
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="210">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><path d="M3 21h18M12 12h.01"/></svg></div>
+        <h3>Door &amp; Window Installation</h3>
+        <p>Improve your home security and efficiency with expert installs.</p>
+      </div>
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="280">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V18h6v-1.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg></div>
+        <h3>Fixture Installation</h3>
+        <p>Professional lighting and fixture installs to brighten your space.</p>
+      </div>
+      <div class="svc-card" data-aos="zoom-in" data-aos-delay="350">
+        <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3Z"/></svg></div>
+        <h3>General Repairs</h3>
+        <p>Reliable solutions for all your home repair needs, big or small.</p>
+      </div></div>
+  </div>
+</section>
+
+<section class="showcase" data-aos="fade">
+  <img loading="lazy" src="assets/service.png" alt="BFAM Handyman craftsman building a wood pergola in a Denver backyard"/>
+  <div class="showcase-tint"></div>
+  <div class="showcase-cap">
+    <h3>Skilled hands for every home project</h3>
+    <p>From custom carpentry to quick fixes, we treat your home like our own and leave it cleaner than we found it.</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-inner">
+    <h2 class="sec-title">Simple Process</h2>
+    <div class="process-steps">
+      <div class="step" data-aos="fade-up"><div class="step-num">1</div><h3>Book Online or Call</h3><p>Tell us what you need. Takes 60 seconds.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="100"><div class="step-num">2</div><h3>We Schedule Fast</h3><p>Same-day or next-day slots available.</p></div>
+      <div class="step" data-aos="fade-up" data-aos-delay="200"><div class="step-num">3</div><h3>Job Done Right</h3><p>We show up, do the work, and clean up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <h2 class="sec-title">What Commerce City Says</h2>
+    <div class="rev-grid">
+      <div class="rev-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="rev-stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg></div>
+        <p>"Bfam Handyman transformed my living room with their TV mounting service. Quick, professional, and clean! Highly recommend!"</p>
+        <div class="rev-author">
+          <div class="rev-av">S</div>
+          <div><strong>Sarah T.</strong><br><small>Denver, CO</small></div>
+        </div>
+      </div>
+      <div class="rev-card" data-aos="fade-up" data-aos-delay="90">
+        <div class="rev-stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg></div>
+        <p>"I had a great experience with their furniture assembly. They were punctual, friendly, and did an amazing job!"</p>
+        <div class="rev-author">
+          <div class="rev-av">M</div>
+          <div><strong>Mike R.</strong><br><small>Aurora, CO</small></div>
+        </div>
+      </div>
+      <div class="rev-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="rev-stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.3 6.8L12 17.6 5.8 20.8 7 14 2 9.2l6.9-.9L12 2Z"/></svg></div>
+        <p>"The drywall repair was flawless and they were very courteous throughout the process. Truly a five-star service!"</p>
+        <div class="rev-author">
+          <div class="rev-av">E</div>
+          <div><strong>Emily J.</strong><br><small>Lakewood, CO</small></div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <h2 class="sec-title">Got Questions?</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary>What's your hourly rate?<svg class="faq-q-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>$75 to $125 per hour depending on the job, with flat rates on common tasks.</p></details>
+      <details class="faq-item"><summary>Do you do small jobs?<svg class="faq-q-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Absolutely. No job is too small.</p></details>
+      <details class="faq-item"><summary>How fast can you come?<svg class="faq-q-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Same-day or next-day for most jobs.</p></details>
+      <details class="faq-item"><summary>Are you licensed and insured?<svg class="faq-q-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Yes. We are fully insured with general liability coverage.</p></details>
+      <details class="faq-item"><summary>What areas do you serve?<svg class="faq-q-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Denver, Aurora, and the greater Denver metro.</p></details></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Ready to Get Started?</h2>
+  <p>Serving Commerce City, Denver, Aurora, and the entire Denver metro area.</p>
+  <a class="cta-main" href="tel:17206564420"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.4 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>(720) 656-4420</a>
+</section>
+
+<footer><strong>Bfam Handyman Llc</strong> · 8431 Brighton Rd, Commerce City, CO 80022, USA · © 2026</footer>
+
+
+<!-- ── Bot widget ─────────────────────────────────────────── -->
+<button id="bot-fab" title="Chat with us" aria-label="Chat with us" style="
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+  background:#9a5b2e;color:#fff;
+  box-shadow:0 4px 20px rgba(0,0,0,.30);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 20l1.3-3.9A8.4 8.4 0 1 1 21 11.5Z"/></svg></button>
+
+<div id="bot-panel" style="
+  display:none;flex-direction:column;
+  position:fixed;bottom:100px;right:28px;z-index:9998;
+  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.22);
+  font-family:inherit;
+">
+  <div style="background:#9a5b2e;color:#fff;padding:14px 18px;
+              display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book an Appointment</span>
+    <button id="bot-close" style="background:none;border:none;color:#fff;
+      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+  </div>
+  <div id="bot-messages" style="
+    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
+    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
+  "></div>
+  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
+              display:flex;gap:8px;align-items:center;">
+    <input id="bot-input" type="text" placeholder="Type your message…" style="
+      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
+      font-size:14px;outline:none;font-family:inherit;
+    "/>
+    <button id="bot-send" style="
+      padding:10px 18px;background:#9a5b2e;color:#fff;border:none;
+      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
+    ">Send</button>
+  </div>
+</div>
+
+<style>
+  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
+  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
+  .msg-user{ background:#9a5b2e;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+  .typing{ opacity:.6;font-style:italic; }
+  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
+  #bot-fab.pulse{ animation:pulse 2s infinite; }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(154,91,46,.5)}50%{box-shadow:0 0 0 12px rgba(154,91,46,0)}}
+  @media (prefers-reduced-motion: reduce){ #bot-fab.pulse{ animation:none; } }
+</style>
+
+
+<script>
+// ── Bot Configuration ──────────────────────────────────────────────────────
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_SITE_ID  = "bfam-handyman-llc";
+var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
+
+// ── State ──────────────────────────────────────────────────────────────────
+var botOpen = false;
+var botBusy = false;
+
+// ── DOM refs ───────────────────────────────────────────────────────────────
+var botFab, botPanel, botMessages, botInput, botSend, botClose;
+
+document.addEventListener("DOMContentLoaded", function() {
+  botFab      = document.getElementById("bot-fab");
+  botPanel    = document.getElementById("bot-panel");
+  botMessages = document.getElementById("bot-messages");
+  botInput    = document.getElementById("bot-input");
+  botSend     = document.getElementById("bot-send");
+  botClose    = document.getElementById("bot-close");
+
+  botFab.addEventListener("click", toggleBot);
+  botClose.addEventListener("click", toggleBot);
+  botSend.addEventListener("click", sendMessage);
+  botInput.addEventListener("keydown", function(e){
+    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
+  });
+
+  // Greeting after 2 s
+  setTimeout(function(){
+    addMessage("bot", "Hi! I\'m the Bfam Handyman Llc booking assistant. How can I help you today?");
+  }, 2000);
+
+  // Pulse the FAB after 4 s
+  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
+});
+
+function toggleBot(){
+  botOpen = !botOpen;
+  botPanel.style.display = botOpen ? "flex" : "none";
+  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
+}
+
+function addMessage(role, text){
+  var div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.textContent = text;
+  botMessages.appendChild(div);
+  botMessages.scrollTop = botMessages.scrollHeight;
+}
+
+async function sendMessage(){
+  var msg = botInput.value.trim();
+  if(!msg || botBusy) return;
+  botInput.value = "";
+  addMessage("user", msg);
+  botBusy = true;
+  botSend.disabled = true;
+
+  var typing = document.createElement("div");
+  typing.className = "msg msg-bot typing";
+  typing.textContent = "…";
+  botMessages.appendChild(typing);
+  botMessages.scrollTop = botMessages.scrollHeight;
+
+  try{
+    var r = await fetch(BOT_API_BASE + "/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
+    });
+    var data = await r.json();
+    typing.remove();
+    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
+    if(data.booked){
+      addMessage("bot", "Your appointment is confirmed! We\'ll call you to confirm details.");
+    }
+  } catch(e){
+    typing.remove();
+    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
+  }
+
+  botBusy = false;
+  botSend.disabled = false;
+  botInput.focus();
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>document.documentElement.classList.add('aos-ready');AOS.init({duration:650,once:true,offset:50,easing:'ease-out-quart'});</script>
+</body>
+<!-- brandfix:done -->
+<!-- audit:done -->
+</html>

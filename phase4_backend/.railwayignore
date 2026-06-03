@@ -1,0 +1,12 @@
+# Ignore everything outside the backend folder
+packages/
+*.pptx
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.csv
+__pycache__/
+*.pyc
+.env
+node_modules/

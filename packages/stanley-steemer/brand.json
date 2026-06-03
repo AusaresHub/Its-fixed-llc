@@ -1,0 +1,17 @@
+{
+  "name": "Stanley Steemer",
+  "category": "carpet cleaning / Laundry",
+  "primary_hex": "#0A3161",
+  "secondary_hex": "#B31942",
+  "palette": {
+    "primary": "#0A3161",
+    "primaryDark": "#072348",
+    "primaryLight": "#DCE4EF",
+    "accent": "#B31942",
+    "bg": "#F5F7FA",
+    "ink": "#15233B",
+    "muted": "#566073"
+  },
+  "color_source": "flag",
+  "notes": "American-flag-derived palette: deep Old Glory Blue navy as structural primary, controlled Old Glory Red as a sparing accent (stars, FAQ glyphs), clean near-white surfaces."
+}

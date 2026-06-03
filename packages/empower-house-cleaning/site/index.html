@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Empower House Cleaning | Your Home, Sparkling Clean</title>
+<meta name="description" content="Expert house cleaning services in Denver, ensuring a fresh and welcoming space every time."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"HousekeepingService",
+  "name":"Empower House Cleaning",
+  "telephone":"(720) 420-1335",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"4821 Kirk St",
+    "addressLocality":"Denver",
+    "addressRegion":"CO",
+    "postalCode":"80249"
+  },
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"9"}
+}</script>
+<style>
+:root{--p:#a21e8c;--pd:#7a1569;--pl:#f3ddee;--ac:#2fa862;--tx:#1e1622;--mu:#5e5566;--bg:#faf7fa;--wh:#fff;
+      --ease:cubic-bezier(.22,1,.36,1);
+      --hf:'Poppins',sans-serif;--bf:'Nunito',sans-serif;--rr:12px;--rr2:24px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bf);color:var(--tx);background:var(--wh);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.ic{width:24px;height:24px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* AOS fallback: content visible by default; AOS enhances when ready */
+[data-aos]{opacity:1}
+.aos-ready [data-aos]{opacity:0}
+.aos-ready [data-aos].aos-animate{opacity:1}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:var(--wh);border-bottom:1px solid #eee;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--hf);font-size:17px;font-weight:700;color:var(--pd)}
+.nav-cta{background:var(--p);color:#fff;padding:10px 22px;border-radius:30px;font-weight:600;font-size:14px;transition:background .2s}
+.nav-cta:hover{background:var(--pd)}
+
+/* HERO - split */
+#hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--bg)}
+.hero-left{padding:80px 60px 80px 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--pl);color:var(--pd);
+  padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:24px}
+.hero-badge .ic{width:16px;height:16px;color:var(--ac)}
+.hero-title{font-family:var(--hf);font-size:clamp(38px,5vw,60px);font-weight:700;
+  color:var(--tx);line-height:1.1;margin-bottom:20px}
+.hero-title em{color:var(--p);font-style:normal}
+.hero-sub{color:var(--mu);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{background:var(--p);color:#fff;padding:14px 30px;border-radius:30px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:9px;transition:background .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);box-shadow:0 4px 14px rgba(162,30,140,.22)}
+.btn-p .ic{width:18px;height:18px}
+.btn-p:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 8px 22px rgba(162,30,140,.28)}
+.btn-ph{background:transparent;border:2px solid var(--p);color:var(--p);padding:14px 28px;border-radius:30px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:9px;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn-ph .ic{width:18px;height:18px}
+.btn-ph:hover{background:var(--p);color:#fff;transform:translateY(-2px)}
+.hero-right{height:90vh;overflow:hidden;background:linear-gradient(160deg,var(--pl) 0%,var(--p) 100%)}
+.hero-right img{width:100%;height:100%;object-fit:cover}
+
+/* TRUST */
+.trust-bar{background:var(--p);padding:18px 0}
+.trust-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center}
+.trust-badge{display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;font-weight:500}
+.trust-badge .ic{width:20px;height:20px;color:#fff;opacity:.95}
+
+/* SERVICES */
+#services{padding:90px 0;background:var(--wh)}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.section-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;
+  color:var(--tx);margin-bottom:48px}
+.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-row{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border:1px solid var(--pl);
+  padding:22px;border-radius:var(--rr);transition:box-shadow .2s var(--ease),transform .2s var(--ease)}
+.svc-row:hover{box-shadow:0 8px 24px rgba(162,30,140,.10);transform:translateY(-3px)}
+.svc-em{min-width:44px;height:44px;border-radius:10px;background:var(--pl);color:var(--pd);display:flex;align-items:center;justify-content:center}
+.svc-row h3{font-family:var(--hf);font-size:16px;font-weight:600;margin-bottom:6px}
+.svc-row p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* REVIEWS */
+#reviews{padding:90px 0;background:var(--bg)}
+.review-banner{border-radius:var(--rr2);overflow:hidden;height:300px;margin-bottom:8px;background:linear-gradient(135deg,var(--pl) 0%,var(--p) 100%)}
+.review-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.qcard{background:var(--wh);border-radius:var(--rr2);padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.q-stars{color:#f59e0b;font-size:16px;letter-spacing:3px;margin-bottom:14px}
+.qcard p{font-size:15px;color:var(--mu);line-height:1.8;margin-bottom:16px;font-style:italic}
+.qcard strong{font-size:13px;color:var(--tx)}
+
+/* FAQ */
+#faq{padding:90px 0;background:var(--wh)}
+.faq-list{margin-top:36px;max-width:760px;display:flex;flex-direction:column;gap:8px}
+.faq-item{border:1px solid #e8ecf0;border-radius:var(--rr);overflow:hidden}
+.faq-item summary{padding:18px 22px;font-weight:600;cursor:pointer;font-size:15px;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary .ic{color:var(--p);transition:transform .25s var(--ease)}
+.faq-item[open] summary .ic{transform:rotate(45deg)}
+.faq-item p{padding:0 22px 18px;color:var(--mu);font-size:14px;line-height:1.7}
+
+/* CTA */
+#cta{padding:100px 32px;text-align:center;background:linear-gradient(135deg,var(--pd) 0%,var(--p) 100%)}
+#cta h2{font-family:var(--hf);font-size:clamp(30px,5vw,50px);color:#fff;font-weight:700;margin-bottom:14px}
+#cta p{color:rgba(255,255,255,.88);font-size:17px;margin-bottom:36px}
+.cta-btn{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--pd);padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;transition:transform .2s var(--ease),box-shadow .2s var(--ease);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.cta-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 28px rgba(0,0,0,.24)}
+
+footer{background:#1a1a2e;color:rgba(255,255,255,.45);text-align:center;padding:28px;font-size:13px}
+footer strong{color:rgba(255,255,255,.7)}
+
+/* Hero entrance */
+@keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-left>*{animation:heroIn .7s var(--ease) both}
+.hero-left>*:nth-child(1){animation-delay:.05s}
+.hero-left>*:nth-child(2){animation-delay:.14s}
+.hero-left>*:nth-child(3){animation-delay:.23s}
+.hero-left>*:nth-child(4){animation-delay:.32s}
+
+@media(max-width:800px){
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:60px 24px}
+  .svc-cols{grid-template-columns:1fr}
+}
+
+@media(max-width:560px){
+  .nav-inner{padding:0 16px}
+  .nav-logo{font-size:15px}
+  .nav-cta{padding:9px 16px;font-size:13px}
+  .nav-inner>div>a[href^="tel"]{display:none}
+  .hero-title{font-size:clamp(30px,8vw,40px)}
+  .hero-actions .btn-p,.hero-actions .btn-ph{flex:1 1 auto;justify-content:center}
+  .trust-inner{gap:16px 24px}
+  #cta{padding:72px 20px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  [data-aos],.aos-ready [data-aos]{opacity:1!important;transform:none!important}
+  .hero-left>*{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Empower House Cleaning</span>
+    <div style="display:flex;align-items:center;gap:20px">
+      <a href="tel:17204201335" style="font-size:14px;color:var(--mu)">(720) 420-1335</a>
+      <a class="nav-cta" href="#cta">Schedule Your Cleaning Today</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-left" data-aos="fade-right">
+    <div class="hero-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10.5V12a9 9 0 1 1-5.34-8.22"/><path d="M9 11l3 3L22 4"/></svg> Serving Denver and Metro</div>
+    <h1 class="hero-title">Your Home, <em>Sparkling Clean</em></h1>
+    <p class="hero-sub">Expert house cleaning services in Denver, for a fresh and welcoming space every time.</p>
+    <div class="hero-actions">
+      <a class="btn-p" href="#cta"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Schedule Your Cleaning Today</a>
+      <a class="btn-ph" href="tel:17204201335"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg> (720) 420-1335</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/hero.png" alt="Empower House Cleaning team cleaning a bright Denver home" loading="eager"/>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.8 3 1.1-6.5L2.6 9.3l6.5-.9z"/></svg> 5 Stars on Google (9 reviews)</div>
+    <div class="trust-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Background Checked</div>
+    <div class="trust-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Fully Insured</div>
+    <div class="trust-badge"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Satisfaction Guaranteed</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <h2 class="section-title">Everything We Offer</h2>
+    <div class="svc-cols">
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="0">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l4-4M7 17l5-9 4 2-5 9zM12 8l3-5 4 2-3 5"/></svg></span>
+        <div><h3>Standard Cleaning</h3><p>Regular upkeep to keep your home looking its best, hassle-free.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="60">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3l-7 7M14 4l6 6-9 9H5v-6z"/><path d="M5 21h6"/></svg></span>
+        <div><h3>Deep Cleaning</h3><p>Thorough cleaning for a spotless, sanitized environment in every corner.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="120">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 6h12v9H1zM13 9h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span>
+        <div><h3>Move-In/Out Clean</h3><p>Easing your transition with a detailed clean for new or departing homes.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="180">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15 6.7L3 16M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 4v4h-4M3 20v-4h4"/></svg></span>
+        <div><h3>Recurring Service</h3><p>Consistent cleaning at your convenience, tailored to your schedule.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="240">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l5-3 5 3v13"/><path d="M9 21v-5h2v5M15 21V11l4 2v8"/></svg></span>
+        <div><h3>Post-Construction</h3><p>Removing debris and dust for a pristine, livable space after renovations.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="300">
+        <span class="svc-em"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 21v-6h6v6"/></svg></span>
+        <div><h3>Airbnb Turnover</h3><p>Preparing your rental for guests with a meticulous clean every time.</p></div>
+      </div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="review-banner" data-aos="fade-up">
+      <img src="assets/team.png" alt="Empower House Cleaning team finishing a bright Denver living room" loading="lazy"/>
+    </div>
+    <div class="reviews-grid">
+      <div class="qcard" data-aos="fade-up" data-aos-delay="0">
+        <div class="q-stars">★★★★★</div>
+        <p>"Empower House Cleaning transformed my home! They were punctual, thorough, and my place has never looked better!"</p>
+        <strong>Sarah R., Denver, CO</strong>
+      </div>
+      <div class="qcard" data-aos="fade-up" data-aos-delay="100">
+        <div class="q-stars">★★★★★</div>
+        <p>"I hired them for a deep clean before moving in, and they exceeded my expectations. Highly recommend!"</p>
+        <strong>Mike D., Aurora, CO</strong>
+      </div>
+      <div class="qcard" data-aos="fade-up" data-aos-delay="200">
+        <div class="q-stars">★★★★★</div>
+        <p>"Absolutely loved their service! My Airbnb was spotless and ready for guests in no time."</p>
+        <strong>Emily T., Lakewood, CO</strong>
+      </div></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do I need to be home? <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p>No. Many clients give a key or code and come home to a clean house.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you bring your own supplies? <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p>Yes. All products and equipment are included.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are cleaners background-checked? <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p>Yes. All team members are screened, trained, and insured.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between standard and deep cleaning? <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p>Deep cleaning covers inside appliances, baseboards, and fans. It is great for first cleans.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer discounts? <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <p>Yes. Recurring clients save 10 to 20 percent.</p>
+      </details></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Ready to Get Started?</h2>
+  <p>Proudly serving Denver, Denver metro, and surrounding communities.</p>
+  <a class="cta-btn" href="tel:17204201335">(720) 420-1335</a>
+</section>
+
+<footer>
+  <strong>Empower House Cleaning</strong> · 4821 Kirk St, Denver, CO 80249, USA · © 2026
+</footer>
+
+
+<!-- ── Bot widget ─────────────────────────────────────────── -->
+<button id="bot-fab" title="Chat with us" style="
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+  background:#a21e8c;color:#fff;
+  box-shadow:0 4px 20px rgba(0,0,0,.30);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.8-.8L3 21l1.9-4.2A8.4 8.4 0 0 1 12 3.5a8.4 8.4 0 0 1 9 8z"/></svg></button>
+
+<div id="bot-panel" style="
+  display:none;flex-direction:column;
+  position:fixed;bottom:100px;right:28px;z-index:9998;
+  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.22);
+  font-family:inherit;
+">
+  <div style="background:#a21e8c;color:#fff;padding:14px 18px;
+              display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book an Appointment</span>
+    <button id="bot-close" style="background:none;border:none;color:#fff;
+      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+  </div>
+  <div id="bot-messages" style="
+    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
+    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
+  "></div>
+  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
+              display:flex;gap:8px;align-items:center;">
+    <input id="bot-input" type="text" placeholder="Type your message…" style="
+      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
+      font-size:14px;outline:none;font-family:inherit;
+    "/>
+    <button id="bot-send" style="
+      padding:10px 18px;background:#a21e8c;color:#fff;border:none;
+      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
+    ">Send</button>
+  </div>
+</div>
+
+<style>
+  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
+  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
+  .msg-user{ background:#a21e8c;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+  .typing{ opacity:.6;font-style:italic; }
+  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
+  #bot-fab.pulse{ animation:pulse 2s infinite; }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(162,30,140,.5)}50%{box-shadow:0 0 0 12px rgba(162,30,140,0)}}
+  @media(prefers-reduced-motion:reduce){#bot-fab.pulse{animation:none}}
+</style>
+
+
+<script>
+// ── Bot Configuration ──────────────────────────────────────────────────────
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_SITE_ID  = "empower-house-cleaning";
+var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
+
+// ── State ──────────────────────────────────────────────────────────────────
+var botOpen = false;
+var botBusy = false;
+
+// ── DOM refs ───────────────────────────────────────────────────────────────
+var botFab, botPanel, botMessages, botInput, botSend, botClose;
+
+document.addEventListener("DOMContentLoaded", function() {
+  botFab      = document.getElementById("bot-fab");
+  botPanel    = document.getElementById("bot-panel");
+  botMessages = document.getElementById("bot-messages");
+  botInput    = document.getElementById("bot-input");
+  botSend     = document.getElementById("bot-send");
+  botClose    = document.getElementById("bot-close");
+
+  botFab.addEventListener("click", toggleBot);
+  botClose.addEventListener("click", toggleBot);
+  botSend.addEventListener("click", sendMessage);
+  botInput.addEventListener("keydown", function(e){
+    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
+  });
+
+  // Greeting after 2 s
+  setTimeout(function(){
+    addMessage("bot", "Hi! I\'m the Empower House Cleaning booking assistant. How can I help you today?");
+  }, 2000);
+
+  // Pulse the FAB after 4 s
+  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
+});
+
+function toggleBot(){
+  botOpen = !botOpen;
+  botPanel.style.display = botOpen ? "flex" : "none";
+  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
+}
+
+function addMessage(role, text){
+  var div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.textContent = text;
+  botMessages.appendChild(div);
+  botMessages.scrollTop = botMessages.scrollHeight;
+}
+
+async function sendMessage(){
+  var msg = botInput.value.trim();
+  if(!msg || botBusy) return;
+  botInput.value = "";
+  addMessage("user", msg);
+  botBusy = true;
+  botSend.disabled = true;
+
+  var typing = document.createElement("div");
+  typing.className = "msg msg-bot typing";
+  typing.textContent = "…";
+  botMessages.appendChild(typing);
+  botMessages.scrollTop = botMessages.scrollHeight;
+
+  try{
+    var r = await fetch(BOT_API_BASE + "/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
+    });
+    var data = await r.json();
+    typing.remove();
+    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
+    if(data.booked){
+      addMessage("bot", "Your appointment is confirmed. We\'ll call you to confirm details.");
+    }
+  } catch(e){
+    typing.remove();
+    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
+  }
+
+  botBusy = false;
+  botSend.disabled = false;
+  botInput.focus();
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  document.documentElement.classList.add("aos-ready");
+  AOS.init({duration:600,once:true,offset:50,easing:"ease-out-quart"});
+</script>
+</body>
+<!-- brandfix:done -->
+<!-- audit:done -->
+</html>

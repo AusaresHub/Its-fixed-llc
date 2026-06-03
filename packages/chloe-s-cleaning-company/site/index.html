@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Chloe S Cleaning Company | Home Cleaning Made Easy</title>
+<meta name="description" content="Expert cleaning services for your home in Commerce City, ensuring a spotless space every time."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"HouseCleaningService",
+  "name":"Chloe S Cleaning Company",
+  "telephone":"(720) 807-4749",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"10935 Quintero St",
+    "addressLocality":"Commerce City",
+    "addressRegion":"CO",
+    "postalCode":"80022"
+  },
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"429"}
+}</script>
+<style>
+:root{--p:#1e9bd7;--pd:#1574a3;--pl:#dbeffa;--ac:#1574a3;--tx:#15232e;--mu:#54616e;--bg:#f4f9fc;--wh:#fff;
+      --hf:'Poppins',sans-serif;--bf:'Nunito',sans-serif;--rr:12px;--rr2:24px;
+      --ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bf);color:var(--tx);background:var(--wh);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.ic{display:inline-block;vertical-align:middle;stroke:currentColor;fill:none;
+  stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* Motion: keep content visible if AOS/JS never runs, then let AOS enhance */
+[data-aos]{opacity:1}
+html.aos-ready [data-aos]{opacity:0}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  [data-aos]{opacity:1!important;transform:none!important}
+}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:var(--wh);border-bottom:1px solid #eee;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--hf);font-size:17px;font-weight:700;color:var(--pd);display:flex;align-items:center;gap:9px}
+.nav-cta{background:var(--pd);color:#fff;padding:10px 22px;border-radius:30px;font-weight:600;font-size:14px;transition:background .2s var(--ease),transform .15s var(--ease)}
+.nav-cta:hover{background:var(--tx);transform:translateY(-1px)}
+
+/* HERO split */
+#hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--bg)}
+.hero-left{padding:80px 60px 80px 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--pl);color:#11638c;
+  padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:24px}
+.hero-badge .ic{stroke:#11638c}
+.hero-title{font-family:var(--hf);font-size:clamp(34px,5vw,60px);font-weight:700;
+  color:var(--tx);line-height:1.1;margin-bottom:20px;text-wrap:balance;overflow-wrap:break-word}
+.hero-title em{color:var(--pd);font-style:normal}
+.hero-sub{color:var(--mu);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:460px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{background:var(--pd);color:#fff;padding:14px 30px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),transform .15s var(--ease),box-shadow .2s var(--ease)}
+.btn-p:hover{background:var(--tx);transform:translateY(-2px);box-shadow:0 8px 22px rgba(21,116,163,.28)}
+.btn-ph{background:transparent;border:2px solid var(--pd);color:var(--pd);padding:14px 28px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),color .2s var(--ease),transform .15s var(--ease)}
+.btn-ph:hover{background:var(--pd);color:#fff;transform:translateY(-2px)}
+.hero-right{height:90vh;overflow:hidden;position:relative;background:linear-gradient(160deg,var(--pl) 0%,var(--p) 100%)}
+.hero-right img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+
+/* TRUST */
+.trust-bar{background:var(--pd);padding:18px 0}
+.trust-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center}
+.trust-badge{display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;font-weight:500}
+.trust-badge .ic{stroke:#fff}
+
+/* SERVICES */
+#services{padding:90px 0;background:var(--wh)}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.section-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;
+  color:var(--tx);margin-bottom:48px}
+.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-row{display:flex;gap:16px;align-items:flex-start;background:var(--bg);
+  padding:22px;border-radius:var(--rr);transition:box-shadow .2s var(--ease),transform .2s var(--ease)}
+.svc-row:hover{box-shadow:0 8px 26px rgba(21,116,163,.12);transform:translateY(-3px)}
+.svc-em{min-width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  border-radius:11px;background:var(--pl);color:var(--pd)}
+.svc-em .ic{width:24px;height:24px}
+.svc-row h3{font-family:var(--hf);font-size:16px;font-weight:600;margin-bottom:6px}
+.svc-row p{font-size:14px;color:var(--mu);line-height:1.6}
+
+/* REVIEWS */
+#reviews{padding:90px 0;background:var(--bg)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.qcard{background:var(--wh);border-radius:var(--rr2);padding:32px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
+.q-stars{display:flex;gap:3px;color:#f59e0b;margin-bottom:14px}
+.q-stars .ic{width:18px;height:18px;fill:#f59e0b;stroke:#f59e0b}
+.qcard p{font-size:15px;color:var(--mu);line-height:1.8;margin-bottom:16px;font-style:italic}
+.qcard strong{font-size:13px;color:var(--pd);font-weight:700}
+
+/* SHOWCASE band */
+#showcase{padding:0}
+.showcase-grid{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;
+  background:linear-gradient(135deg,#11638c 0%,var(--pd) 100%);color:#fff}
+.showcase-media{min-height:420px;background:linear-gradient(160deg,var(--pl),var(--p));position:relative}
+.showcase-media img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.showcase-text{padding:64px 56px}
+.showcase-text h2{font-family:var(--hf);font-size:clamp(26px,3.4vw,38px);font-weight:700;margin-bottom:16px;line-height:1.15}
+.showcase-text p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.92);margin-bottom:14px;max-width:460px}
+.showcase-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.showcase-list li{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500}
+.showcase-list .ic{width:22px;height:22px;stroke:#fff;flex-shrink:0}
+
+/* FAQ */
+#faq{padding:90px 0;background:var(--wh)}
+.faq-list{margin-top:36px;max-width:760px;display:flex;flex-direction:column;gap:8px}
+.faq-item{border:1px solid #e8ecf0;border-radius:var(--rr);overflow:hidden}
+.faq-item summary{padding:18px 22px;font-weight:600;cursor:pointer;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .ic{width:20px;height:20px;stroke:var(--pd);flex-shrink:0;transition:transform .25s var(--ease)}
+.faq-item[open] summary .ic{transform:rotate(45deg)}
+.faq-item p{padding:0 22px 18px;color:var(--mu);font-size:14px;line-height:1.7}
+
+/* CTA */
+#cta{padding:100px 32px;text-align:center;background:linear-gradient(135deg,#11638c 0%,var(--pd) 100%)}
+#cta h2{font-family:var(--hf);font-size:clamp(30px,5vw,50px);color:#fff;font-weight:700;margin-bottom:14px}
+#cta p{color:rgba(255,255,255,.92);font-size:17px;margin-bottom:36px}
+.cta-btn{display:inline-block;background:#fff;color:var(--pd);padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.cta-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+
+footer{background:var(--tx);color:rgba(255,255,255,.55);text-align:center;padding:28px;font-size:13px}
+footer strong{color:rgba(255,255,255,.85)}
+
+/* One tasteful hero entrance */
+.hero-left>*{animation:heroIn .7s var(--ease) both}
+.hero-left>*:nth-child(1){animation-delay:.05s}
+.hero-left>*:nth-child(2){animation-delay:.13s}
+.hero-left>*:nth-child(3){animation-delay:.21s}
+.hero-left>*:nth-child(4){animation-delay:.29s}
+@keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.hero-left>*{animation:none}}
+
+@media(max-width:800px){
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:60px 24px}
+  .svc-cols{grid-template-columns:1fr}
+  .showcase-grid{grid-template-columns:1fr}
+  .showcase-media{min-height:280px}
+  .showcase-text{padding:48px 24px}
+}
+@media(max-width:560px){
+  .nav-inner{padding:0 16px;gap:10px}
+  .nav-logo{font-size:14px;gap:6px;line-height:1.15}
+  .nav-phone{display:none}
+  .nav-cta{padding:9px 16px;font-size:13px;white-space:nowrap}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 4.9L18.7 9.7 13.8 11.5 12 16.4 10.2 11.5 5.3 9.7 10.2 7.9z"/><path d="M19 14.5l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 11-8 11s-8-5.5-8-11a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 17.9 6.7 19.6l1-5.8L3.5 9.7l5.9-.9z"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 9.8C8 19.4 5 15.6 5 11V6z"/><path d="M9 11.6l2.1 2.1L15 9.9"/></symbol>
+  <symbol id="i-badge-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.3 2.3 4.7-4.9"/></symbol>
+  <symbol id="i-thumb" viewBox="0 0 24 24"><path d="M7 21V10l4-7c1.3 0 2 .9 2 2.2L12 10h5.4c1.1 0 2 1 1.8 2.1l-1.4 6.3c-.2.9-1 1.6-1.9 1.6z"/><path d="M7 10H4v11h3z"/></symbol>
+  <symbol id="i-broom" viewBox="0 0 24 24"><path d="M16 3l5 5"/><path d="M14.5 5.5L9 11l4 4 5.5-5.5z"/><path d="M9 11l-4.5 4.5c-1.3 1.3-1.6 3.5-1 5 1.5.6 3.7.3 5-1L13 15z"/></symbol>
+  <symbol id="i-sparkle-deep" viewBox="0 0 24 24"><path d="M12 2.5l2.3 6.2L20.5 11l-6.2 2.3L12 19.5 9.7 13.3 3.5 11l6.2-2.3z"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11a8 8 0 0 1 13.7-5.6L20 7"/><path d="M20 13a8 8 0 0 1-13.7 5.6L4 17"/><path d="M20 4v3h-3M4 20v-3h3"/></symbol>
+  <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.5 6.5a3.5 3.5 0 0 0-4.6 4.6L4 17l3 3 5.9-5.9a3.5 3.5 0 0 0 4.6-4.6l-2.3 2.3-1.9-1.9z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-6.5 8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4V6a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</defs></svg>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo"><svg class="ic" width="22" height="22" style="stroke:var(--p)"><use href="#i-spark"/></svg>Chloe S Cleaning Company</span>
+    <div style="display:flex;align-items:center;gap:20px">
+      <a class="nav-phone" href="tel:17208074749" style="font-size:14px;color:var(--mu)">(720) 807-4749</a>
+      <a class="nav-cta" href="#cta">Schedule Your Cleaning Today</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-left" data-aos="fade-right">
+    <div class="hero-badge"><svg class="ic" width="16" height="16"><use href="#i-pin"/></svg> Serving Commerce City &amp; Metro</div>
+    <h1 class="hero-title">Home Cleaning Made Easy</h1>
+    <p class="hero-sub">Expert cleaning services for your home in Commerce City, ensuring a spotless space every time.</p>
+    <div class="hero-actions">
+      <a class="btn-p" href="#cta">Schedule Your Cleaning Today</a>
+      <a class="btn-ph" href="tel:17208074749">(720) 807-4749</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/hero.png" alt="Chloe S Cleaning Company professional cleaner in a bright Denver home" loading="eager"/>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-badge"><svg class="ic" width="18" height="18" style="fill:#fff"><use href="#i-star"/></svg> 4.9 Stars on Google (429 reviews)</div>
+    <div class="trust-badge"><svg class="ic" width="18" height="18"><use href="#i-badge-check"/></svg> Background Checked</div>
+    <div class="trust-badge"><svg class="ic" width="18" height="18"><use href="#i-shield-check"/></svg> Fully Insured</div>
+    <div class="trust-badge"><svg class="ic" width="18" height="18"><use href="#i-thumb"/></svg> Satisfaction Guaranteed</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <h2 class="section-title">Everything We Offer</h2>
+    <div class="svc-cols">
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="0">
+        <span class="svc-em"><svg class="ic"><use href="#i-broom"/></svg></span>
+        <div><h3>Standard Cleaning</h3><p>Regular cleaning to keep your home fresh and tidy without hassle.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="60">
+        <span class="svc-em"><svg class="ic"><use href="#i-sparkle-deep"/></svg></span>
+        <div><h3>Deep Cleaning</h3><p>Thorough cleaning that tackles dirt and grime in every corner.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="120">
+        <span class="svc-em"><svg class="ic"><use href="#i-home"/></svg></span>
+        <div><h3>Move-In/Out Clean</h3><p>Make your move stress-free with a detailed clean before or after relocation.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="180">
+        <span class="svc-em"><svg class="ic"><use href="#i-repeat"/></svg></span>
+        <div><h3>Recurring Service</h3><p>Enjoy consistent cleanliness with our flexible recurring cleaning schedules.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="240">
+        <span class="svc-em"><svg class="ic"><use href="#i-tools"/></svg></span>
+        <div><h3>Post-Construction</h3><p>Transform your space with our specialized clean-up after renovations or builds.</p></div>
+      </div>
+      <div class="svc-row" data-aos="fade-up" data-aos-delay="300">
+        <span class="svc-em"><svg class="ic"><use href="#i-truck"/></svg></span>
+        <div><h3>Airbnb Turnover</h3><p>Ensure your rental is guest-ready with our fast and efficient turnover service.</p></div>
+      </div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="reviews-grid">
+      <div class="qcard" data-aos="fade-up" data-aos-delay="0">
+        <div class="q-stars" aria-label="5 out of 5 stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div>
+        <p>"Chloe S Cleaning did an amazing job! My house has never looked better. Highly recommend their services!"</p>
+        <strong>Sarah M., Denver, CO</strong>
+      </div>
+      <div class="qcard" data-aos="fade-up" data-aos-delay="100">
+        <div class="q-stars" aria-label="5 out of 5 stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div>
+        <p>"I was impressed with the deep cleaning service. Every nook was spotless. Definitely will use them again!"</p>
+        <strong>John D., Aurora, CO</strong>
+      </div>
+      <div class="qcard" data-aos="fade-up" data-aos-delay="200">
+        <div class="q-stars" aria-label="5 out of 5 stars"><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg><svg class="ic"><use href="#i-star"/></svg></div>
+        <p>"They made my move-out so much easier. Fast, friendly, and thorough! Can't thank them enough!"</p>
+        <strong>Emily R., Lakewood, CO</strong>
+      </div></div>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="showcase-grid">
+    <div class="showcase-media">
+      <img src="assets/team.png" alt="Chloe S Cleaning Company team cleaning a bright Denver home" loading="lazy"/>
+    </div>
+    <div class="showcase-text" data-aos="fade-up">
+      <h2>A spotless home, handled by people you can trust</h2>
+      <p>Our insured, background-checked cleaners bring their own supplies and treat every home in the Denver metro with care.</p>
+      <ul class="showcase-list">
+        <li><svg class="ic"><use href="#i-badge-check"/></svg> Vetted, trained, and insured local cleaners</li>
+        <li><svg class="ic"><use href="#i-calendar"/></svg> Flexible one-time or recurring scheduling</li>
+        <li><svg class="ic"><use href="#i-thumb"/></svg> Satisfaction guaranteed on every visit</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span>Do I need to be home?</span><svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>No. Many clients give a key or code and come home to a clean house.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>Do you bring your own supplies?</span><svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Yes. All products and equipment are included.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>Are cleaners background-checked?</span><svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Yes. All team members are screened, trained, and insured.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>What's the difference between standard and deep cleaning?</span><svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Deep cleaning covers inside appliances, baseboards, and fans. It is great for first cleans.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span>Do you offer discounts?</span><svg class="ic"><use href="#i-plus"/></svg></summary>
+        <p>Yes. Recurring clients save 10 to 20 percent.</p>
+      </details></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Ready to Get Started?</h2>
+  <p>Proudly serving Commerce City, Denver metro, and surrounding communities.</p>
+  <a class="cta-btn" href="tel:17208074749">(720) 807-4749</a>
+</section>
+
+<footer>
+  <strong>Chloe S Cleaning Company</strong> · 10935 Quintero St, Commerce City, CO 80022, USA · © 2026
+</footer>
+
+
+<!-- ── Bot widget ─────────────────────────────────────────── -->
+<button id="bot-fab" title="Chat with us" style="
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+  background:#1574a3;color:#fff;font-size:26px;
+  box-shadow:0 4px 20px rgba(0,0,0,.30);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+"><svg class="ic" width="26" height="26" style="stroke:#fff"><use href="#i-chat"/></svg></button>
+
+<div id="bot-panel" style="
+  display:none;flex-direction:column;
+  position:fixed;bottom:100px;right:28px;z-index:9998;
+  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.22);
+  font-family:inherit;
+">
+  <div style="background:#1574a3;color:#fff;padding:14px 18px;
+              display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;"><svg class="ic" width="18" height="18" style="stroke:#fff"><use href="#i-calendar"/></svg> Book an Appointment</span>
+    <button id="bot-close" style="background:none;border:none;color:#fff;
+      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+  </div>
+  <div id="bot-messages" style="
+    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
+    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
+  "></div>
+  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
+              display:flex;gap:8px;align-items:center;">
+    <input id="bot-input" type="text" placeholder="Type your message…" style="
+      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
+      font-size:14px;outline:none;font-family:inherit;
+    "/>
+    <button id="bot-send" style="
+      padding:10px 18px;background:#1574a3;color:#fff;border:none;
+      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
+    ">Send</button>
+  </div>
+</div>
+
+<style>
+  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
+  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
+  .msg-user{ background:#1574a3;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+  .typing{ opacity:.6;font-style:italic; }
+  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
+  #bot-fab.pulse{ animation:pulse 2s infinite; }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,155,215,.5)}50%{box-shadow:0 0 0 12px rgba(30,155,215,0)}}
+  @media (prefers-reduced-motion: reduce){ #bot-fab.pulse{ animation:none; } }
+</style>
+
+
+<script>
+// ── Bot Configuration ──────────────────────────────────────────────────────
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_SITE_ID  = "chloe-s-cleaning-company";
+var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
+
+// ── State ──────────────────────────────────────────────────────────────────
+var botOpen = false;
+var botBusy = false;
+
+// ── DOM refs ───────────────────────────────────────────────────────────────
+var botFab, botPanel, botMessages, botInput, botSend, botClose;
+
+document.addEventListener("DOMContentLoaded", function() {
+  botFab      = document.getElementById("bot-fab");
+  botPanel    = document.getElementById("bot-panel");
+  botMessages = document.getElementById("bot-messages");
+  botInput    = document.getElementById("bot-input");
+  botSend     = document.getElementById("bot-send");
+  botClose    = document.getElementById("bot-close");
+
+  botFab.addEventListener("click", toggleBot);
+  botClose.addEventListener("click", toggleBot);
+  botSend.addEventListener("click", sendMessage);
+  botInput.addEventListener("keydown", function(e){
+    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
+  });
+
+  // Greeting after 2 s
+  setTimeout(function(){
+    addMessage("bot", "Hi! I\'m the Chloe S Cleaning Company booking assistant. How can I help you today?");
+  }, 2000);
+
+  // Pulse the FAB after 4 s
+  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
+});
+
+function toggleBot(){
+  botOpen = !botOpen;
+  botPanel.style.display = botOpen ? "flex" : "none";
+  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
+}
+
+function addMessage(role, text){
+  var div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.textContent = text;
+  botMessages.appendChild(div);
+  botMessages.scrollTop = botMessages.scrollHeight;
+}
+
+async function sendMessage(){
+  var msg = botInput.value.trim();
+  if(!msg || botBusy) return;
+  botInput.value = "";
+  addMessage("user", msg);
+  botBusy = true;
+  botSend.disabled = true;
+
+  var typing = document.createElement("div");
+  typing.className = "msg msg-bot typing";
+  typing.textContent = "…";
+  botMessages.appendChild(typing);
+  botMessages.scrollTop = botMessages.scrollHeight;
+
+  try{
+    var r = await fetch(BOT_API_BASE + "/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
+    });
+    var data = await r.json();
+    typing.remove();
+    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
+    if(data.booked){
+      addMessage("bot", "Your appointment is confirmed. We\'ll call you to confirm details.");
+    }
+  } catch(e){
+    typing.remove();
+    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
+  }
+
+  botBusy = false;
+  botSend.disabled = false;
+  botInput.focus();
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Only gate visibility once AOS is confirmed present, so content never ships blank.
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (window.AOS && !reduce){
+      document.documentElement.classList.add("aos-ready");
+      AOS.init({duration:600,once:true,offset:50,easing:"ease-out-quart"});
+    }
+  })();
+</script>
+</body>
+<!-- brandfix:done -->
+<!-- audit:done -->
+</html>

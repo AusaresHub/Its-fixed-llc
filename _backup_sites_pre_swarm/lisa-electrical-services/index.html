@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Lisa Electrical Services | Brighten Your Space Today</title>
+<meta name="description" content="Expert electrical services for Aurora, CO, ensuring safety and efficiency in every project."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Electrician",
+  "name":"Lisa Electrical Services",
+  "telephone":"(720) 817-8785",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"15600 E 33rd Pl",
+    "addressLocality":"Aurora",
+    "addressRegion":"CO",
+    "postalCode":"80011"
+  },
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"23"}
+}</script>
+<style>
+:root{--p:#f57f17;--pd:#b75f11;--pl:#fde5d0;--em:#dc2626;--tx:#0f172a;--mu:#475569;--bg:#f8fafc;--wh:#fff;
+      --hf:'Roboto Condensed',sans-serif;--bf:'Inter',sans-serif;--rr:6px;--rr2:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bf);color:var(--tx);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* EMERGENCY BAR */
+.ebar{background:var(--em);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:600;letter-spacing:.5px}
+.ebar a{color:#fff;text-decoration:underline}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:#0f172a;}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--hf);font-size:18px;font-weight:700;color:#fff;letter-spacing:1px}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{color:var(--pl);font-weight:700;font-size:16px;letter-spacing:.5px}
+.nav-cta{background:var(--p);color:#fff;padding:10px 22px;border-radius:var(--rr);font-weight:700;font-size:14px;font-family:var(--hf);letter-spacing:.5px;transition:background .2s}
+.nav-cta:hover{background:var(--pd)}
+
+/* HERO */
+#hero{position:relative;min-height:88vh;display:flex;align-items:center;background:linear-gradient(135deg,#b75f11 0%,#1a1a2e 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(15,23,42,.88) 0%,rgba(15,23,42,.65) 55%,rgba(15,23,42,.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 32px}
+.hero-tag{font-family:var(--hf);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--pl);margin-bottom:16px}
+.hero-title{font-family:var(--hf);font-size:clamp(44px,6.5vw,80px);font-weight:700;color:#fff;line-height:1.0;margin-bottom:20px;letter-spacing:-0.5px}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:36px;max-width:500px}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-call{background:var(--em);color:#fff;padding:16px 36px;border-radius:var(--rr);font-family:var(--hf);font-size:16px;font-weight:700;letter-spacing:.5px;transition:background .2s;display:inline-block}
+.btn-call:hover{background:#b91c1c}
+.btn-book{background:transparent;border:2px solid rgba(255,255,255,.5);color:#fff;padding:16px 32px;border-radius:var(--rr);font-family:var(--hf);font-size:16px;font-weight:700;letter-spacing:.5px;transition:all .2s;display:inline-block}
+.btn-book:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* STATS */
+.stats-row{background:var(--pd);display:flex;justify-content:space-around;padding:22px 32px;flex-wrap:wrap;gap:16px}
+.st{text-align:center;color:#fff}
+.st-n{font-family:var(--hf);font-size:26px;font-weight:700;color:var(--pl)}
+.st-l{font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:1px}
+
+/* SERVICES */
+#services{padding:90px 0;background:var(--wh)}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
+.sec-eyebrow{font-family:var(--hf);color:var(--p);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
+.sec-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:48px;line-height:1.1}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.svc-chip{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border-radius:var(--rr2);padding:22px;border-left:4px solid var(--p);transition:box-shadow .2s}
+.svc-chip:hover{box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.svc-chip>span{font-size:28px;min-width:36px}
+.svc-chip strong{display:block;font-family:var(--hf);font-size:16px;font-weight:700;margin-bottom:6px}
+.svc-chip p{font-size:14px;color:var(--mu);line-height:1.5}
+
+/* REVIEWS */
+#reviews{padding:80px 0;background:var(--bg)}
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.rcard{background:var(--wh);border-radius:var(--rr2);padding:28px;box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.r-stars{color:#f59e0b;font-size:15px;letter-spacing:3px;margin-bottom:12px}
+.rcard p{font-size:15px;color:var(--mu);line-height:1.7;font-style:italic;margin-bottom:14px}
+.rcard cite{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--p);font-style:normal}
+
+/* FAQ */
+#faq{padding:80px 0;background:var(--wh)}
+.faq-list{margin-top:36px;max-width:760px;display:flex;flex-direction:column;gap:4px}
+.faq-item{border-bottom:1px solid #e2e8f0;}
+.faq-item summary{padding:18px 0;font-family:var(--hf);font-weight:600;font-size:16px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.faq-item summary::after{content:"＋";color:var(--p)}
+.faq-item[open] summary::after{content:"－"}
+.faq-item p{padding:0 0 16px;color:var(--mu);font-size:15px;line-height:1.7}
+
+/* CTA */
+#cta{background:#0f172a;padding:100px 32px;text-align:center}
+#cta h2{font-family:var(--hf);font-size:clamp(30px,5vw,50px);color:#fff;font-weight:700;margin-bottom:12px}
+#cta p{color:rgba(255,255,255,.65);font-size:17px;margin-bottom:36px}
+.cta-call{display:inline-block;background:var(--em);color:#fff;padding:16px 48px;border-radius:var(--rr);font-family:var(--hf);font-size:20px;font-weight:700;letter-spacing:1px;transition:background .2s}
+.cta-call:hover{background:#b91c1c}
+
+footer{background:#020617;color:rgba(255,255,255,.35);text-align:center;padding:24px;font-size:12px}
+footer strong{color:rgba(255,255,255,.6)}
+
+@media(max-width:640px){
+  .hero-content{padding:0 20px}
+  .stats-row{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="ebar">📞 Same-Day Service Available — <a href="tel:17208178785">(720) 817-8785</a></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">Lisa Electrical Services</span>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:17208178785">(720) 817-8785</a>
+      <a class="nav-cta" href="#cta">Schedule Your Free Estimate Now</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Aurora · Electrician</div>
+    <h1 class="hero-title">Brighten Your Space Today</h1>
+    <p class="hero-sub">Expert electrical services for Aurora, CO, ensuring safety and efficiency in every project.</p>
+    <div class="hero-cta-row">
+      <a class="btn-call" href="tel:17208178785">(720) 817-8785</a>
+      <a class="btn-book" href="#cta">Schedule Your Free Estimate Now</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="st"><div class="st-n">4.8★</div><div class="st-l">Google Rating</div></div>
+  <div class="st"><div class="st-n">23</div><div class="st-l">Reviews</div></div>
+  <div class="st"><div class="st-n">Same-Day</div><div class="st-l">Service</div></div>
+  <div class="st"><div class="st-n">Licensed</div><div class="st-l">& Insured</div></div>
+  <div class="st"><div class="st-n">Free</div><div class="st-l">Estimates</div></div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Services</div>
+    <h2 class="sec-title">What We Fix & Install</h2>
+    <div class="svc-grid">
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="0">
+        <span>🔧</span>
+        <div>
+          <strong>Outlet Installation</strong>
+          <p>Seamlessly add outlets to enhance convenience and accessibility throughout your home.</p>
+        </div>
+      </div>
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="60">
+        <span>🔧</span>
+        <div>
+          <strong>Panel Upgrade</strong>
+          <p>Upgrade your electrical panel for improved safety and capacity to handle modern demands.</p>
+        </div>
+      </div>
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="120">
+        <span>🔧</span>
+        <div>
+          <strong>Lighting Install</strong>
+          <p>Transform your space with stylish and energy-efficient lighting solutions.</p>
+        </div>
+      </div>
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="180">
+        <span>🔧</span>
+        <div>
+          <strong>Ceiling Fans</strong>
+          <p>Keep your home cool and comfortable with expertly installed ceiling fans.</p>
+        </div>
+      </div>
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="240">
+        <span>🔧</span>
+        <div>
+          <strong>EV Charger</strong>
+          <p>Install a reliable EV charger at home for convenient electric vehicle charging.</p>
+        </div>
+      </div>
+      <div class="svc-chip" data-aos="fade-up" data-aos-delay="300">
+        <span>🔧</span>
+        <div>
+          <strong>Safety Inspection</strong>
+          <p>Ensure your electrical system is safe and up to code with a thorough inspection.</p>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="section-inner">
+    <div class="sec-eyebrow">Reviews</div>
+    <h2 class="sec-title">Trusted by Aurora Homeowners</h2>
+    <div class="r-grid">
+      <div class="rcard" data-aos="fade-up" data-aos-delay="0">
+        <div class="r-stars">★★★★★</div>
+        <p>"Lisa's team did an incredible job on my panel upgrade. They were professional and left no mess behind! Highly recommend!"</p>
+        <cite>— Mike S., Denver, CO</cite>
+      </div>
+      <div class="rcard" data-aos="fade-up" data-aos-delay="80">
+        <div class="r-stars">★★★★★</div>
+        <p>"I had a ceiling fan installed, and the service was quick and efficient. My go-to electricians from now on!"</p>
+        <cite>— Anna T., Aurora, CO</cite>
+      </div>
+      <div class="rcard" data-aos="fade-up" data-aos-delay="160">
+        <div class="r-stars">★★★★★</div>
+        <p>"Fantastic experience with Lisa Electrical Services! They installed my EV charger and explained everything clearly."</p>
+        <cite>— John R., Arvada, CO</cite>
+      </div></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <div class="sec-eyebrow">FAQ</div>
+    <h2 class="sec-title">Common Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Are you licensed?</summary><p>Fully licensed electrician in Colorado.</p></details>
+      <details class="faq-item"><summary>Do you pull permits?</summary><p>Yes — permits pulled for all required work to protect you.</p></details>
+      <details class="faq-item"><summary>How much does a panel upgrade cost?</summary><p>A 200A upgrade typically runs $1,500–$4,000 depending on the home.</p></details>
+      <details class="faq-item"><summary>Can you add an outlet anywhere?</summary><p>Yes — we run new wiring to add outlets wherever needed.</p></details>
+      <details class="faq-item"><summary>Do you offer free estimates?</summary><p>Yes — firm price agreed before any work begins.</p></details></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>Ready to Get Started?</h2>
+  <p>Serving Aurora, Denver, Aurora, and the surrounding metro area.</p>
+  <a class="cta-call" href="tel:17208178785">(720) 817-8785</a>
+</section>
+
+<footer><strong>Lisa Electrical Services</strong> · 15600 E 33rd Pl, Aurora, CO 80011, USA · © 2026</footer>
+
+
+<!-- ── Bot widget ─────────────────────────────────────────── -->
+<button id="bot-fab" title="Chat with us" style="
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
+  background:#f57f17;color:#fff;font-size:26px;
+  box-shadow:0 4px 20px rgba(0,0,0,.30);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+">💬</button>
+
+<div id="bot-panel" style="
+  display:none;flex-direction:column;
+  position:fixed;bottom:100px;right:28px;z-index:9998;
+  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,.22);
+  font-family:inherit;
+">
+  <div style="background:#f57f17;color:#fff;padding:14px 18px;
+              display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-weight:700;font-size:15px;">💬 Book an Appointment</span>
+    <button id="bot-close" style="background:none;border:none;color:#fff;
+      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+  </div>
+  <div id="bot-messages" style="
+    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
+    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
+  "></div>
+  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
+              display:flex;gap:8px;align-items:center;">
+    <input id="bot-input" type="text" placeholder="Type your message…" style="
+      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
+      font-size:14px;outline:none;font-family:inherit;
+    "/>
+    <button id="bot-send" style="
+      padding:10px 18px;background:#f57f17;color:#fff;border:none;
+      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
+    ">Send</button>
+  </div>
+</div>
+
+<style>
+  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
+  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
+  .msg-user{ background:#f57f17;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+  .typing{ opacity:.6;font-style:italic; }
+  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
+  #bot-fab.pulse{ animation:pulse 2s infinite; }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #f57f1780}50%{box-shadow:0 0 0 12px #f57f1700}}
+</style>
+
+
+<script>
+// ── Bot Configuration ──────────────────────────────────────────────────────
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_SITE_ID  = "lisa-electrical-services";
+var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
+
+// ── State ──────────────────────────────────────────────────────────────────
+var botOpen = false;
+var botBusy = false;
+
+// ── DOM refs ───────────────────────────────────────────────────────────────
+var botFab, botPanel, botMessages, botInput, botSend, botClose;
+
+document.addEventListener("DOMContentLoaded", function() {
+  botFab      = document.getElementById("bot-fab");
+  botPanel    = document.getElementById("bot-panel");
+  botMessages = document.getElementById("bot-messages");
+  botInput    = document.getElementById("bot-input");
+  botSend     = document.getElementById("bot-send");
+  botClose    = document.getElementById("bot-close");
+
+  botFab.addEventListener("click", toggleBot);
+  botClose.addEventListener("click", toggleBot);
+  botSend.addEventListener("click", sendMessage);
+  botInput.addEventListener("keydown", function(e){
+    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
+  });
+
+  // Greeting after 2 s
+  setTimeout(function(){
+    addMessage("bot", "Hi! I\'m the Lisa Electrical Services booking assistant. How can I help you today?");
+  }, 2000);
+
+  // Pulse the FAB after 4 s
+  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
+});
+
+function toggleBot(){
+  botOpen = !botOpen;
+  botPanel.style.display = botOpen ? "flex" : "none";
+  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
+}
+
+function addMessage(role, text){
+  var div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.textContent = text;
+  botMessages.appendChild(div);
+  botMessages.scrollTop = botMessages.scrollHeight;
+}
+
+async function sendMessage(){
+  var msg = botInput.value.trim();
+  if(!msg || botBusy) return;
+  botInput.value = "";
+  addMessage("user", msg);
+  botBusy = true;
+  botSend.disabled = true;
+
+  var typing = document.createElement("div");
+  typing.className = "msg msg-bot typing";
+  typing.textContent = "…";
+  botMessages.appendChild(typing);
+  botMessages.scrollTop = botMessages.scrollHeight;
+
+  try{
+    var r = await fetch(BOT_API_BASE + "/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
+    });
+    var data = await r.json();
+    typing.remove();
+    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
+    if(data.booked){
+      addMessage("bot", "✅ Your appointment is confirmed! We\'ll call you to confirm details.");
+    }
+  } catch(e){
+    typing.remove();
+    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
+  }
+
+  botBusy = false;
+  botSend.disabled = false;
+  botInput.focus();
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>AOS.init({duration:600,once:true,offset:50});</script>
+</body>
+</html>

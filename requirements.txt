@@ -1,0 +1,8 @@
+requests>=2.31
+python-dotenv>=1.0
+
+# Phase 2 — deck + script generation
+python-pptx>=0.6.21
+Pillow>=10.0
+reportlab>=4.0
+comtypes>=1.2        # optional — Windows only, used for PPTX→PDF export via PowerPoint COM
