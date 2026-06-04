@@ -1,0 +1,33 @@
+# itsfixedltd.com — static site (replaces Netlify)
+# Good-neighbor Compose: joins the shared dokploy-network, routes by domain via
+# Traefik labels, publishes NO host ports, and is resource-capped.
+name: itsfixed-web
+
+networks:
+  dokploy-network:
+    external: true
+
+services:
+  web:
+    build: .
+    image: itsfixed-web:latest
+    restart: unless-stopped
+    networks:
+      - dokploy-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+    labels:
+      - traefik.enable=true
+      # apex + www -> this service
+      - "traefik.http.routers.itsfixed-web.rule=Host(`itsfixedltd.com`) || Host(`www.itsfixedltd.com`)"
+      - traefik.http.routers.itsfixed-web.entrypoints=websecure
+      - traefik.http.routers.itsfixed-web.tls.certresolver=letsencrypt
+      - traefik.http.services.itsfixed-web.loadbalancer.server.port=80
+      # http -> https redirect (uniquely-named middleware, won't clash with neighbors)
+      - "traefik.http.routers.itsfixed-web-insecure.rule=Host(`itsfixedltd.com`) || Host(`www.itsfixedltd.com`)"
+      - traefik.http.routers.itsfixed-web-insecure.entrypoints=web
+      - traefik.http.routers.itsfixed-web-insecure.middlewares=itsfixed-web-redirect
+      - traefik.http.middlewares.itsfixed-web-redirect.redirectscheme.scheme=https
