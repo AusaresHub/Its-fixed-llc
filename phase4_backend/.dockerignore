@@ -1,0 +1,10 @@
+# Never bake secrets or cruft into the image — .env is injected at runtime via env_file
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.railwayignore
+railway.toml
+leads.json.bak
+*.log

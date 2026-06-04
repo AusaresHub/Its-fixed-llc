@@ -1,0 +1,39 @@
+# api.itsfixedltd.com — FastAPI booking bot (replaces Railway)
+# Good-neighbor Compose: joins the shared dokploy-network, routes by domain via
+# Traefik labels, publishes NO host ports, resource-capped, secrets via .env (600, gitignored).
+name: itsfixed-api
+
+networks:
+  dokploy-network:
+    external: true
+
+services:
+  api:
+    build: .
+    image: itsfixed-api:latest
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - dokploy-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/health').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    labels:
+      - traefik.enable=true
+      - "traefik.http.routers.itsfixed-api.rule=Host(`api.itsfixedltd.com`)"
+      - traefik.http.routers.itsfixed-api.entrypoints=websecure
+      - traefik.http.routers.itsfixed-api.tls.certresolver=letsencrypt
+      - traefik.http.services.itsfixed-api.loadbalancer.server.port=8000
+      # http -> https redirect (uniquely-named middleware, won't clash with neighbors)
+      - "traefik.http.routers.itsfixed-api-insecure.rule=Host(`api.itsfixedltd.com`)"
+      - traefik.http.routers.itsfixed-api-insecure.entrypoints=web
+      - traefik.http.routers.itsfixed-api-insecure.middlewares=itsfixed-api-redirect
+      - traefik.http.middlewares.itsfixed-api-redirect.redirectscheme.scheme=https
