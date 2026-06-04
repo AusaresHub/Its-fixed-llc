@@ -23,7 +23,7 @@
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"2887"}
 }</script>
 <style>
-:root{--p:#0A3161;--pd:#072348;--pl:#DCE4EF;--ac:#B31942;--tx:#15233B;--mu:#566073;--bg:#F5F7FA;--wh:#fff;
+:root{--p:#FFCD00;--pd:#16294A;--pdd:#0E1C34;--pl:#FFF3C4;--ac:#2E9E47;--tx:#16223B;--mu:#535D70;--bg:#F6F7F9;--wh:#fff;
       --hf:'Poppins',sans-serif;--bf:'Nunito',sans-serif;--rr:12px;--rr2:24px;
       --ease:cubic-bezier(.22,1,.36,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -41,8 +41,8 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
 #nav{position:sticky;top:0;z-index:900;background:var(--wh);border-bottom:1px solid #eee;box-shadow:0 2px 16px rgba(0,0,0,.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{font-family:var(--hf);font-size:17px;font-weight:700;color:var(--pd)}
-.nav-cta{background:var(--p);color:#fff;padding:10px 22px;border-radius:30px;font-weight:600;font-size:14px;transition:background .2s var(--ease)}
-.nav-cta:hover{background:var(--pd)}
+.nav-cta{background:var(--pd);color:#fff;padding:10px 22px;border-radius:30px;font-weight:600;font-size:14px;transition:background .2s var(--ease)}
+.nav-cta:hover{background:var(--pdd)}
 
 /* HERO split */
 #hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--bg)}
@@ -51,18 +51,18 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
   padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:24px}
 .hero-title{font-family:var(--hf);font-size:clamp(38px,5vw,60px);font-weight:700;
   color:var(--tx);line-height:1.1;margin-bottom:20px}
-.hero-title em{color:var(--p);font-style:normal}
+.hero-title em{color:var(--pd);font-style:normal;background:linear-gradient(transparent 62%,var(--p) 62%);padding:0 .05em}
 .hero-sub{color:var(--mu);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:460px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-p{background:var(--p);color:#fff;padding:14px 30px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),transform .2s var(--ease)}
-.btn-p:hover{background:var(--pd);transform:translateY(-2px)}
-.btn-ph{background:transparent;border:2px solid var(--p);color:var(--p);padding:14px 28px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),color .2s var(--ease)}
-.btn-ph:hover{background:var(--p);color:#fff}
-.hero-right{height:90vh;overflow:hidden;position:relative;background:linear-gradient(160deg,var(--p) 0%,var(--pd) 100%)}
+.btn-p{background:var(--pd);color:#fff;padding:14px 30px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),transform .2s var(--ease)}
+.btn-p:hover{background:var(--pdd);transform:translateY(-2px)}
+.btn-ph{background:transparent;border:2px solid var(--pd);color:var(--pd);padding:14px 28px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),color .2s var(--ease)}
+.btn-ph:hover{background:var(--pd);color:#fff}
+.hero-right{height:90vh;overflow:hidden;position:relative;background:linear-gradient(160deg,var(--pd) 0%,var(--pdd) 100%)}
 .hero-right img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
 
 /* TRUST */
-.trust-bar{background:var(--p);padding:18px 0}
+.trust-bar{background:var(--pd);padding:18px 0}
 .trust-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center}
 .trust-badge{display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;font-weight:500}
 .trust-badge span{font-size:20px}
@@ -76,14 +76,14 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
 .svc-row{display:flex;gap:16px;align-items:flex-start;background:var(--bg);
   padding:22px;border-radius:var(--rr);transition:box-shadow .25s var(--ease),transform .25s var(--ease)}
 .svc-row:hover{box-shadow:0 8px 28px rgba(10,49,97,.12);transform:translateY(-3px)}
-.svc-ico{min-width:44px;height:44px;border-radius:10px;background:var(--pl);color:var(--p);
+.svc-ico{min-width:44px;height:44px;border-radius:10px;background:var(--pl);color:var(--pd);
   display:flex;align-items:center;justify-content:center}
 .svc-row h3{font-family:var(--hf);font-size:16px;font-weight:600;margin-bottom:6px}
 .svc-row p{font-size:14px;color:var(--mu);line-height:1.6}
 
 /* SHOWCASE BAND */
 #showcase{position:relative;min-height:420px;display:flex;align-items:center;
-  background:linear-gradient(120deg,var(--pd),var(--p));overflow:hidden}
+  background:linear-gradient(120deg,var(--pdd),var(--pd));overflow:hidden}
 #showcase img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42;z-index:0}
 #showcase .show-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:64px 32px;color:#fff}
 #showcase h2{font-family:var(--hf);font-size:clamp(26px,4vw,40px);font-weight:700;max-width:620px;line-height:1.15;margin-bottom:14px}
@@ -106,15 +106,15 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
 .faq-item{border:1px solid #e8ecf0;border-radius:var(--rr);overflow:hidden}
 .faq-item summary{padding:18px 22px;font-weight:600;cursor:pointer;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary .ico{color:var(--p);transition:transform .25s var(--ease)}
+.faq-item summary .ico{color:var(--pd);transition:transform .25s var(--ease)}
 .faq-item[open] summary .ico{transform:rotate(45deg)}
 .faq-item p{padding:0 22px 18px;color:var(--mu);font-size:14px;line-height:1.7}
 
 /* CTA */
-#cta{padding:100px 32px;text-align:center;background:linear-gradient(135deg,var(--pd) 0%,var(--p) 100%)}
+#cta{padding:100px 32px;text-align:center;background:linear-gradient(135deg,var(--pdd) 0%,var(--pd) 100%)}
 #cta h2{font-family:var(--hf);font-size:clamp(30px,5vw,50px);color:#fff;font-weight:700;margin-bottom:14px}
 #cta p{color:rgba(255,255,255,.85);font-size:17px;margin-bottom:36px}
-.cta-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--p);padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--p);color:var(--pd);padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
 
 footer{background:var(--tx);color:rgba(255,255,255,.55);text-align:center;padding:28px;font-size:13px}
@@ -318,10 +318,10 @@ footer strong{color:rgba(255,255,255,.7)}
 <button id="bot-fab" title="Chat with us" style="
   position:fixed;bottom:28px;right:28px;z-index:9999;
   width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
-  background:#0A3161;color:#fff;font-size:26px;
+  background:#16294A;color:#fff;font-size:26px;
   box-shadow:0 4px 20px rgba(0,0,0,.30);
   display:flex;align-items:center;justify-content:center;
-  transition:transform .2s,box-shadow .2s;
+  transition:transform .2s ease-out,box-shadow .2s ease-out;
 "><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg></button>
 
 <div id="bot-panel" style="
@@ -331,7 +331,7 @@ footer strong{color:rgba(255,255,255,.7)}
   box-shadow:0 8px 40px rgba(0,0,0,.22);
   font-family:inherit;
 ">
-  <div style="background:#0A3161;color:#fff;padding:14px 18px;
+  <div style="background:#16294A;color:#fff;padding:14px 18px;
               display:flex;align-items:center;justify-content:space-between;">
     <span style="font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7h8M8 11h6"/><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></svg> Book an Appointment</span>
     <button id="bot-close" style="background:none;border:none;color:#fff;
@@ -348,7 +348,7 @@ footer strong{color:rgba(255,255,255,.7)}
       font-size:14px;outline:none;font-family:inherit;
     "/>
     <button id="bot-send" style="
-      padding:10px 18px;background:#0A3161;color:#fff;border:none;
+      padding:10px 18px;background:#16294A;color:#fff;border:none;
       border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
     ">Send</button>
   </div>
@@ -357,11 +357,11 @@ footer strong{color:rgba(255,255,255,.7)}
 <style>
   .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
   .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
-  .msg-user{ background:#0A3161;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
+  .msg-user{ background:#16294A;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
   .typing{ opacity:.6;font-style:italic; }
   #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
   #bot-fab.pulse{ animation:pulse 2s infinite; }
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #0A316180}50%{box-shadow:0 0 0 12px #0A316100}}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #16294A80}50%{box-shadow:0 0 0 12px #16294A00}}
 </style>
 
 
@@ -465,4 +465,5 @@ async function sendMessage(){
 </script>
 <!-- brandfix:done -->
 </body>
+<!-- audit:done -->
 </html>

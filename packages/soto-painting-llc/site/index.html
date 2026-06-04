@@ -27,7 +27,7 @@
 <style>
 :root{
   --p:#a06a3f;--pd:#7a4f2c;--pl:#ead9c8;--tx:#241c14;--mu:#6b5d4f;--bg:#faf6f1;--wh:#fff;
-  --ac:#2f6f5e;
+  --ac:#5a3b22;
   --hf:'Oswald',sans-serif;--bf:'DM Sans',sans-serif;
   --rr:8px;--rr2:16px;
   --ease:cubic-bezier(.22,1,.36,1);
@@ -89,7 +89,7 @@ a{text-decoration:none;color:inherit}
 .stats-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:16px}
 .stat{text-align:center;color:#fff}
 .stat-num{font-family:var(--hf);font-size:28px;font-weight:700}
-.stat-lbl{font-size:13px;opacity:.75;letter-spacing:.5px;text-transform:uppercase}
+.stat-lbl{font-size:13px;opacity:.9;letter-spacing:.5px;text-transform:uppercase}
 
 /* SERVICES */
 #services{padding:90px 0;background:var(--wh)}
@@ -156,6 +156,9 @@ footer strong{color:rgba(255,255,255,.8)}
   .nav-inner{padding:0 16px;gap:12px}
   .nav-phone{display:none}
   .nav-cta{padding:9px 14px;font-size:13px}
+  .nav-logo{font-size:16px}
+  .nav-cta-full{display:none}
+  .nav-cta-short{display:inline}
 }
 
 /* AOS visibility fallback: content is fully visible if JS/AOS never runs */
@@ -475,4 +478,5 @@ async function sendMessage(){
 </script>
 </body>
 <!-- brandfix:done -->
+<!-- audit:done -->
 </html>
