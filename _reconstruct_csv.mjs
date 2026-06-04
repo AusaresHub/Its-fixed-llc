@@ -7,6 +7,8 @@
 //   google_maps_url, place_id, possible_owner_name, owner_evidence,
 //   call_status, last_contact_date, contact_notes
 // (place_id lives in .places_cache.json [gone]; owner/CRM live in Airtable/Railway.)
+// new_website_url is a manually-maintained column (the demo-site URL); also left
+// blank here so a rebuild never clobbers values entered by hand in the CSV.
 import fs from "node:fs";
 import path from "node:path";
 
@@ -18,9 +20,10 @@ const RECON_NOTE =
 
 const COLUMNS = [
   "business_name", "category", "phone", "address", "zip", "stars",
-  "review_count", "website_url", "website_status", "google_maps_url",
-  "last_verified", "notes", "possible_owner_name", "owner_evidence",
-  "place_id", "call_status", "last_contact_date", "contact_notes",
+  "review_count", "website_url", "website_status", "new_website_url",
+  "google_maps_url", "last_verified", "notes", "possible_owner_name",
+  "owner_evidence", "place_id", "call_status", "last_contact_date",
+  "contact_notes",
 ];
 
 function csvCell(v) {
@@ -59,6 +62,7 @@ for (const m of manifest) {
     review_count: rating.reviewCount || "",
     website_url: m.website_url || "",
     website_status: m.website_status || "",
+    new_website_url: "",
     google_maps_url: "",
     last_verified: TODAY,
     notes: RECON_NOTE,
@@ -80,5 +84,5 @@ const out = [COLUMNS.join(",")]
 fs.writeFileSync("candidates.csv", out, "utf8");
 console.log(`Wrote candidates.csv: ${rows.length} businesses, ${COLUMNS.length} columns.`);
 console.log("Fully recovered: business_name, category, phone, address, zip, stars, review_count, website_url, website_status.");
-console.log("Left blank (not locally recoverable): google_maps_url, place_id, possible_owner_name, owner_evidence, call_status, last_contact_date, contact_notes.");
+console.log("Left blank (not locally recoverable / manual): new_website_url, google_maps_url, place_id, possible_owner_name, owner_evidence, call_status, last_contact_date, contact_notes.");
 if (gaps.length) console.log("WARN missing JSON-LD phone for: " + gaps.join("; "));

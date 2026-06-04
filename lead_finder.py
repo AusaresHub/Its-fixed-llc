@@ -46,7 +46,9 @@ Usage:
 
 Output CSV columns:
     business_name, category, phone, address, zip, stars, review_count,
-    website_url, website_status, google_maps_url, last_verified, notes
+    website_url, website_status, new_website_url, google_maps_url,
+    last_verified, notes, possible_owner_name, owner_evidence, place_id,
+    call_status, last_contact_date, contact_notes
 
 Cost: roughly $0.04 per category-per-zip search + $0.005 per place detail
 lookup. A typical run of 11 categories x 2 zips x ~15 results = ~$2-4
@@ -317,6 +319,10 @@ class Lead:
     review_count: int = 0
     website_url: str = ""
     website_status: str = ""
+    # URL of the new demo site we build for this lead. Added manually in the CSV
+    # (column 10); declared here so the DictWriter keeps it instead of dropping it
+    # via extrasaction="ignore" on re-runs / --enrich-only.
+    new_website_url: str = ""
     google_maps_url: str = ""
     last_verified: str = ""
     notes: str = ""
