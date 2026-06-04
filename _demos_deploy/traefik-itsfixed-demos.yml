@@ -1,0 +1,23 @@
+http:
+  routers:
+    itsfixed-demos-web:
+      rule: Host(`demos.itsfixedltd.com`)
+      service: itsfixed-demos-service
+      middlewares:
+        - redirect-to-https
+      entryPoints:
+        - web
+    itsfixed-demos-websecure:
+      rule: Host(`demos.itsfixedltd.com`)
+      service: itsfixed-demos-service
+      middlewares: []
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+  services:
+    itsfixed-demos-service:
+      loadBalancer:
+        servers:
+          - url: http://itsfixed-demos:80
+        passHostHeader: true
