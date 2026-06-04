@@ -1392,6 +1392,11 @@ def enrich_existing(path: str = OUTPUT_FILE) -> None:
         if place:
             if not row.get("place_id"):
                 row["place_id"] = place.get("id", "") or ""
+            if not row.get("google_maps_url"):
+                row["google_maps_url"] = place.get("googleMapsUri", "") or (
+                    f"https://www.google.com/maps/place/?q=place_id:{row['place_id']}"
+                    if row.get("place_id") else ""
+                )
             reviews = place.get("reviews", []) or []
 
         try:
