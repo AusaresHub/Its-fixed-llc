@@ -27,6 +27,8 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 from dotenv import load_dotenv
+
+from franchise_filter import is_franchise_brand
 load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
 
 try:
@@ -223,9 +225,10 @@ def main():
         print("    Run:  python phase4.py --skip-airtable")
         sys.exit(1)
 
-    # Skip national brands with no site
+    # Skip leads with no site, AND never test/process national/franchise brands.
     registry = {sid: cfg for sid, cfg in registry.items()
-                if cfg.get("site_url") or cfg.get("railway_url")}
+                if (cfg.get("site_url") or cfg.get("railway_url"))
+                and not is_franchise_brand(cfg.get("biz", sid))}
 
     # Filter by --lead
     if args.lead:

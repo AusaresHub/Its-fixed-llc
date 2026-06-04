@@ -25,6 +25,8 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 from dotenv import load_dotenv
+
+from franchise_filter import is_franchise_brand, filter_franchises
 load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
 
 try:
@@ -1432,6 +1434,13 @@ def main():
 
     items = [(sid, cfg) for sid, cfg in registry.items()
              if cfg.get("site_url") or cfg.get("railway_url")]
+
+    # Never regenerate a site for a national/franchise brand.
+    _before = len(items)
+    items = [(sid, cfg) for sid, cfg in items
+             if not is_franchise_brand(cfg.get("biz", sid))]
+    if len(items) < _before:
+        print(f"🚫  Excluded {_before - len(items)} national/franchise brand(s) from regeneration")
 
     if args.lead:
         items = [(sid, cfg) for sid, cfg in items

@@ -60,27 +60,11 @@ def save_registry(reg: dict):
 
 
 # ── National / franchise brands — never pitch these ──────────────────────────
-NATIONAL_BRANDS = {
-    "stanley steemer", "servicemaster", "servpro", "servpro of",
-    "1-800-got-junk", "college hunks", "two men and a truck",
-    "junk king", "rainbow international", "paul davis",
-    "molly maid", "merry maids", "the maids", "jan-pro",
-    "coverall", "anago", "home team cleaning",
-    "roto-rooter", "mr. rooter", "mr rooter",
-    "mr. handyman", "mr handyman", "ace handyman",
-    "five star painting", "fresh coat", "certapro",
-    "united water restoration", "servpro",
-    "bluefrog plumbing", "benjamin franklin plumbing",
-    "one hour heating", "comfort keepers",
-    "home instead", "visiting angels",
-    "mosquito joe", "lawn doctor", "trugreen",
-    "terminix", "orkin", "aptive", "envision",
-    "lindt", "angi", "thumbtack",
-}
-
-def _is_national_brand(name: str) -> bool:
-    n = name.lower().strip()
-    return any(n == brand or n.startswith(brand) for brand in NATIONAL_BRANDS)
+# Canonical list + matcher live in franchise_filter.py (single source of truth).
+from franchise_filter import (  # noqa: E402
+    NATIONAL_BRANDS,
+    is_franchise_brand as _is_national_brand,
+)
 
 
 # ── slug must match exactly what phase3.py's _slug() produces ───────────────

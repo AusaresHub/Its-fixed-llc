@@ -32,24 +32,12 @@ QA_FILE      = _SCRIPT_DIR / "qa_results.json"
 
 BASE_PORT    = 8765   # local preview server — incremented per site to avoid bind conflicts
 
-# ── National brand blocklist (mirror of phase4.py) ────────────────────────────
-NATIONAL_BRANDS = {
-    "stanley steemer", "servicemaster", "servpro",
-    "1-800-got-junk", "college hunks", "two men and a truck",
-    "junk king", "rainbow international", "paul davis",
-    "molly maid", "merry maids", "the maids", "jan-pro",
-    "coverall", "anago", "roto-rooter", "mr. rooter", "mr rooter",
-    "mr. handyman", "mr handyman", "ace handyman",
-    "five star painting", "fresh coat", "certapro",
-    "bluefrog plumbing", "benjamin franklin plumbing",
-    "one hour heating", "comfort keepers", "home instead",
-    "visiting angels", "mosquito joe", "lawn doctor", "trugreen",
-    "terminix", "orkin", "aptive",
-}
-
-def _is_national_brand(name: str) -> bool:
-    n = name.lower().strip()
-    return any(n == b or n.startswith(b) for b in NATIONAL_BRANDS)
+# ── National / franchise brand blocklist ──────────────────────────────────────
+# Canonical list + matcher live in franchise_filter.py (single source of truth).
+from franchise_filter import (  # noqa: E402
+    NATIONAL_BRANDS,
+    is_franchise_brand as _is_national_brand,
+)
 
 
 # ── QA file helpers ───────────────────────────────────────────────────────────

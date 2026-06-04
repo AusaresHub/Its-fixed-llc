@@ -50,6 +50,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from franchise_filter import filter_franchises, is_franchise_brand
+
 load_dotenv()
 
 # ---------------------------------------------------------------------------
@@ -1661,7 +1663,9 @@ def load_leads(csv_path: str) -> list[dict]:
     if not p.exists():
         sys.exit(f"ERROR: {csv_path} not found.")
     with p.open("r", newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    # Never build a site for a national/franchise brand.
+    return filter_franchises(rows, key="business_name")
 
 
 def _match(name: str, needle: str) -> bool:

@@ -50,6 +50,8 @@ from typing import Any
 import requests
 from dotenv import load_dotenv
 
+from franchise_filter import filter_franchises, is_franchise_brand
+
 # ---------------------------------------------------------------------------
 # Bootstrap — check heavy deps early with a friendly message
 # ---------------------------------------------------------------------------
@@ -901,12 +903,17 @@ def generate_master_script(rows: list[dict], brands: dict[str, dict]) -> Path:
 # ---------------------------------------------------------------------------
 
 def load_leads(csv_path: str) -> list[dict]:
-    """Load all rows from candidates.csv. Returns all rows (Phase 2 runs on all)."""
+    """Load all rows from candidates.csv, excluding national/franchise brands.
+
+    Franchise exclusion happens here so NO downstream Phase 2 output (decks,
+    packages, master script) can ever be built for a chain location.
+    """
     p = Path(csv_path)
     if not p.exists():
         sys.exit(f"ERROR: {csv_path} not found. Run lead_finder.py first.")
     with p.open("r", newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    return filter_franchises(rows, key="business_name")
 
 
 # ---------------------------------------------------------------------------

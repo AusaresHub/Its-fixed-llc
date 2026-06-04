@@ -19,6 +19,8 @@ import argparse, csv, json, os, re, sys, time
 from pathlib import Path
 from dotenv import load_dotenv
 
+from franchise_filter import is_franchise_brand
+
 load_dotenv(Path(__file__).resolve().parent / ".env", override=True)
 
 from openai import OpenAI
@@ -452,6 +454,12 @@ def main():
 
     # Filter
     items = list(registry.items())
+    # Never build/refresh a booking assistant for a national/franchise brand.
+    _before = len(items)
+    items = [(sid, cfg) for sid, cfg in items
+             if not is_franchise_brand(cfg.get("biz", sid))]
+    if len(items) < _before:
+        print(f"🚫  Excluded {_before - len(items)} national/franchise brand(s)")
     if args.lead:
         items = [(sid, cfg) for sid, cfg in items
                  if args.lead.lower() in cfg.get("biz", sid).lower()

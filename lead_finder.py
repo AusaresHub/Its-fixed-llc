@@ -178,46 +178,17 @@ PLACEHOLDER_TEXTS = [
 # ---------------------------------------------------------------------------
 # Franchise / chain brand detection — disqualify automatically.
 #
-# These are national or regional chains where the location is a corporate
-# branch or franchisee, NOT an independent owner-operated business.
-# The check is a case-insensitive substring match so "Stanley Steemer of
-# Denver" and "Stanley Steemer" both match "stanley steemer".
+# The canonical brand list + matcher now live in franchise_filter.py so every
+# phase (lead_finder, phase2, phase3, phase3_5, phase4, phase5, phase5_sites)
+# shares ONE source of truth and the lists can never drift out of sync again.
+# Imported names below keep this module's existing references working.
 # ---------------------------------------------------------------------------
 
-FRANCHISE_BRANDS = {
-    # Carpet / cleaning
-    "stanley steemer", "merry maids", "molly maid", "servicemaster",
-    "servpro", "jan-pro", "coverall", "oxi fresh", "chem-dry", "zerorez",
-    # Junk removal
-    "1-800-got-junk", "college hunks", "junk king", "two men and a truck",
-    "junk shot", "1800 got junk",
-    # Pest control
-    "terminix", "orkin", "rentokil", "truly nolen", "hometeam pest",
-    "aptive environmental", "hawx pest", "western pest", "arrow pest",
-    # Handyman
-    "mr. handyman", "mr handyman", "ace handyman", "handyman connection",
-    # Painting
-    "five star painting", "certapro", "certa pro", "freshcoat", "fresh coat",
-    "1-800-painters", "pro painters franchise",
-    # HVAC / plumbing / electrical
-    "aire serv", "mr. rooter", "mr rooter", "mr. electric", "mr electric",
-    "one hour heating", "one hour air", "benjamin franklin plumbing",
-    "roto-rooter", "comfort systems",
-    # Roofing
-    "storm group", "storm wise",
-    # Restoration / other
-    "rainbow international", "paul davis", "belfor",
-}
-
-
-def is_franchise_brand(business_name: str) -> bool:
-    """Return True if the business name contains a known franchise brand.
-
-    Uses substring matching (case-insensitive) so partial names like
-    "Stanley Steemer of Denver" still match.
-    """
-    name_lower = business_name.lower()
-    return any(brand in name_lower for brand in FRANCHISE_BRANDS)
+from franchise_filter import (  # noqa: E402
+    FRANCHISE_BRANDS,
+    is_franchise_brand,
+    filter_franchises,
+)
 
 
 def classify_website(url: str | None) -> tuple[str, str]:
