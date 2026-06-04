@@ -23,7 +23,7 @@
   "aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"8"}
 }</script>
 <style>
-:root{--p:#0e8c8c;--pd:#0a6e6e;--pl:#cdeaea;--tx:#11202a;--mu:#4d6470;--bg:#f4f8f9;--wh:#fff;
+:root{--p:#0c8181;--pd:#0a6e6e;--pl:#cdeaea;--tx:#11202a;--mu:#4d6470;--bg:#f4f8f9;--wh:#fff;
       --ease:cubic-bezier(.22,1,.36,1);
       --hf:'Poppins',sans-serif;--bf:'Nunito',sans-serif;--rr:12px;--rr2:24px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -32,7 +32,7 @@ body{font-family:var(--bf);color:var(--tx);background:var(--wh);-webkit-font-smo
 a{text-decoration:none;color:inherit}
 .icon{width:1.25em;height:1.25em;display:inline-block;vertical-align:middle;flex:none}
 
-/* AOS fallback — content is fully visible if JS/AOS never runs */
+/* AOS fallback - content is fully visible if JS/AOS never runs */
 [data-aos]{opacity:1;transform:none}
 .aos-init[data-aos]{opacity:0}
 
@@ -51,7 +51,7 @@ a{text-decoration:none;color:inherit}
 .nav-cta:hover{background:var(--pd)}
 .nav-cta-short{display:none}
 
-/* HERO — split */
+/* HERO - split */
 #hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--bg)}
 .hero-left{padding:80px 60px 80px 80px;animation:heroIn .7s var(--ease) both}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--pl);color:var(--pd);
@@ -63,7 +63,7 @@ a{text-decoration:none;color:inherit}
 .hero-sub{color:var(--mu);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:460px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn-p{background:var(--p);color:#fff;padding:14px 30px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
-.btn-p:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 8px 22px rgba(14,140,140,.28)}
+.btn-p:hover{background:var(--pd);transform:translateY(-2px);box-shadow:0 8px 22px rgba(12,129,129,.28)}
 .btn-ph{background:transparent;border:2px solid var(--p);color:var(--pd);padding:14px 28px;border-radius:30px;font-weight:600;font-size:15px;display:inline-block;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
 .btn-ph:hover{background:var(--p);color:#fff;transform:translateY(-2px)}
 .hero-right{height:90vh;overflow:hidden;background:linear-gradient(160deg,var(--pl) 0%,var(--pd) 100%)}
@@ -216,17 +216,17 @@ footer strong{color:rgba(255,255,255,.7)}
       <div class="qcard" data-aos="fade-up" data-aos-delay="0">
         <div class="q-stars">★★★★★</div>
         <p>"Matjaro Cleaning transformed my home! Their attention to detail is unmatched. Highly recommend them!"</p>
-        <strong>— Sarah B., Denver, CO</strong>
+        <strong>Sarah B., Denver, CO</strong>
       </div>
       <div class="qcard" data-aos="fade-up" data-aos-delay="100">
         <div class="q-stars">★★★★★</div>
         <p>"I was impressed by their deep cleaning service. My house has never looked better!"</p>
-        <strong>— Tom R., Aurora, CO</strong>
+        <strong>Tom R., Aurora, CO</strong>
       </div>
       <div class="qcard" data-aos="fade-up" data-aos-delay="200">
         <div class="q-stars">★★★★★</div>
         <p>"Fast, reliable, and friendly service. They made my move-out stress-free. Thank you!"</p>
-        <strong>— Emily W., Lakewood, CO</strong>
+        <strong>Emily W., Lakewood, CO</strong>
       </div></div>
   </div>
 </section>
@@ -273,7 +273,7 @@ footer strong{color:rgba(255,255,255,.7)}
 <button id="bot-fab" title="Chat with us" style="
   position:fixed;bottom:28px;right:28px;z-index:9999;
   width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
-  background:#0e8c8c;color:#fff;
+  background:#0c8181;color:#fff;
   box-shadow:0 4px 20px rgba(0,0,0,.30);
   display:flex;align-items:center;justify-content:center;
   transition:transform .2s,box-shadow .2s;
@@ -316,13 +316,13 @@ footer strong{color:rgba(255,255,255,.7)}
   .typing{ opacity:.6;font-style:italic; }
   #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
   #bot-fab.pulse{ animation:pulse 2s infinite; }
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(14,140,140,.5)}50%{box-shadow:0 0 0 12px rgba(14,140,140,0)}}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(12,129,129,.5)}50%{box-shadow:0 0 0 12px rgba(12,129,129,0)}}
 </style>
 
 
 <script>
 // ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.app";
 var BOT_SITE_ID  = "matjaro-cleaning";
 var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
 
@@ -413,4 +413,5 @@ async function sendMessage(){
 </body>
 <!-- brandfix:done -->
 <!-- audit:done -->
+<!-- audit2:done -->
 </html>

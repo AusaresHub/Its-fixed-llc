@@ -72,7 +72,7 @@ a{text-decoration:none;color:inherit}
 #services{padding:90px 0;background:var(--wh)}
 .section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
 .sec-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:48px;line-height:1.1}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
 .svc-chip{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border-radius:var(--rr2);padding:22px;border:1px solid var(--ee);transition:box-shadow .25s var(--eo),transform .25s var(--eo)}
 .svc-chip:hover{box-shadow:0 8px 28px rgba(19,27,36,.10);transform:translateY(-3px)}
 .svc-ico{min-width:44px;width:44px;height:44px;border-radius:10px;background:var(--pl);color:var(--p);display:flex;align-items:center;justify-content:center}
@@ -324,7 +324,7 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
 
 <script>
 // ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.app";
 var BOT_SITE_ID  = "garcia-brothers";
 var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
 
@@ -421,4 +421,5 @@ async function sendMessage(){
 </body>
 <!-- brandfix:done -->
 <!-- audit:done -->
+<!-- audit2:done -->
 </html>

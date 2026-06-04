@@ -84,7 +84,7 @@ html.aos-ready [data-aos].aos-animate{opacity:1}
 .section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
 .sec-eyebrow{font-family:var(--hf);color:var(--pd);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
 .sec-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:48px;line-height:1.1}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
 .svc-chip{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border-radius:var(--rr2);padding:22px;border:1px solid var(--pl);transition:box-shadow .25s var(--ease),transform .25s var(--ease)}
 .svc-chip:hover{box-shadow:0 10px 30px rgba(13,27,38,.10);transform:translateY(-3px)}
 .svc-ico{flex:none;width:46px;height:46px;border-radius:10px;background:var(--pl);color:var(--pd);display:flex;align-items:center;justify-content:center}
@@ -285,7 +285,7 @@ footer strong{color:rgba(255,255,255,.6)}
 
 <section id="cta">
   <h2>Ready to Get Started?</h2>
-  <p>Serving Denver, Denver, Aurora, and the surrounding metro area.</p>
+  <p>Serving Denver, Aurora, Lakewood, and the surrounding metro area.</p>
   <a class="cta-call" href="tel:13039132343">(303) 913-2343</a>
 </section>
 
@@ -345,7 +345,7 @@ footer strong{color:rgba(255,255,255,.6)}
 
 <script>
 // ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.app";
 var BOT_SITE_ID  = "positive-energy-electrical-corp";
 var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
 
@@ -438,4 +438,5 @@ if(window.AOS){document.documentElement.classList.add("aos-ready");AOS.init({dur
 </body>
 <!-- brandfix:done -->
 <!-- audit:done -->
+<!-- audit2:done -->
 </html>

@@ -108,7 +108,9 @@ a{text-decoration:none;color:inherit}
     linear-gradient(120deg,#283440,#3c4d5b);
   background-blend-mode:multiply,normal;overflow:hidden}
 #workband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-#workband .section-inner{position:relative;z-index:1}
+#workband::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(120deg,rgba(20,25,30,.86) 0%,rgba(20,25,30,.74) 45%,rgba(20,25,30,.45) 100%)}
+#workband .section-inner{position:relative;z-index:2}
 #workband h2{font-family:var(--hf);font-size:clamp(28px,4vw,42px);color:#fff;font-weight:700;line-height:1.12;margin-bottom:16px;max-width:560px}
 #workband p{color:rgba(255,255,255,.9);font-size:17px;line-height:1.6;max-width:520px;margin-bottom:28px}
 
@@ -359,7 +361,7 @@ html.aos-ready [data-aos].aos-animate{opacity:1;transform:none}
 
 <script>
 // ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.app";
 var BOT_SITE_ID  = "martinez-brothers-roofers-llc";
 var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
 
@@ -455,4 +457,5 @@ async function sendMessage(){
 </body>
 <!-- brandfix:done -->
 <!-- audit:done -->
+<!-- audit2:done -->
 </html>

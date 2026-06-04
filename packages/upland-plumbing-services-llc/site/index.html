@@ -87,7 +87,7 @@ svg{display:block}
 #services{padding:90px 0;background:var(--wh)}
 .section-inner{max-width:1200px;margin:0 auto;padding:0 32px}
 .sec-title{font-family:var(--hf);font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:48px;line-height:1.1;color:var(--tx)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
 .svc-chip{display:flex;gap:16px;align-items:flex-start;background:var(--bg);border-radius:var(--rr2);padding:22px;transition:box-shadow .25s var(--ease),transform .25s var(--ease)}
 .svc-chip:hover{box-shadow:0 10px 30px rgba(12,23,51,.10);transform:translateY(-3px)}
 .svc-ico{flex:0 0 44px;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--pl);color:var(--pd)}
@@ -346,7 +346,7 @@ footer strong{color:rgba(255,255,255,.72)}
 
 <script>
 // ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.ap";
+var BOT_API_BASE = "https://booking-bot-production-5460.up.railway.app";
 var BOT_SITE_ID  = "upland-plumbing-services-llc";
 var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
 
@@ -443,4 +443,5 @@ async function sendMessage(){
 </body>
 <!-- brandfix:done -->
 <!-- audit:done -->
+<!-- audit2:done -->
 </html>
