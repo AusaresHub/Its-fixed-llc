@@ -305,6 +305,301 @@ def classify_website(url: str | None) -> tuple[str, str]:
 
 
 # ---------------------------------------------------------------------------
+# Independent website verification — catches the #1 false-positive source:
+# a business that HAS a real site but never linked it on their Google profile.
+# classify_website() only ever sees the GBP `websiteUri`; this searches the web
+# for the business's own domain and reclassifies them as `real` (→ SKIP) when a
+# name-matching, live custom site is found. Conservative: only a clear
+# business-name↔domain match counts, so competitor sites and directories don't
+# trip it. Search backend is pluggable via env keys, else free DuckDuckGo HTML.
+# ---------------------------------------------------------------------------
+
+SEARCH_SLEEP = 1.2  # politeness between SERP queries
+
+# Hosts that are never the business's own site (extends the classifier sets).
+SEARCH_EXCLUDE = (
+    SOCIAL_DOMAINS | DIRECTORY_DOMAINS | LINK_AGGREGATORS | PLACEHOLDER_HOSTS | {
+        "wikipedia.org", "amazon.com", "indeed.com", "glassdoor.com", "ziprecruiter.com",
+        "mapquest.com", "chamberofcommerce.com", "cylex-usa.com", "yahoo.com",
+        "local.yahoo.com", "bing.com", "duckduckgo.com", "apple.com", "ibegin.com",
+        "homeflock.com", "thebluebook.com", "homeservicesrated.com", "onhavanastreet.com",
+        "trustpilot.com", "expertise.com", "birdeye.com", "nicelocal.com", "loc8nearme.com",
+    }
+)
+_BIZ_STOPWORDS = {
+    "llc", "inc", "co", "corp", "company", "services", "service", "the", "and",
+    "of", "professional", "pros", "pro", "denver", "colorado", "aurora", "lakewood",
+    "littleton", "arvada", "westminster", "thornton", "boulder", "metro", "area",
+}
+
+def _biz_tokens(name: str) -> list[str]:
+    # Keep len>=2 so business initials (e.g. "JL" in JL Roofing) survive.
+    toks = re.sub(r"[^a-z0-9]+", " ", name.lower()).split()
+    return [t for t in toks if t not in _BIZ_STOPWORDS and len(t) >= 2]
+
+def _strip_www(h: str) -> str:
+    return h[4:] if h.startswith("www.") else h
+
+def _name_match(core: str, joined: str, toks: list[str]) -> bool:
+    """True if a domain 'core' clearly belongs to this business name."""
+    if not core:
+        return False
+    hits = sum(1 for t in toks if len(t) >= 3 and t in core)
+    return (joined in core
+            or (len(toks) >= 2 and hits >= 2)
+            or (len(toks) == 1 and toks[0] in core and len(toks[0]) >= 5))
+
+def _live_get(domain: str):
+    """Fast DNS pre-check, then GET. Returns a live response or None."""
+    import socket
+    try:
+        socket.gethostbyname(domain)
+    except Exception:
+        return None
+    for scheme in ("https://", "http://"):
+        try:
+            r = requests.get(scheme + domain, timeout=7, allow_redirects=True,
+                             headers={"User-Agent": _PW_UA})
+            if r.status_code < 400:
+                return r
+        except requests.exceptions.RequestException:
+            continue
+    return None
+
+def _domain_core(host: str) -> str:
+    host = (host or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    parts = host.split(".")
+    core = parts[-2] if len(parts) >= 2 else (parts[0] if parts else "")
+    return re.sub(r"[^a-z0-9]", "", core)
+
+# ── Playwright (real browser) backend ──────────────────────────────────────
+# Raw requests-scraping of search engines gets blocked from datacenter IPs and
+# breaks on markup/JS changes. A real headless browser is reliable and free.
+# Launched lazily and reused across the whole run; no-op if playwright missing.
+_PW: dict = {"p": None, "browser": None, "ctx": None}
+_PW_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+          "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+
+def _pw_page():
+    """Return a new page on a shared browser, or None if playwright unavailable."""
+    if _PW["ctx"] is None:
+        try:
+            from playwright.sync_api import sync_playwright
+        except Exception:
+            return None
+        try:
+            _PW["p"] = sync_playwright().start()
+            _PW["browser"] = _PW["p"].chromium.launch(headless=True)
+            _PW["ctx"] = _PW["browser"].new_context(
+                user_agent=_PW_UA, viewport={"width": 1280, "height": 900})
+        except Exception:
+            _PW["p"] = _PW["browser"] = _PW["ctx"] = None
+            return None
+    try:
+        return _PW["ctx"].new_page()
+    except Exception:
+        return None
+
+def _pw_close():
+    try:
+        if _PW["browser"]:
+            _PW["browser"].close()
+        if _PW["p"]:
+            _PW["p"].stop()
+    except Exception:
+        pass
+    _PW["p"] = _PW["browser"] = _PW["ctx"] = None
+
+import atexit  # noqa: E402
+atexit.register(_pw_close)
+
+def _debing(u: str) -> str:
+    """Bing wraps results in bing.com/ck/a?...&u=a1<base64url>. Decode to the real URL."""
+    try:
+        from urllib.parse import urlparse as _up, parse_qs
+        import base64
+        pu = _up(u)
+        if "bing.com" not in (pu.hostname or ""):
+            return u
+        v = parse_qs(pu.query).get("u", [""])[0]
+        if v.startswith("a1"):
+            s = v[2:] + "=" * (-len(v[2:]) % 4)
+            return base64.urlsafe_b64decode(s).decode("utf-8", "ignore")
+    except Exception:
+        pass
+    return u
+
+def pw_search(query: str, n: int = 10) -> list[str]:
+    """Search Bing in a real browser; return organic result URLs."""
+    from urllib.parse import quote
+    page = _pw_page()
+    if page is None:
+        return []
+    urls: list[str] = []
+    try:
+        page.goto("https://www.bing.com/search?setlang=en-US&q=" + quote(query),
+                  timeout=20000, wait_until="domcontentloaded")
+        try:
+            page.wait_for_selector("li.b_algo h2 a", timeout=9000)
+        except Exception:
+            page.wait_for_timeout(1500)
+        urls = page.eval_on_selector_all(
+            "li.b_algo h2 a", "els => els.map(e => e.href)") or []
+        urls = [_debing(u) for u in urls]
+    except Exception:
+        urls = []
+    finally:
+        try:
+            page.close()
+        except Exception:
+            pass
+    seen, out = set(), []
+    for u in urls:
+        if u and u not in seen:
+            seen.add(u); out.append(u)
+    return out[:n]
+
+def pw_is_real_site(url: str) -> bool | None:
+    """Load url in a real browser; True if it's a live, substantive custom site.
+       None if playwright unavailable (caller should fall back)."""
+    page = _pw_page()
+    if page is None:
+        return None
+    try:
+        page.goto(url, timeout=20000, wait_until="domcontentloaded")
+        try:
+            page.wait_for_load_state("networkidle", timeout=4000)
+        except Exception:
+            pass
+        page.wait_for_timeout(900)
+        final = (urlparse(page.url).hostname or "").lower()
+        if final.startswith("www."):
+            final = final[4:]
+        if any(final == d or final.endswith("." + d) for d in SOCIAL_DOMAINS | DIRECTORY_DOMAINS):
+            return False
+        try:
+            txt = (page.inner_text("body") or "")[:8000].lower()
+        except Exception:
+            txt = ""
+        if len(txt.strip()) < 150:
+            return False
+        return not any(ph in txt for ph in PLACEHOLDER_TEXTS)
+    except Exception:
+        return False
+    finally:
+        try:
+            page.close()
+        except Exception:
+            pass
+
+
+def web_search(query: str, n: int = 10) -> list[str]:
+    """Return result URLs. SerpAPI → Bing API → Playwright(Bing) → DuckDuckGo-HTML."""
+    serp = os.environ.get("SERPAPI_API_KEY")
+    if serp:
+        try:
+            r = requests.get("https://serpapi.com/search.json",
+                             params={"q": query, "engine": "google", "num": n, "api_key": serp},
+                             timeout=12)
+            return [o["link"] for o in r.json().get("organic_results", []) if o.get("link")][:n]
+        except Exception:
+            pass
+    bing = os.environ.get("BING_SEARCH_KEY")
+    if bing:
+        try:
+            r = requests.get("https://api.bing.microsoft.com/v7.0/search",
+                             params={"q": query, "count": n, "mkt": "en-US"},
+                             headers={"Ocp-Apim-Subscription-Key": bing}, timeout=12)
+            return [v["url"] for v in r.json().get("webPages", {}).get("value", [])][:n]
+        except Exception:
+            pass
+    # Preferred free backend: real browser (reliable where raw scraping is blocked)
+    pw = pw_search(query, n)
+    if pw:
+        return pw
+    # Last resort: DuckDuckGo HTML endpoint (often blocked from datacenter IPs)
+    try:
+        from urllib.parse import unquote, parse_qs
+        r = requests.post("https://html.duckduckgo.com/html/", data={"q": query},
+                          headers={"User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")},
+                          timeout=12)
+        out = []
+        for href in re.findall(r'<a[^>]+class="result__a"[^>]+href="([^"]+)"', r.text):
+            if "uddg=" in href:
+                href = unquote(parse_qs(urlparse(href).query).get("uddg", [href])[0])
+            out.append(href)
+        return out[:n]
+    except Exception:
+        return []
+
+def find_own_website(business_name: str, locality: str = "Colorado") -> tuple[str | None, str]:
+    """Find the business's own custom-domain site that wasn't linked on GBP.
+       (1) guess obvious name-based domains and check they're live + name-matching;
+       (2) fall back to a real-browser search for non-obvious domains.
+       Returns (url, note) on a confident match, else (None, '')."""
+    toks = _biz_tokens(business_name)
+    if not toks:
+        return (None, "")
+    joined = "".join(toks)
+    if len(joined) < 5:
+        return (None, "")  # too generic to guess/verify safely
+    city = re.sub(r"[^a-z]", "", (locality or "").lower().replace("colorado", ""))
+
+    # 1) Deterministic domain guessing
+    cores = [joined, joined + "llc", joined + "inc", joined + "co",
+             joined + "colorado", "-".join(toks)]
+    if city:
+        cores.append(joined + city)
+    seen: set[str] = set()
+    for core in cores:
+        for tld in (".com", ".net", ".co"):
+            dom = core + tld
+            if dom in seen:
+                continue
+            seen.add(dom)
+            r = _live_get(dom)
+            if r is None:
+                continue
+            final = _strip_www((urlparse(r.url).hostname or "").lower())
+            if any(final == d or final.endswith("." + d) for d in SEARCH_EXCLUDE):
+                continue
+            if not _name_match(_domain_core(final), joined, toks):
+                continue
+            verdict = pw_is_real_site(r.url)     # JS-aware; raw HTML misses SPA/Wix sites
+            if verdict is None:                  # no browser → raw-HTML heuristic
+                body = (r.text or "").lower()
+                text_only = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).strip()
+                verdict = len(text_only) >= 200 and not any(ph in body for ph in PLACEHOLDER_TEXTS)
+            if verdict:
+                return (r.url, f"own site found via domain guess (unlinked on GBP): {final}")
+
+    # 2) Real-browser search fallback (non-obvious domains)
+    try:
+        results = web_search(f"{business_name} {locality} website".strip(), n=10)
+    except Exception:
+        results = []
+    time.sleep(SEARCH_SLEEP)
+    for url in results:
+        try:
+            host = _strip_www((urlparse(url).hostname or "").lower())
+        except Exception:
+            continue
+        if not host or any(host == d or host.endswith("." + d) for d in SEARCH_EXCLUDE):
+            continue
+        if not _name_match(_domain_core(host), joined, toks):
+            continue
+        verdict = pw_is_real_site(url)
+        if verdict is None:
+            verdict = classify_website(url)[0] == "real"
+        if verdict:
+            return (url, f"own site found via search (unlinked on GBP): {host}")
+    return (None, "")
+
+
+# ---------------------------------------------------------------------------
 # Google Places API calls
 # ---------------------------------------------------------------------------
 
@@ -1214,6 +1509,14 @@ def run(zip_codes: Iterable[str], categories: Iterable[str], output: str = OUTPU
                     status, note = cache[cache_key]
                 else:
                     status, note = classify_website(website)
+                    # Independent web search: GBP often omits a real site they own.
+                    if status != "real" and os.environ.get("VERIFY_OWN_SITE", "1") != "0":
+                        _lm = re.search(r",\s*([A-Za-z .]+),\s*CO\b", addr or "")
+                        _own, _onote = find_own_website(
+                            name, f"{_lm.group(1).strip() if _lm else ''} Colorado".strip())
+                        if _own:
+                            status, note = "real", _onote
+                            print(f"    SKIP (site found via search): {name} → {_own}")
                     cache[cache_key] = (status, note)
                     save_cache(cache)
                     time.sleep(SLEEP_BETWEEN_REQUESTS)
