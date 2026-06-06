@@ -1779,16 +1779,40 @@ if __name__ == "__main__":
         metavar="PATH",
         help=f"Path to the candidates CSV (default: candidates.csv next to script).",
     )
+    parser.add_argument(
+        "--categories", nargs="+", metavar="CAT",
+        help="Override search categories (default: adjacent home-service trades).",
+    )
+    parser.add_argument(
+        "--zips", nargs="+", metavar="ZIP",
+        help="Override ZIP codes (default: a spread across the Denver metro).",
+    )
     args = parser.parse_args()
 
     if args.enrich_only:
         enrich_existing(args.csv)
     else:
-        ZIP_CODES = ["80239", "80249"]
-        CATEGORIES = [
-            "drywall contractor", "handyman", "painter", "HVAC contractor",
-            "plumber", "electrician", "roofer", "house cleaning",
-            "carpet cleaning", "pest control", "junk hauling",
+        # Next run: ADJACENT home-service trades (spread beyond the original 11),
+        # across a wider metro footprint so leads aren't all in one neighborhood.
+        ZIP_CODES = args.zips or [
+            "80239",  # Green Valley Ranch / Montbello (NE Denver)
+            "80219",  # SW Denver / Westwood
+            "80211",  # NW Denver / Highlands
+            "80012",  # Aurora
+            "80226",  # Lakewood
+            "80123",  # Littleton
+        ]
+        # Data-driven blend. A probe (2026-06-05) showed contractor-style adjacent
+        # trades are web-saturated (fencing 0/31 had no site); the real no-website
+        # density is in owner-operated + APPOINTMENT services, where the booking
+        # bot is also the strongest pitch (pet grooming led every probe).
+        CATEGORIES = args.categories or [
+            # productive adjacent home services
+            "landscaping", "lawn care", "tree service", "sprinkler repair",
+            "junk removal", "gutter cleaning",
+            # appointment-driven personal services (booking-bot sweet spot)
+            "pet grooming", "barber shop", "nail salon", "massage therapy",
+            "auto detailing",
         ]
         run(ZIP_CODES, CATEGORIES, output=args.csv)
 
