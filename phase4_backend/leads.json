@@ -6,5 +6,181 @@
     "owner_phone": "",
     "owner_email": "",
     "airtable_base": ""
+  },
+  "great-cut": {
+    "assistant_id": "asst_UAyqgVGVtTF9uaAfEhwqqjrZ",
+    "vector_store_id": "vs_6a24ea7ab4c88191bbe5b014cb6038d1",
+    "biz": "Great cut",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "vip-beauty-salon-barber-shop": {
+    "assistant_id": "asst_gnK9qG6JgXSmnlUIEZ63ehle",
+    "vector_store_id": "vs_6a24eaa5c9b48191a719b153ec9e0441",
+    "biz": "VIP BEAUTY SALON & BARBER SHOP",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "barney-s-barber-shop": {
+    "assistant_id": "asst_d1RQQXrin1pclXq3SPbWeOXs",
+    "vector_store_id": "vs_6a24ea8d67b08191ab8b67e6299c3261",
+    "biz": "Barney's Barber Shop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "romero-barbershop": {
+    "assistant_id": "asst_WpwUdsraD2NfL4MKr9kQvin9",
+    "vector_store_id": "vs_6a24ea966dc88191aa42bb22d3d32418",
+    "biz": "Romero barbershop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "real-barbers": {
+    "assistant_id": "asst_TkoeUNMaL9eqn0JjAsf0rqUK",
+    "vector_store_id": "vs_6a24ea9ec06481918b090166a7210a50",
+    "biz": "Real Barbers",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "hank-s-barber-shop": {
+    "assistant_id": "asst_m46jFAYDVzq4ZQxJvch0k3ej",
+    "vector_store_id": "vs_6a24eaae8cf08191ac2b99e04416945d",
+    "biz": "Hank's Barber shop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "american-barbers": {
+    "assistant_id": "asst_zfx5oUlg65Y7OiMPP6WmGAWy",
+    "vector_store_id": "vs_6a24eab731a4819185d4e66e5049dfd3",
+    "biz": "American Barbers",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "friendly-shears": {
+    "assistant_id": "asst_jRk4Q2gneONX3ZBzS7Nls7Fv",
+    "vector_store_id": "vs_6a24eabfc55c819196bd22df15a14ce8",
+    "biz": "Friendly Shears",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "urban-barbers-at-38th": {
+    "assistant_id": "asst_gSpunv0HwyzuTlLCWryI42B7",
+    "vector_store_id": "vs_6a24eaca6c088191b0ba3d7ff9f43a67",
+    "biz": "Urban Barbers at 38th",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "expertise-cuts-styles": {
+    "assistant_id": "asst_UeX2e0NEgiHNdvw3snjqwvnk",
+    "vector_store_id": "vs_6a24ead2bd50819199f65b746ec9a4f8",
+    "biz": "Expertise Cuts & Styles",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "el-castillo-barbershop": {
+    "assistant_id": "asst_CkMZL9j28kOgKldmsl2aZyBF",
+    "vector_store_id": "vs_6a24eadb4b408191b3ad8da67598ba80",
+    "biz": "EL CASTILLO BARBERSHOP",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "motion-kutz-barbershop": {
+    "assistant_id": "asst_k5wGqFBFtZN1s5r4fSwOSHaP",
+    "vector_store_id": "vs_6a24eae520408191bdd8a5e20429791a",
+    "biz": "Motion Kutz Barbershop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "royals-barbershop": {
+    "assistant_id": "asst_ToWStVMTnpg9r8Vybqp2gMHi",
+    "vector_store_id": "vs_6a24eaed4fa48191b4f0482086f8424e",
+    "biz": "Royals Barbershop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "lonestar-blendz-barbershop": {
+    "assistant_id": "asst_8jckbPguuEsBYhJhOyHEYq9A",
+    "vector_store_id": "vs_6a24eb25f67c8191bfd21b8bfcac2fd1",
+    "biz": "Lonestar Blendz Barbershop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "alfani-s-barbershop": {
+    "assistant_id": "asst_BVOv0W8rP6TcWk2lk7jm6g6i",
+    "vector_store_id": "vs_6a24eb2f99d48191967a86247028659b",
+    "biz": "Alfani\u2019s Barbershop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "bolton-barber-studio-denver": {
+    "assistant_id": "asst_xnerFw0JNU00zeJYpnHHLfHV",
+    "vector_store_id": "vs_6a24eb38c46c8191b1823aea6dbcfad0",
+    "biz": "Bolton Barber Studio Denver",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "fresh-fades-by-t-ask-for-tee-appointments-only": {
+    "assistant_id": "asst_Z51fTYM49XsYUkyqs9VmS6z3",
+    "vector_store_id": "vs_6a24eb421d7481918d69217fec71435e",
+    "biz": "Fresh Fades by T (ASK FOR TEE) Appointments Only",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "milehighblades": {
+    "assistant_id": "asst_qiy4NDhzSzNv3SqyH8edvDwy",
+    "vector_store_id": "vs_6a24eb4a94408191a864a4b1c861af28",
+    "biz": "Milehighblades",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "boulevard-blvd-barbers": {
+    "assistant_id": "asst_Qt82v74ydIPxnoSWHnOuwzta",
+    "vector_store_id": "vs_6a24eb51f6408191bb9b6123160b9615",
+    "biz": "Boulevard \u201cBLVD\u201d Barbers",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "fadedbyelias": {
+    "assistant_id": "asst_Ir0hQHoi51GaaoECABv6k5Li",
+    "vector_store_id": "vs_6a24eb5a26e481919fc17251004663e1",
+    "biz": "FadedbyElias",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "hoffman-heights-s-r-barber-shop": {
+    "assistant_id": "asst_BMoTzdtBsY12h93V8R9Tj4Kp",
+    "vector_store_id": "vs_6a24eb626fb08191ad8370bc24e0c55b",
+    "biz": "Hoffman Heights S&R Barber Shop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "quincy-barbers-llc": {
+    "assistant_id": "asst_qAa9jHibecXBGlo3s19wUgKT",
+    "vector_store_id": "vs_6a24eb6d21d081919f56e38868969050",
+    "biz": "Quincy Barbers LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
   }
 }

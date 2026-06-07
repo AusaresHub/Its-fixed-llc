@@ -42,7 +42,10 @@ def detect_trade(category: str) -> str:
     if "massage" in c: return "massage"
     if "nail" in c or "salon" in c: return "nail"
     if "detail" in c: return "detailing"
-    return "barber"
+    if any(k in c for k in ("landscap", "lawn", "tree", "sprinkler", "irrigation",
+                            "gutter", "junk", "haul")):
+        return "homeservice"
+    return "other"   # no builder → skipped (never default to barber)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # BARBER — premium dark shop. Beats Rosemont (more content) + Semion (cleaner).
@@ -305,11 +308,30 @@ def build_one(lead: dict, write: bool = True) -> str:
         (SITES_DIR / f"{slug}.html").write_text(html, encoding="utf-8")
     return html
 
+def qc_check(html: str) -> list[str]:
+    """Automated pre-deploy QC gate (the /impeccable rules, enforced per build)."""
+    issues = []
+    if "—" in html:
+        issues.append("em dash present")
+    if html.count('class="eyebrow"') > 1:
+        issues.append(f"{html.count('class=\"eyebrow\"')} eyebrows (max 1)")
+    if "prefers-reduced-motion" not in html:
+        issues.append("no reduced-motion fallback")
+    if "data:image" not in html:
+        issues.append("no embedded photos")
+    return issues
+
+def all_prospects() -> list[dict]:
+    return list(csv.DictReader(open(CSV, encoding="utf-8")))
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lead", help="Build one lead by name substring")
+    ap.add_argument("--trade", help="Build every prospect of this trade")
+    ap.add_argument("--all", action="store_true", help="Build every prospect with an implemented trade")
     ap.add_argument("--preview", action="store_true", help="Write to C:/temp/demos/<slug>.html only")
     args = ap.parse_args()
+
     if args.lead:
         lead = load_lead(args.lead)
         if not lead:
@@ -318,7 +340,27 @@ def main():
         if args.preview:
             out = Path("C:/temp/demos"); out.mkdir(parents=True, exist_ok=True)
             (out / f"{slugify(lead['business_name'])}.html").write_text(html, encoding="utf-8")
-        print(f"built {lead['business_name']} ({len(html)//1024}KB)")
+        qc = qc_check(html)
+        print(f"built {lead['business_name']} ({len(html)//1024}KB)" + (f"  ⚠️ QC: {qc}" if qc else "  ✓ QC clean"))
+        return
+
+    targets = [r for r in all_prospects()
+               if detect_trade(r.get("category", "")) in BUILDERS
+               and (not args.trade or detect_trade(r.get("category", "")) == args.trade)]
+    if not targets:
+        raise SystemExit("No prospects match (is the trade builder implemented?)")
+    print(f"Building {len(targets)} site(s)\n")
+    ok = 0
+    for r in targets:
+        try:
+            html = build_one(r, write=True)
+            qc = qc_check(html)
+            flag = f"⚠️ {qc}" if qc else "✓"
+            print(f"  {flag}  {r['business_name'][:38]:38} {len(html)//1024}KB")
+            ok += 1
+        except Exception as e:
+            print(f"  ✗  {r['business_name'][:38]:38} {e}")
+    print(f"\n{ok}/{len(targets)} built")
 
 if __name__ == "__main__":
     main()

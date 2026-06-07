@@ -46,7 +46,24 @@ def wire(name: str):
     trade = detect_trade(row.get("category", ""))
     info = TRADE_INFO.get(trade)
     if not info:
-        raise SystemExit(f"No assistant knowledge for trade '{trade}' yet.")
+        # Generic fallback so any home-service trade can be wired (mirrors
+        # dashboard/wiring.py::_generic_info — enough for the bot to book an estimate).
+        cat = (row.get("category", "") or "Local Service").split("/")[0].strip().title()
+        info = {
+            "category": cat,
+            "hours": "Monday–Saturday 8am–6pm; emergency service available",
+            "services": [
+                {"name": "Free Estimate", "desc": "On-site or phone estimate at no cost"},
+                {"name": f"{cat} Service", "desc": "Standard service call, scheduled at your convenience"},
+                {"name": "Inspection / Diagnosis", "desc": "Assess the job and quote up front"},
+            ],
+            "faq": [
+                {"q": "Do you offer free estimates?", "a": "Yes — estimates are free. Tell me what you need and a good time to come out."},
+                {"q": "What areas do you serve?", "a": "The Denver metro and surrounding Colorado communities."},
+                {"q": "How do I book?", "a": "Give me your name, phone, the service you need, and a preferred day/time and I'll get you scheduled."}],
+            "why": ["Local and reliable", "Upfront pricing", "Fast scheduling"],
+            "pricing_note": "Free estimates. Final pricing depends on the job — call for a quote.",
+        }
     lead = {
         "site_id": slug, "name": row["business_name"], "category": info["category"],
         "phone": row.get("phone", ""), "address": row.get("address", ""),
@@ -72,7 +89,35 @@ def wire(name: str):
     REGISTRY.write_text(json.dumps(reg, indent=2), encoding="utf-8")
     print(f"✅  Registered {slug} → assistant {res['assistant_id']} ({len(reg)} in registry)")
 
+def wire_trade(trade: str | None):
+    import csv
+    from demos import CSV as DEMO_CSV
+    reg = {}
+    if REGISTRY.exists() and REGISTRY.read_text(encoding="utf-8").strip():
+        reg = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    rows = list(csv.DictReader(open(DEMO_CSV, encoding="utf-8")))
+    targets = [r for r in rows if detect_trade(r.get("category", "")) in TRADE_INFO
+               and (not trade or detect_trade(r.get("category", "")) == trade)]
+    done = 0
+    for r in targets:
+        slug = slugify(r["business_name"])
+        if slug in reg:
+            print(f"  ⏭   {r['business_name'][:36]:36} already wired")
+            done += 1
+            continue
+        try:
+            wire(r["business_name"])
+            done += 1
+        except Exception as e:
+            print(f"  ✗   {r['business_name'][:36]:36} {e}")
+    print(f"\n{done}/{len(targets)} wired")
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        raise SystemExit("usage: python wire_demos.py <lead name>")
-    wire(sys.argv[1])
+        raise SystemExit("usage: python wire_demos.py <lead name> | --trade <trade> | --all")
+    if sys.argv[1] == "--all":
+        wire_trade(None)
+    elif sys.argv[1] == "--trade":
+        wire_trade(sys.argv[2])
+    else:
+        wire(sys.argv[1])
