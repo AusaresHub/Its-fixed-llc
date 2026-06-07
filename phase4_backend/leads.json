@@ -1,0 +1,10 @@
+{
+  "wally-s-barber-shop": {
+    "assistant_id": "asst_8h7IeGVLqEfgGyWaitfkOzpD",
+    "vector_store_id": "vs_6a24df6af58c8191b360c4d9d5a093c3",
+    "biz": "Wally's Barber Shop",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  }
+}

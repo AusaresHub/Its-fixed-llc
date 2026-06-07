@@ -22,7 +22,7 @@ candidates.csv
 candidates.csv.bak-*
 seed_candidates.csv
 
-phase4_backend/leads.json
+# leads.json IS tracked: the GitHub-built api needs the booking registry baked in.
 
 *.pptx
 *.pdf
