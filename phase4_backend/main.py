@@ -11,6 +11,7 @@ Endpoints:
 
 import json
 import os
+import re
 from pathlib import Path
 from contextlib import asynccontextmanager
 
@@ -160,6 +161,8 @@ async def _chat_inner(req: ChatRequest) -> ChatResponse:
     # Fetch latest assistant message
     msgs  = client.beta.threads.messages.list(thread_id=thread_id, order="desc", limit=1)
     reply = msgs.data[0].content[0].text.value
+    # Strip OpenAI file-search citation markers like 【4:0†source】 (never shown to customers)
+    reply = re.sub(r"【[^】]*】", "", reply).strip()
 
     return ChatResponse(reply=reply, booked=booked)
 
