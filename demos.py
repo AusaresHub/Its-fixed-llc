@@ -527,13 +527,251 @@ __BOT__
 </body></html>"""
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# GROOMER — friendly, bright, rounded. Real dog photos, playful but professional.
+# ─────────────────────────────────────────────────────────────────────────────
+GROOMER_ACCENTS = ["#1f9e91", "#ef6f4c", "#3a86c8", "#c2417e", "#e0a02a"]  # teal/coral/sky/berry/sunny
+GROOMER_DISPLAY = ["Poppins", "Quicksand", "Baloo 2", "Fredoka"]
+GROOMER_TAGS = ["Happy dogs, every single time.", "Where every pup leaves smiling.",
+                "The grooming your best friend deserves.", "Tails wag here."]
+
+def build_groomer(lead: dict, photos: list[str]) -> str:
+    name = lead["business_name"]; slug = slugify(name)
+    seed = seed_of(slug)
+    acc = pick(seed, 1, GROOMER_ACCENTS); accd = darken(acc, 0.2); accl = lighten(acc, 0.88)
+    disp = pick(seed, 2, GROOMER_DISPLAY)
+    tag = pick(seed, 3, GROOMER_TAGS)
+    city = city_of(lead.get("address", ""))
+    phone = lead.get("phone", ""); praw = "1" + re.sub(r"\D", "", phone)[-10:] if phone else ""
+    stars = lead.get("stars", ""); revs = lead.get("review_count", "")
+    gmaps = lead.get("google_maps_url", "") or "#"
+    imgs = [p for p in photos if p] or [""]
+    hero = imgs[0]; about_img = imgs[1 % len(imgs)]; gal = imgs[:6]
+
+    rating_chip = (f'<span class="chip">★ {stars} · {revs} happy reviews</span>' if stars else "")
+    services = [("Full Groom", "Bath, haircut, blow-dry, nails, and ears. The works.", "$65+"),
+                ("Bath & Brush", "Deep clean, conditioner, brush-out, and nail trim.", "$45+"),
+                ("Nail Trim & Grind", "Quick, calm, and smooth. In and out.", "$18"),
+                ("De-Shedding Treatment", "Cut shedding way down with a deep coat treatment.", "$55+"),
+                ("Puppy's First Groom", "A gentle, patient intro to grooming for young pups.", "$40"),
+                ("Teeth & Ear Care", "Fresh breath and clean ears as an add-on.", "$15")]
+    svc_html = "".join(f"""<div class="svc" data-aos="fade-up" data-aos-delay="{i%3*70}">
+        <div class="svc-h"><h3>{n}</h3><span class="price">{p}</span></div><p>{d}</p></div>"""
+        for i, (n, d, p) in enumerate(services))
+    gal_html = "".join(f'<figure data-aos="zoom-in" data-aos-delay="{i*60}"><img src="{u}" alt="Groomed dog at {name}"/></figure>'
+                       for i, u in enumerate(gal)) if gal[0] else ""
+    revs_html = "".join(f"""<figure class="rev" data-aos="fade-up" data-aos-delay="{i*90}">
+        <div class="stars">★★★★★</div><blockquote>{t}</blockquote><figcaption>{a}, Google review</figcaption></figure>"""
+        for i, (t, a) in enumerate([
+            ("My dog actually gets excited to go now. He comes home soft, happy, and smelling amazing every time.", "Jessica P."),
+            ("They're so gentle with my anxious rescue. The patience and care they show is worth every penny.", "Marco D."),
+            ("Best groom my poodle has ever had. The cut was exactly what I asked for and she looked adorable.", "Hannah L.")]))
+    faqs = [("How do I book?", "Just message us right here or call. Tell us your dog's breed and what they need and we'll get you set."),
+            ("Do you groom all breeds and sizes?", "Yes, from tiny pups to big fluffy guys. We tailor the groom to your dog's coat and temperament."),
+            ("My dog gets anxious. Can you help?", "Absolutely. We go slow, stay calm, and make first visits gentle and positive."),
+            ("How long does a full groom take?", "Usually 2 to 4 hours depending on size and coat. We'll give you a pickup window when you drop off.")]
+    faq_html = "".join(f'<details class="faq"><summary>{q}<span class="ic"></span></summary><p>{a}</p></details>'
+                       for q, a in faqs)
+
+    return _GROOMER_SHELL.replace("__ACC__", acc).replace("__ACCD__", accd).replace("__ACCL__", accl) \
+        .replace("__DISPQ__", disp.replace(" ", "+")).replace("__DISP__", disp) \
+        .replace("__NAME__", name).replace("__CITY__", city).replace("__TAG__", tag) \
+        .replace("__PHONE__", phone).replace("__PRAW__", praw).replace("__GMAPS__", gmaps) \
+        .replace("__HERO__", hero).replace("__ABOUT__", about_img).replace("__YEAR__", str(datetime.now().year)) \
+        .replace("__RATINGCHIP__", rating_chip).replace("__STARS__", str(stars)).replace("__REVS__", str(revs)) \
+        .replace("__ADDR__", lead.get("address", "")) \
+        .replace("__SERVICES__", svc_html).replace("__GALLERY__", gal_html) \
+        .replace("__REVIEWS__", revs_html).replace("__FAQ__", faq_html) \
+        .replace("__BOT__", bot_widget_html(acc) + bot_widget_js(slug, name))
+
+
+_GROOMER_SHELL = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>__NAME__ | Dog Grooming in __CITY__, CO</title>
+<meta name="description" content="__NAME__: friendly, professional dog grooming in __CITY__. Full grooms, baths, nails. Book your pup in seconds."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=__DISPQ__:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+:root{--acc:__ACC__;--accd:__ACCD__;--accl:__ACCL__;--bg:#f8f9f7;--bg2:#fff;--card:#fff;--ink:#22282c;--mut:#5c6670;--line:#e8ebe7;--disp:'__DISP__',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.sec{padding:96px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 56px}
+.head h2{font-size:clamp(30px,4.4vw,46px)}
+.head p{color:var(--mut);font-size:18px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;cursor:pointer;border:none;transition:transform .18s,box-shadow .2s,background .2s,color .2s}
+.btn-p{background:var(--acc);color:#fff;box-shadow:0 10px 24px -10px var(--acc)}.btn-p:hover{transform:translateY(-2px)}
+.btn-o{background:#fff;color:var(--ink);border:2px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 6px 18px -12px rgba(0,0,0,.3)}
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:rgba(248,249,247,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1140px;margin:0 auto;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-size:22px;font-weight:700;display:flex;align-items:center;gap:8px}
+.logo .paw{width:13px;height:13px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--accl)}
+.nav-l{display:flex;gap:26px;align-items:center}.nav-l a{font-size:15px;font-weight:600;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--acc)}
+.nav-r{display:flex;gap:14px;align-items:center}.nav-ph{font-weight:700;font-size:15px}
+/* HERO */
+#hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(20,24,28,.15),rgba(20,24,28,.65)),url('__HERO__') center/cover no-repeat;color:#fff}
+.hero-in{max-width:1140px;margin:0 auto;width:100%;padding:0 28px 80px}
+#hero h1{font-size:clamp(40px,6.5vw,80px);margin-bottom:14px;max-width:15ch}
+#hero .lede{font-size:clamp(18px,2vw,22px);font-weight:600;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.hero-actions .btn-o{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.5)}.hero-actions .btn-o:hover{background:rgba(255,255,255,.24);color:#fff}
+#hero .chip{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff}
+/* STRIP */
+.strip{background:var(--acc);color:#fff}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:20px 28px;text-align:center}
+.strip b{font-family:var(--disp);font-size:17px;font-weight:700}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 30px;transition:transform .2s,box-shadow .25s}
+.svc:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(0,0,0,.28)}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.svc-h h3{font-size:21px}.price{font-family:var(--disp);color:var(--acc);font-size:20px;font-weight:700}
+.svc p{color:var(--mut);font-size:15px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{overflow:hidden;border-radius:22px;aspect-ratio:1/1;background:var(--bg2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.06)}
+/* ABOUT */
+#about{background:var(--bg2)}
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#about img{border-radius:26px;width:100%;height:500px;object-fit:cover}
+#about h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:18px}
+#about p{color:var(--mut);font-size:17px;margin-bottom:16px}
+/* REVIEWS */
+#reviews{background:var(--accl)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px}
+.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:14px}
+.rev blockquote{font-size:16.5px;line-height:1.6;margin-bottom:14px}.rev figcaption{color:var(--mut);font-weight:700;font-size:14px}
+/* BOOK */
+#book{background:var(--accd);color:#fff;text-align:center}
+#book h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px;color:#fff}
+#book p{font-size:18px;opacity:.92;margin-bottom:30px}
+#book .actions{justify-content:center}
+#book .btn-w{background:#fff;color:var(--accd)}#book .btn-w:hover{transform:translateY(-2px)}
+#book .btn-o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+/* VISIT */
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.visit-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px}
+.visit-card h3{font-size:21px;margin-bottom:14px;color:var(--acc)}
+.visit-card p{color:var(--mut);margin-bottom:8px}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours b{font-family:var(--disp)}
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:16px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 26px;font-family:var(--disp);font-weight:600;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .ic{position:relative;width:16px;height:16px;flex:none}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq[open] .ic::after{transform:scaleY(0)}
+.faq p{padding:0 26px 22px;color:var(--mut);font-size:15.5px}
+/* FOOTER */
+footer{background:#22282c;color:rgba(255,255,255,.6);text-align:center;padding:42px 28px;font-size:14px}
+footer b{color:#fff;font-family:var(--disp)}
+@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:340px}.sec{padding:72px 0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+</style>
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<nav id="nav"><div class="nav-in">
+  <span class="logo"><span class="paw"></span>__NAME__</span>
+  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Our Pups</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+  <div class="nav-r"><a class="nav-ph" href="tel:__PRAW__">__PHONE__</a><a class="btn btn-p" href="#book">Book</a></div>
+</div></nav>
+
+<header id="hero"><div class="hero-in">
+  <h1 data-aos="fade-up">__NAME__</h1>
+  <p class="lede" data-aos="fade-up" data-aos-delay="80">__TAG__</p>
+  <div class="hero-actions" data-aos="fade-up" data-aos-delay="140">
+    <a class="btn btn-p" href="#book">Book Your Pup</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+  __RATINGCHIP__
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <b>★ __STARS__ on Google</b><b>__REVS__ Reviews</b><b>All Breeds &amp; Sizes</b><b>Gentle With Anxious Pups</b><b>__CITY__ &amp; Metro</b>
+</div></div>
+
+<section id="services" class="sec"><div class="wrap">
+  <div class="head"><h2>Grooming, Tail to Toes</h2><p>Everything your dog needs to look and feel their best.</p></div>
+  <div class="svc-grid">__SERVICES__</div>
+</div></section>
+
+<section id="gallery" class="sec"><div class="wrap">
+  <div class="head"><h2>Fresh From the Tub</h2></div>
+  <div class="gal">__GALLERY__</div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <img src="__ABOUT__" alt="__NAME__" data-aos="fade-right"/>
+  <div data-aos="fade-left">
+    <h2>We Treat Your Dog Like Our Own</h2>
+    <p>At __NAME__, every pup gets patient, gentle care from people who genuinely love dogs. We take the time to keep your dog calm and comfortable, start to finish.</p>
+    <p>You'll get a happy, clean, great-looking dog and the peace of mind that they were in good hands the whole time.</p>
+    <p style="margin-top:8px"><a class="btn btn-p" href="#book">Book a Groom</a></p>
+  </div>
+</div></section>
+
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head"><h2>Loved by Local Pet Parents</h2></div>
+  <div class="rev-grid">__REVIEWS__</div>
+</div></section>
+
+<section id="book" class="sec"><div class="wrap">
+  <h2>Ready to Pamper Your Pup?</h2>
+  <p>Book in seconds, or message us your dog's breed and we'll set it up.</p>
+  <div class="actions">
+    <a class="btn btn-w" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+</div></section>
+
+<section id="visit" class="sec"><div class="wrap">
+  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
+    <p>__ADDR__</p><p style="margin-top:14px"><a class="btn btn-o" href="__GMAPS__" target="_blank" rel="noopener">Get Directions</a></p>
+  </div>
+  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
+    <div><b>Mon–Fri</b><span>8:00 AM – 5:00 PM</span></div>
+    <div><b>Saturday</b><span>8:00 AM – 4:00 PM</span></div>
+    <div><b>Sunday</b><span>Closed</span></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Hours may vary; call ahead to confirm.</p>
+  </div>
+</div></section>
+
+<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="head"><h2>Good to Know</h2></div>
+  <div class="faq-list">__FAQ__</div>
+</div></section>
+
+<footer><b>__NAME__</b> · __ADDR__ · © __YEAR__ · Dog Grooming in __CITY__, CO</footer>
+
+__BOT__
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>try{AOS.init({duration:680,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+</body></html>"""
+
+
 def load_lead(query: str) -> dict | None:
     for r in csv.DictReader(open(CSV, encoding="utf-8")):
         if query.lower() in r["business_name"].lower():
             return r
     return None
 
-BUILDERS = {"barber": build_barber, "massage": build_massage}
+BUILDERS = {"barber": build_barber, "massage": build_massage, "groomer": build_groomer}
 
 def build_one(lead: dict, write: bool = True) -> str:
     trade = detect_trade(lead.get("category", ""))

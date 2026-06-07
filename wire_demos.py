@@ -54,6 +54,24 @@ TRADE_INFO = {
     "why": ["Licensed, experienced therapists", "Every session tailored to you", "Calm, clean, restorative space"],
     "pricing_note": "Sessions from $90 (60 min). See the full menu for modalities and pricing.",
   },
+  "groomer": {
+    "category": "Dog Grooming",
+    "hours": "Mon–Fri 8am–5pm, Sat 8am–4pm, Sun closed; by appointment",
+    "services": [
+        {"name": "Full Groom", "desc": "Bath, haircut, blow-dry, nails, ears. From $65."},
+        {"name": "Bath & Brush", "desc": "Deep clean, conditioner, brush-out, nail trim. From $45."},
+        {"name": "Nail Trim & Grind", "desc": "Quick, calm nail trim and grind. $18."},
+        {"name": "De-Shedding Treatment", "desc": "Deep coat treatment to reduce shedding. From $55."},
+        {"name": "Puppy's First Groom", "desc": "Gentle intro to grooming for young pups. $40."},
+        {"name": "Teeth & Ear Care", "desc": "Fresh breath and clean ears add-on. $15."}],
+    "faq": [
+        {"q": "Do you groom all breeds and sizes?", "a": "Yes, from tiny pups to big fluffy dogs. We tailor the groom to coat and temperament."},
+        {"q": "My dog is anxious, can you help?", "a": "Absolutely. We go slow and keep first visits gentle and positive."},
+        {"q": "How long does a full groom take?", "a": "Usually 2 to 4 hours depending on size and coat."},
+        {"q": "How do I book?", "a": "Tell me your dog's breed, the service you need, your name and phone, and a preferred day and time."}],
+    "why": ["Gentle, patient with every dog", "All breeds and sizes", "Clean, caring, professional"],
+    "pricing_note": "Full grooms from $65, baths from $45, nail trims $18. Final price depends on size and coat.",
+  },
 }
 
 def wire(name: str):

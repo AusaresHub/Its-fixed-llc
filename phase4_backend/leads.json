@@ -318,5 +318,125 @@
     "owner_phone": "",
     "owner_email": "",
     "airtable_base": ""
+  },
+  "auntie-jen-s-pet-grooming": {
+    "assistant_id": "asst_eKUB8UEVnGzLjT7w6lP7i082",
+    "vector_store_id": "vs_6a24f2e23610819185a57e536591bde2",
+    "biz": "Auntie Jen's Pet Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "dream-team-pet-grooming-llc": {
+    "assistant_id": "asst_el7CIE5HsDilB8GmnEotcXlS",
+    "vector_store_id": "vs_6a24f3780058819182795a08b725ff60",
+    "biz": "Dream Team Pet Grooming LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "super-pups": {
+    "assistant_id": "asst_tBJp3pD6D8JCVTAmQ43j1qVI",
+    "vector_store_id": "vs_6a24f38137e48191b0d25d7b3b09aed6",
+    "biz": "Super Pups",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "wesco-grooming": {
+    "assistant_id": "asst_M6D9CPjoGH2o6dvBYRvrxWCZ",
+    "vector_store_id": "vs_6a24f38bb00481919f388798a9296c74",
+    "biz": "Wesco Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mod-pawz-a-modern-pet-salon": {
+    "assistant_id": "asst_3IRZVUPFfA9KvDhL3AUWjip8",
+    "vector_store_id": "vs_6a24f39730848191aa01ede51b3f5355",
+    "biz": "Mod Pawz: A Modern Pet Salon",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "shaggy-d-grooming": {
+    "assistant_id": "asst_0esSiMINhU9ezbV05J38EGGu",
+    "vector_store_id": "vs_6a24f3a050a48191aed9aa8b934eaab6",
+    "biz": "Shaggy D Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mile-high-grooming": {
+    "assistant_id": "asst_w5k4izZjvpcv0u8cmBHKlBcd",
+    "vector_store_id": "vs_6a24f3a8895c819181f104a80a522eb8",
+    "biz": "Mile High Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "perro-amor-grooming-service": {
+    "assistant_id": "asst_dJWiFptlzYkn2ji75WsM4SsE",
+    "vector_store_id": "vs_6a24f3b189ec819195f1afd931cb1d95",
+    "biz": "Perro Amor Grooming Service",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "hair-of-the-dog-pet-grooming": {
+    "assistant_id": "asst_io3L9tR6Lq49yxhLVICVWO6h",
+    "vector_store_id": "vs_6a24f3bad4fc8191bd33b85850bc4552",
+    "biz": "Hair Of The Dog Pet Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "special-friends-veterinary-clinic-grooming": {
+    "assistant_id": "asst_yS9wshJNW65A3jIrNW6e1f8M",
+    "vector_store_id": "vs_6a24f3c3e388819184cf957fab0f6b1d",
+    "biz": "Special Friends Veterinary Clinic & Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "pawash-pet-spa-llc": {
+    "assistant_id": "asst_JHaW0jOGNGLzDTJUz7CLQ4Wk",
+    "vector_store_id": "vs_6a24f3cbc3dc8191941ada11b740024e",
+    "biz": "PaWash Pet Spa LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "petology-groomery": {
+    "assistant_id": "asst_aN2dBiWQ9aQ3uNXNskZvTRSH",
+    "vector_store_id": "vs_6a24f3d4cf408191a6deba36b932d834",
+    "biz": "Petology Groomery",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "sit-and-stay-grooming": {
+    "assistant_id": "asst_uWtM4bMFzRPUEWSDtV2V8u42",
+    "vector_store_id": "vs_6a24f3dcc6908191a4ebb6508ccff81d",
+    "biz": "Sit and Stay Grooming",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "grooming-by-jen": {
+    "assistant_id": "asst_GUmjznBUDk1vvB85kD2jgYgb",
+    "vector_store_id": "vs_6a24f3e5a264819187d3e39c1e4027d6",
+    "biz": "Grooming by Jen",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "fetching-fido": {
+    "assistant_id": "asst_cYAnM9FRnNMj3JKvuIzYrY8p",
+    "vector_store_id": "vs_6a24f3ed91ac81919ca3a69890f566c3",
+    "biz": "Fetching Fido",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
   }
 }
