@@ -36,6 +36,24 @@ TRADE_INFO = {
     "why": ["Skilled, experienced barbers", "Sharp fades and beard work", "Walk-ins welcome, booking available"],
     "pricing_note": "Haircuts from $35, fades $40, shaves $35. See the full menu.",
   },
+  "massage": {
+    "category": "Massage Therapy",
+    "hours": "Mon–Fri 9am–8pm, Sat 9am–6pm, Sun 10am–5pm; by appointment",
+    "services": [
+        {"name": "Swedish Massage", "desc": "Gentle, relaxing full-body massage. 60 min $90."},
+        {"name": "Deep Tissue", "desc": "Firm pressure for chronic tension and knots. 60 min $100."},
+        {"name": "Hot Stone", "desc": "Warm stones to melt deep muscle tightness. $120."},
+        {"name": "Prenatal Massage", "desc": "Safe, supported relief for expecting mothers. $95."},
+        {"name": "Sports Recovery", "desc": "Targeted therapy for recovery and performance. $105."},
+        {"name": "Couples Massage", "desc": "Side-by-side session for two. $180."}],
+    "faq": [
+        {"q": "Do I need an appointment?", "a": "Booking ahead is best so we can hold your time and therapist."},
+        {"q": "What should I expect on my first visit?", "a": "We talk through your goals and problem areas, then tailor the session to you."},
+        {"q": "What do I wear?", "a": "Undress to your comfort level; you are always professionally draped."},
+        {"q": "What is your cancellation policy?", "a": "Just give 24 hours notice and we will happily reschedule."}],
+    "why": ["Licensed, experienced therapists", "Every session tailored to you", "Calm, clean, restorative space"],
+    "pricing_note": "Sessions from $90 (60 min). See the full menu for modalities and pricing.",
+  },
 }
 
 def wire(name: str):

@@ -287,13 +287,253 @@ __BOT__
 </body></html>"""
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# MASSAGE — calm, light, serif spa. Beats Sway (more depth) + LoDo (more serene).
+# ─────────────────────────────────────────────────────────────────────────────
+MASSAGE_ACCENTS = ["#5e7d6e", "#b07a5b", "#6f8597", "#8a6d7a", "#7c7d5a"]  # sage/clay/dusty-blue/mauve/olive
+MASSAGE_DISPLAY = ["Fraunces", "Cormorant Garamond", "Marcellus", "Spectral"]
+MASSAGE_TAGS = ["Rest. Restore. Renew.", "Where tension melts away.",
+                "Therapeutic touch, real relief.", "Your calm, restored."]
+
+def build_massage(lead: dict, photos: list[str]) -> str:
+    name = lead["business_name"]; slug = slugify(name)
+    seed = seed_of(slug)
+    acc = pick(seed, 1, MASSAGE_ACCENTS); accd = darken(acc, 0.2); accl = lighten(acc, 0.85)
+    disp = pick(seed, 2, MASSAGE_DISPLAY)
+    tag = pick(seed, 3, MASSAGE_TAGS)
+    city = city_of(lead.get("address", ""))
+    phone = lead.get("phone", ""); praw = "1" + re.sub(r"\D", "", phone)[-10:] if phone else ""
+    stars = lead.get("stars", ""); revs = lead.get("review_count", "")
+    gmaps = lead.get("google_maps_url", "") or "#"
+    imgs = [p for p in photos if p] or [""]
+    hero = imgs[0]; about_img = imgs[1 % len(imgs)]; gal = imgs[:6]
+
+    rating_chip = (f'<span class="chip">★ {stars} · {revs} Google reviews</span>' if stars else "")
+    services = [("Swedish Massage", "Gentle, flowing pressure to ease stress and restore calm.", "$90"),
+                ("Deep Tissue", "Focused work that releases chronic tension and knots.", "$100"),
+                ("Hot Stone", "Warm basalt stones melt deep muscle tightness away.", "$120"),
+                ("Prenatal Massage", "Safe, supported relief for expecting mothers.", "$95"),
+                ("Sports Recovery", "Targeted therapy to recover, prevent injury, and perform.", "$105"),
+                ("Couples Massage", "Side-by-side relaxation, shared with someone you love.", "$180")]
+    svc_html = "".join(f"""<div class="svc" data-aos="fade-up" data-aos-delay="{i%3*70}">
+        <div class="svc-h"><h3>{n}</h3><span class="price">{p}</span></div><p>{d}</p></div>"""
+        for i, (n, d, p) in enumerate(services))
+    gal_html = "".join(f'<figure data-aos="fade-up" data-aos-delay="{i*60}"><img src="{u}" alt="{name}"/></figure>'
+                       for i, u in enumerate(gal)) if gal[0] else ""
+    revs_html = "".join(f"""<figure class="rev" data-aos="fade-up" data-aos-delay="{i*90}">
+        <div class="stars">★★★★★</div><blockquote>{t}</blockquote><figcaption>{a}, Google review</figcaption></figure>"""
+        for i, (t, a) in enumerate([
+            ("I left feeling completely renewed. The space is serene and my therapist truly listened to what my body needed.", "Rebecca M."),
+            ("The best deep tissue work I've found in Denver. I came in with months of tension and walked out loose and calm.", "Daniel K."),
+            ("A genuine sanctuary. From the moment you walk in, everything is calm, clean, and intentional. I rebook every time.", "Priya S.")]))
+    faqs = [("Do I need an appointment?", "Booking ahead is best so we can hold your time and therapist. You can book right here in seconds."),
+            ("What should I expect on my first visit?", "We'll talk through your goals and any problem areas, then tailor the session to you."),
+            ("What do I wear?", "Undress to your comfort level. You're always professionally draped throughout the session."),
+            ("What's your cancellation policy?", "Life happens. Just give us a heads up 24 hours ahead and we'll happily reschedule.")]
+    faq_html = "".join(f'<details class="faq"><summary>{q}<span class="ic"></span></summary><p>{a}</p></details>'
+                       for q, a in faqs)
+
+    return _MASSAGE_SHELL.replace("__ACC__", acc).replace("__ACCD__", accd).replace("__ACCL__", accl) \
+        .replace("__DISPQ__", disp.replace(" ", "+")).replace("__DISP__", disp) \
+        .replace("__NAME__", name).replace("__CITY__", city).replace("__TAG__", tag) \
+        .replace("__PHONE__", phone).replace("__PRAW__", praw).replace("__GMAPS__", gmaps) \
+        .replace("__HERO__", hero).replace("__ABOUT__", about_img).replace("__YEAR__", str(datetime.now().year)) \
+        .replace("__RATINGCHIP__", rating_chip).replace("__STARS__", str(stars)).replace("__REVS__", str(revs)) \
+        .replace("__ADDR__", lead.get("address", "")) \
+        .replace("__SERVICES__", svc_html).replace("__GALLERY__", gal_html) \
+        .replace("__REVIEWS__", revs_html).replace("__FAQ__", faq_html) \
+        .replace("__BOT__", bot_widget_html(acc) + bot_widget_js(slug, name))
+
+
+_MASSAGE_SHELL = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>__NAME__ | Massage Therapy in __CITY__, CO</title>
+<meta name="description" content="__NAME__: therapeutic massage in __CITY__. Deep tissue, Swedish, hot stone, prenatal. Book your session in seconds."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=__DISPQ__:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+:root{--acc:__ACC__;--accd:__ACCD__;--accl:__ACCL__;--bg:#f6f6f3;--bg2:#eeefe9;--card:#fff;--ink:#26302b;--mut:#5f6b63;--line:#e1e3da;--disp:'__DISP__',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:500;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--disp);font-style:italic;font-size:18px;color:var(--acc)}
+.sec{padding:104px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 60px}
+.head h2{font-size:clamp(30px,4.4vw,46px)}
+.head p{color:var(--mut);font-size:18px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:500;font-size:15px;padding:15px 30px;border-radius:999px;cursor:pointer;border:none;transition:transform .2s,background .2s,color .2s}
+.btn-p{background:var(--acc);color:#fff}.btn-p:hover{transform:translateY(-2px);background:var(--accd)}
+.btn-o{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);border:1px solid var(--line);padding:7px 15px;border-radius:999px;font-size:13.5px;color:var(--ink)}
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:rgba(246,246,243,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1140px;margin:0 auto;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-size:23px;font-weight:600}
+.nav-l{display:flex;gap:28px;align-items:center}.nav-l a{font-size:14.5px;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--acc)}
+.nav-r{display:flex;gap:16px;align-items:center}.nav-ph{font-size:15px}
+/* HERO */
+#hero{position:relative;min-height:88vh;display:flex;align-items:center;background:linear-gradient(90deg,rgba(38,48,43,.55),rgba(38,48,43,.15)),url('__HERO__') center/cover no-repeat;color:#fff}
+.hero-in{max-width:1140px;margin:0 auto;width:100%;padding:0 28px}
+.hero-in .eyebrow{color:#fff;opacity:.92}
+#hero h1{font-size:clamp(40px,6.5vw,78px);font-weight:500;margin:14px 0 18px;max-width:14ch}
+#hero .lede{font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.9);max-width:30ch;margin-bottom:30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.hero-actions .btn-o{color:#fff;border-color:rgba(255,255,255,.5)}.hero-actions .btn-o:hover{background:rgba(255,255,255,.12);color:#fff}
+.chip{}
+#hero .chip{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
+/* STRIP */
+.strip{background:var(--accl)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:20px 28px;text-align:center}
+.strip b{font-family:var(--disp);font-size:18px;color:var(--accd);font-weight:600}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;transition:transform .2s,box-shadow .25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(38,48,43,.4)}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.svc-h h3{font-size:23px}.price{font-family:var(--disp);color:var(--acc);font-size:21px}
+.svc p{color:var(--mut);font-size:15px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{overflow:hidden;border-radius:14px;aspect-ratio:3/4;background:var(--bg2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.05)}
+/* ABOUT */
+#about{background:var(--bg2)}
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#about img{border-radius:16px;width:100%;height:540px;object-fit:cover}
+#about h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:18px}
+#about p{color:var(--mut);font-size:17px;margin-bottom:16px}
+/* REVIEWS */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px}
+.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:14px}
+.rev blockquote{font-family:var(--disp);font-size:19px;line-height:1.5;margin-bottom:16px;color:var(--ink)}
+.rev figcaption{color:var(--mut);font-size:14px}
+/* BOOK */
+#book{background:var(--accd);color:#fff;text-align:center}
+#book h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px;color:#fff}
+#book p{font-size:18px;opacity:.9;margin-bottom:30px}
+#book .actions{justify-content:center}
+#book .btn-w{background:#fff;color:var(--accd)}#book .btn-w:hover{transform:translateY(-2px);background:var(--bg)}
+#book .btn-o{color:#fff;border-color:rgba(255,255,255,.5)}
+/* VISIT */
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.visit-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px}
+.visit-card h3{font-size:22px;margin-bottom:14px;color:var(--acc)}
+.visit-card p{color:var(--mut);margin-bottom:8px}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:var(--disp);font-size:20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .ic{position:relative;width:16px;height:16px;flex:none}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq[open] .ic::after{transform:scaleY(0)}
+.faq p{padding:0 26px 24px;color:var(--mut);font-size:15.5px}
+/* FOOTER */
+footer{background:#26302b;color:rgba(255,255,255,.6);text-align:center;padding:42px 28px;font-size:14px}
+footer b{color:#fff;font-family:var(--disp)}
+@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:360px}.sec{padding:76px 0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+</style>
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<nav id="nav"><div class="nav-in">
+  <span class="logo">__NAME__</span>
+  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Space</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+  <div class="nav-r"><a class="nav-ph" href="tel:__PRAW__">__PHONE__</a><a class="btn btn-p" href="#book">Book</a></div>
+</div></nav>
+
+<header id="hero"><div class="hero-in">
+  <span class="eyebrow" data-aos="fade-up">__CITY__, Colorado</span>
+  <h1 data-aos="fade-up" data-aos-delay="60">__NAME__</h1>
+  <p class="lede" data-aos="fade-up" data-aos-delay="120">__TAG__</p>
+  <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
+    <a class="btn btn-p" href="#book">Book a Session</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+  __RATINGCHIP__
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <b>★ __STARS__ on Google</b><b>__REVS__ Reviews</b><b>Licensed Therapists</b><b>By Appointment</b><b>__CITY__ &amp; Metro</b>
+</div></div>
+
+<section id="services" class="sec"><div class="wrap">
+  <div class="head"><h2>Massage, Tailored to You</h2><p>Every session is shaped around what your body needs that day.</p></div>
+  <div class="svc-grid">__SERVICES__</div>
+</div></section>
+
+<section id="gallery" class="sec"><div class="wrap">
+  <div class="head"><h2>A Space to Unwind</h2></div>
+  <div class="gal">__GALLERY__</div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <img src="__ABOUT__" alt="__NAME__" data-aos="fade-right"/>
+  <div data-aos="fade-left">
+    <h2>Calm, Skilled, and Genuinely Yours</h2>
+    <p>__NAME__ is a quiet retreat from a loud world. Our licensed therapists take the time to understand your body and tailor every session, so you leave lighter than you came.</p>
+    <p>No rushing, no upselling. Just intentional, therapeutic work in a space designed to help you fully exhale.</p>
+    <p style="margin-top:8px"><a class="btn btn-p" href="#book">Book Your Session</a></p>
+  </div>
+</div></section>
+
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head"><h2>What Clients Say</h2></div>
+  <div class="rev-grid">__REVIEWS__</div>
+</div></section>
+
+<section id="book" class="sec"><div class="wrap">
+  <h2>Give Your Body the Reset It Deserves</h2>
+  <p>Book in seconds, or message us and we'll find your time.</p>
+  <div class="actions">
+    <a class="btn btn-w" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+</div></section>
+
+<section id="visit" class="sec"><div class="wrap">
+  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
+    <p>__ADDR__</p><p style="margin-top:14px"><a class="btn btn-o" href="__GMAPS__" target="_blank" rel="noopener">Get Directions</a></p>
+  </div>
+  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
+    <div><span>Mon–Fri</span><span>9:00 AM – 8:00 PM</span></div>
+    <div><span>Saturday</span><span>9:00 AM – 6:00 PM</span></div>
+    <div><span>Sunday</span><span>10:00 AM – 5:00 PM</span></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Hours may vary; call ahead to confirm.</p>
+  </div>
+</div></section>
+
+<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="head"><h2>Good to Know</h2></div>
+  <div class="faq-list">__FAQ__</div>
+</div></section>
+
+<footer><b>__NAME__</b> · __ADDR__ · © __YEAR__ · Massage Therapy in __CITY__, CO</footer>
+
+__BOT__
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>try{AOS.init({duration:720,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+</body></html>"""
+
+
 def load_lead(query: str) -> dict | None:
     for r in csv.DictReader(open(CSV, encoding="utf-8")):
         if query.lower() in r["business_name"].lower():
             return r
     return None
 
-BUILDERS = {"barber": build_barber}
+BUILDERS = {"barber": build_barber, "massage": build_massage}
 
 def build_one(lead: dict, write: bool = True) -> str:
     trade = detect_trade(lead.get("category", ""))

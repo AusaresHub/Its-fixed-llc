@@ -182,5 +182,141 @@
     "owner_phone": "",
     "owner_email": "",
     "airtable_base": ""
+  },
+  "bee-kneaded-massage": {
+    "assistant_id": "asst_ib4wt7ZrdOfaiaJbrEwVwb0I",
+    "vector_store_id": "vs_6a24efa617f48191a6ba2246dc185913",
+    "biz": "Bee Kneaded Massage",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "soaring-heart-massage-therapy": {
+    "assistant_id": "asst_YNx81nNP3LjEVfgAxiQHjaRY",
+    "vector_store_id": "vs_6a24efafbc0c8191acd3e652f86c52fd",
+    "biz": "Soaring Heart Massage Therapy",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "k2-s-massage-bodywork-studio": {
+    "assistant_id": "asst_6awHL7NhAvDzNuUgVbiA0Eej",
+    "vector_store_id": "vs_6a24efb8cbb88191ad9f545e729aaa0e",
+    "biz": "K2's Massage & Bodywork Studio",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "aob-chinese-massage": {
+    "assistant_id": "asst_toETFUHzQt1brjOwLYPgivTD",
+    "vector_store_id": "vs_6a24efc23d3481919fe0649ff5ee55a7",
+    "biz": "AOB Chinese Massage",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "true-bliss-massage-reiki": {
+    "assistant_id": "asst_ftqPHG1JU94bZPafgaUKciZV",
+    "vector_store_id": "vs_6a24efcb97ec8191a9fb8814bb2d2076",
+    "biz": "True Bliss Massage & Reiki",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "bodyworks-massage-and-wellness-center": {
+    "assistant_id": "asst_62923YcFomneMt0SasBpNJli",
+    "vector_store_id": "vs_6a24efd35df08191a9945b75b3fb34e2",
+    "biz": "BodyWorks Massage and Wellness Center",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "head-to-toe-massage-spa": {
+    "assistant_id": "asst_snxkf1ijnIzJyw0szORbRepU",
+    "vector_store_id": "vs_6a24efddb4bc819183b9de489d9abed8",
+    "biz": "Head to Toe Massage & Spa",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "your-best-massage": {
+    "assistant_id": "asst_iyStuB00MsqXskAM8z5kkJJp",
+    "vector_store_id": "vs_6a24efe4f62481918beea77d1c32e284",
+    "biz": "Your Best Massage",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "releaf-massage-and-wellness-cannabis-mobile-massage": {
+    "assistant_id": "asst_QimdD1NxNDP6ufNXHGqpg0Z4",
+    "vector_store_id": "vs_6a24efecdf5881919a6ef4bd4ac1a859",
+    "biz": "Releaf Massage and Wellness Cannabis mobile massage",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "sol-state-massage-and-integrative-bodywork": {
+    "assistant_id": "asst_y6FsfK324g0jr8OlnDdvIdLr",
+    "vector_store_id": "vs_6a24eff641308191ada9190fad2a6e60",
+    "biz": "Sol State Massage and Integrative Bodywork",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "somnium-therapeutics-massage-and-bodywork": {
+    "assistant_id": "asst_gLwkutSHw4rkXbnXO4Tf1dD3",
+    "vector_store_id": "vs_6a24effe11e88191882c009b8cd8b8ca",
+    "biz": "Somnium Therapeutics - Massage and Bodywork",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "holistic-wellness-spa": {
+    "assistant_id": "asst_iUWfKQ0nmn3LTzScPyBLKD2R",
+    "vector_store_id": "vs_6a24f007127c819184ac9a729f201767",
+    "biz": "Holistic Wellness Spa",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "a-touch-of-peace-massage-therapy-bodywork": {
+    "assistant_id": "asst_U56WOHzK5nGA0DYC9RILmAsy",
+    "vector_store_id": "vs_6a24f01008448191b3665283562f8afc",
+    "biz": "A Touch of Peace: Massage Therapy & Bodywork",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "ilaria-spa-therapies-massage-therapy-emily-sanders-lmt": {
+    "assistant_id": "asst_YmP5t6v0ZTdnY3DGzb1YZ5Un",
+    "vector_store_id": "vs_6a24f019434c8191a519b57a735cd3b6",
+    "biz": "Ilaria Spa Therapies Massage Therapy - Emily Sanders LMT",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mike-pomerantz-lmt": {
+    "assistant_id": "asst_NhepvXYysjZf5DFiX9cxOCKq",
+    "vector_store_id": "vs_6a24f02158d88191a66f9b8dc19ee1bc",
+    "biz": "Mike Pomerantz LMT",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "iron-hands-massage-therapy": {
+    "assistant_id": "asst_UPQidIbmhdRSJNhCBHh8OHCv",
+    "vector_store_id": "vs_6a24f02944e48191a653dffc6b9d7c00",
+    "biz": "Iron Hands Massage Therapy",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "pride-massage-therapy": {
+    "assistant_id": "asst_WTbdZ4GCxE51Uczn8XAU237A",
+    "vector_store_id": "vs_6a24f0317b848191a389feec75cec1ba",
+    "biz": "Pride Massage Therapy",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
   }
 }
