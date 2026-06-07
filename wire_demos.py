@@ -72,6 +72,57 @@ TRADE_INFO = {
     "why": ["Gentle, patient with every dog", "All breeds and sizes", "Clean, caring, professional"],
     "pricing_note": "Full grooms from $65, baths from $45, nail trims $18. Final price depends on size and coat.",
   },
+  "nail": {
+    "category": "Nail Salon",
+    "hours": "Mon–Fri 9:30am–7pm, Sat 9am–6pm, Sun 11am–5pm; appointments preferred",
+    "services": [
+        {"name": "Gel Manicure", "desc": "Long-lasting, high-shine gel. $45."},
+        {"name": "Spa Pedicure", "desc": "Soak, scrub, massage, polish. $55."},
+        {"name": "Dip Powder Set", "desc": "Durable color that lasts weeks. $50."},
+        {"name": "Acrylic Full Set", "desc": "Custom length and shape. $60."},
+        {"name": "Nail Art & Design", "desc": "Accents to full custom artwork. From $15."},
+        {"name": "Classic Manicure", "desc": "Shape, cuticle care, polish. $30."}],
+    "faq": [
+        {"q": "Do you take walk-ins or appointments?", "a": "Both, but booking ahead means no wait and your favorite tech."},
+        {"q": "How long does gel or dip last?", "a": "Typically two to three weeks with no chips."},
+        {"q": "Do you do custom nail art?", "a": "Yes, from simple accents to full custom designs."},
+        {"q": "How do I book?", "a": "Tell me the service you want, your name and phone, and a preferred day and time."}],
+    "why": ["Spotless, sanitized tools", "Skilled, detail-focused techs", "Relaxing, clean space"],
+    "pricing_note": "Manicures from $30, gel $45, pedicures $55, acrylic sets $60. Nail art from $15.",
+  },
+  "detailing": {
+    "category": "Auto Detailing",
+    "hours": "Mon–Fri 8am–6pm, Sat 8am–4pm, Sun by appointment; mobile available",
+    "services": [
+        {"name": "Full Detail", "desc": "Interior and exterior, complete. From $199."},
+        {"name": "Interior Detail", "desc": "Deep clean, shampoo, condition. From $120."},
+        {"name": "Exterior Wash & Wax", "desc": "Hand wash, clay bar, wax. From $90."},
+        {"name": "Ceramic Coating", "desc": "Long-term gloss and protection. From $499."},
+        {"name": "Headlight Restoration", "desc": "Clear, factory-bright headlights. $70."},
+        {"name": "Engine Bay Cleaning", "desc": "Clean, dressed engine bay. $60."}],
+    "faq": [
+        {"q": "Do you offer mobile service?", "a": "Many details can be done at your home or office. Just ask when you book."},
+        {"q": "How long does a full detail take?", "a": "Most run 3 to 5 hours depending on size and condition."},
+        {"q": "How is pricing decided?", "a": "By vehicle size and condition; we confirm an exact quote before starting."},
+        {"q": "How do I book?", "a": "Tell me your vehicle, the service you want, your name and phone, and a preferred time."}],
+    "why": ["Meticulous, no corners cut", "Mobile options available", "Professional, on time"],
+    "pricing_note": "Full details from $199, interior from $120, exterior from $90, ceramic from $499.",
+  },
+  "homeservice": {
+    "category": "Home Services",
+    "hours": "Mon–Fri 7am–6pm, Sat 8am–4pm; emergency service may be available",
+    "services": [
+        {"name": "Free Estimate", "desc": "On-site or phone estimate at no cost."},
+        {"name": "Scheduled Service", "desc": "Standard service call at your convenience."},
+        {"name": "Inspection / Diagnosis", "desc": "Assess the job and quote up front."}],
+    "faq": [
+        {"q": "Do you offer free estimates?", "a": "Yes. Tell me about the job and a good time to come out and I'll get you on the schedule."},
+        {"q": "What areas do you serve?", "a": "The greater Denver metro and surrounding Colorado communities."},
+        {"q": "Are you licensed and insured?", "a": "Yes, fully insured so you're covered."},
+        {"q": "How soon can you come out?", "a": "Often within a few days. Share your name, phone, and the service you need to get scheduled."}],
+    "why": ["Local and reliable", "Free, honest estimates", "Licensed and insured"],
+    "pricing_note": "Free estimates. Final pricing depends on the job; we quote up front before any work.",
+  },
 }
 
 def wire(name: str):

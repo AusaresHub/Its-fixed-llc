@@ -765,13 +765,769 @@ __BOT__
 </body></html>"""
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# NAIL / SALON — chic, editorial, refined. Light, elegant, fashion-forward.
+# ─────────────────────────────────────────────────────────────────────────────
+NAIL_ACCENTS = ["#9c6b7c", "#6e4a63", "#b07f6b", "#8a9a7b", "#a8607a"]  # mauve/plum/rose-clay/sage/berry
+NAIL_DISPLAY = ["Playfair Display", "Cormorant Garamond", "DM Serif Display", "Syne"]
+NAIL_TAGS = ["Nails worth showing off.", "Where the details matter.",
+             "Polished, every single time.", "Your best set yet."]
+
+def build_nail(lead: dict, photos: list[str]) -> str:
+    name = lead["business_name"]; slug = slugify(name)
+    seed = seed_of(slug)
+    acc = pick(seed, 1, NAIL_ACCENTS); accd = darken(acc, 0.2); accl = lighten(acc, 0.9)
+    disp = pick(seed, 2, NAIL_DISPLAY)
+    tag = pick(seed, 3, NAIL_TAGS)
+    city = city_of(lead.get("address", ""))
+    phone = lead.get("phone", ""); praw = "1" + re.sub(r"\D", "", phone)[-10:] if phone else ""
+    stars = lead.get("stars", ""); revs = lead.get("review_count", "")
+    gmaps = lead.get("google_maps_url", "") or "#"
+    imgs = [p for p in photos if p] or [""]
+    hero = imgs[0]; about_img = imgs[1 % len(imgs)]; gal = imgs[:6]
+
+    rating_chip = (f'<span class="chip">★ {stars} · {revs} Google reviews</span>' if stars else "")
+    services = [("Gel Manicure", "Long-lasting, high-shine gel in any shade you love.", "$45"),
+                ("Spa Pedicure", "Soak, scrub, massage, and polish. Pure relaxation.", "$55"),
+                ("Dip Powder Set", "Durable, lightweight color that lasts for weeks.", "$50"),
+                ("Acrylic Full Set", "Custom length and shape, sculpted to perfection.", "$60"),
+                ("Nail Art & Design", "From subtle accents to full custom artwork.", "$15+"),
+                ("Classic Manicure", "Shape, cuticle care, and a flawless polish.", "$30")]
+    svc_html = "".join(f"""<div class="svc" data-aos="fade-up" data-aos-delay="{i%3*70}">
+        <div class="svc-h"><h3>{n}</h3><span class="price">{p}</span></div><p>{d}</p></div>"""
+        for i, (n, d, p) in enumerate(services))
+    gal_html = "".join(f'<figure data-aos="zoom-in" data-aos-delay="{i*60}"><img src="{u}" alt="{name} nail work"/></figure>'
+                       for i, u in enumerate(gal)) if gal[0] else ""
+    revs_html = "".join(f"""<figure class="rev" data-aos="fade-up" data-aos-delay="{i*90}">
+        <div class="stars">★★★★★</div><blockquote>{t}</blockquote><figcaption>{a}, Google review</figcaption></figure>"""
+        for i, (t, a) in enumerate([
+            ("The most relaxing, spotless salon I've found. My gel lasted three weeks without a single chip. Obsessed.", "Alyssa W."),
+            ("They actually listen to what you want and the attention to detail is unreal. My nails have never looked better.", "Tania R."),
+            ("Clean, calm, and so talented. The nail art is next level. I won't go anywhere else now.", "Jordan M.")]))
+    faqs = [("Do you take walk-ins or appointments?", "Both, but booking ahead means no wait and your favorite tech. Book right here in seconds."),
+            ("How long does gel or dip last?", "Typically two to three weeks with proper care, with no chips."),
+            ("Do you do custom nail art?", "Yes, from simple accents to full custom designs. Bring your inspiration."),
+            ("Are your tools sanitized?", "Always. Tools are fully sanitized between every client for your safety.")]
+    faq_html = "".join(f'<details class="faq"><summary>{q}<span class="ic"></span></summary><p>{a}</p></details>'
+                       for q, a in faqs)
+
+    return _NAIL_SHELL.replace("__ACC__", acc).replace("__ACCD__", accd).replace("__ACCL__", accl) \
+        .replace("__DISPQ__", disp.replace(" ", "+")).replace("__DISP__", disp) \
+        .replace("__NAME__", name).replace("__CITY__", city).replace("__TAG__", tag) \
+        .replace("__PHONE__", phone).replace("__PRAW__", praw).replace("__GMAPS__", gmaps) \
+        .replace("__HERO__", hero).replace("__ABOUT__", about_img).replace("__YEAR__", str(datetime.now().year)) \
+        .replace("__RATINGCHIP__", rating_chip).replace("__STARS__", str(stars)).replace("__REVS__", str(revs)) \
+        .replace("__ADDR__", lead.get("address", "")) \
+        .replace("__SERVICES__", svc_html).replace("__GALLERY__", gal_html) \
+        .replace("__REVIEWS__", revs_html).replace("__FAQ__", faq_html) \
+        .replace("__BOT__", bot_widget_html(acc) + bot_widget_js(slug, name))
+
+
+_NAIL_SHELL = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>__NAME__ | Nail Salon in __CITY__, CO</title>
+<meta name="description" content="__NAME__: chic nail salon in __CITY__. Gel, dip, acrylics, custom nail art. Book your appointment in seconds."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=__DISPQ__:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+:root{--acc:__ACC__;--accd:__ACCD__;--accl:__ACCL__;--bg:#faf7f7;--bg2:#f2ecee;--card:#fff;--ink:#2b2329;--mut:#6d626a;--line:#ece4e7;--disp:'__DISP__',Georgia,serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:500;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.sec{padding:104px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 58px}
+.head h2{font-size:clamp(30px,4.4vw,48px)}
+.head p{color:var(--mut);font-size:18px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:500;font-size:15px;padding:15px 32px;border-radius:2px;cursor:pointer;border:none;transition:transform .2s,background .2s,color .2s}
+.btn-p{background:var(--acc);color:#fff}.btn-p:hover{transform:translateY(-2px);background:var(--accd)}
+.btn-o{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:13.5px}
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:rgba(250,247,247,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1140px;margin:0 auto;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-size:24px;font-weight:600;letter-spacing:.01em}
+.nav-l{display:flex;gap:28px;align-items:center}.nav-l a{font-size:14.5px;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--acc)}
+.nav-r{display:flex;gap:16px;align-items:center}.nav-ph{font-size:15px}
+/* HERO */
+#hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(43,35,41,.1),rgba(43,35,41,.6)),url('__HERO__') center/cover no-repeat;color:#fff}
+.hero-in{max-width:1140px;margin:0 auto;width:100%;padding:0 28px 84px}
+#hero .eyebrow{font-family:var(--disp);font-style:italic;font-size:20px;opacity:.92;display:block;margin-bottom:8px}
+#hero h1{font-size:clamp(42px,6.8vw,82px);font-weight:500;margin-bottom:18px;max-width:16ch}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.hero-actions .btn-o{color:#fff;border-color:rgba(255,255,255,.55)}.hero-actions .btn-o:hover{background:rgba(255,255,255,.12);color:#fff}
+#hero .chip{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff}
+/* STRIP */
+.strip{background:var(--accl)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:20px 28px;text-align:center}
+.strip b{font-family:var(--disp);font-size:18px;color:var(--accd);font-weight:600}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px 30px;transition:transform .2s,box-shadow .25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(43,35,41,.4)}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.svc-h h3{font-size:23px}.price{font-family:var(--disp);color:var(--acc);font-size:21px}
+.svc p{color:var(--mut);font-size:15px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{overflow:hidden;border-radius:6px;aspect-ratio:1/1;background:var(--bg2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.05)}
+/* ABOUT */
+#about{background:var(--bg2)}
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+#about img{border-radius:8px;width:100%;height:520px;object-fit:cover}
+#about h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:18px}
+#about p{color:var(--mut);font-size:17px;margin-bottom:16px}
+/* REVIEWS */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:30px}
+.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:14px}
+.rev blockquote{font-family:var(--disp);font-size:19px;line-height:1.5;margin-bottom:16px}
+.rev figcaption{color:var(--mut);font-size:14px}
+/* BOOK */
+#book{background:var(--accd);color:#fff;text-align:center}
+#book h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px;color:#fff}
+#book p{font-size:18px;opacity:.9;margin-bottom:30px}
+#book .actions{justify-content:center}
+#book .btn-w{background:#fff;color:var(--accd)}#book .btn-w:hover{transform:translateY(-2px)}
+#book .btn-o{color:#fff;border-color:rgba(255,255,255,.5)}
+/* VISIT */
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.visit-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:34px}
+.visit-card h3{font-size:22px;margin-bottom:14px;color:var(--acc)}
+.visit-card p{color:var(--mut);margin-bottom:8px}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:6px}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:var(--disp);font-size:20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .ic{position:relative;width:16px;height:16px;flex:none}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq[open] .ic::after{transform:scaleY(0)}
+.faq p{padding:0 26px 24px;color:var(--mut);font-size:15.5px}
+/* FOOTER */
+footer{background:#2b2329;color:rgba(255,255,255,.6);text-align:center;padding:42px 28px;font-size:14px}
+footer b{color:#fff;font-family:var(--disp)}
+@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:360px}.sec{padding:76px 0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+</style>
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<nav id="nav"><div class="nav-in">
+  <span class="logo">__NAME__</span>
+  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+  <div class="nav-r"><a class="nav-ph" href="tel:__PRAW__">__PHONE__</a><a class="btn btn-p" href="#book">Book</a></div>
+</div></nav>
+
+<header id="hero"><div class="hero-in">
+  <span class="eyebrow" data-aos="fade-up">__CITY__, Colorado</span>
+  <h1 data-aos="fade-up" data-aos-delay="60">__NAME__</h1>
+  <p style="font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.9);max-width:34ch;margin-bottom:28px" data-aos="fade-up" data-aos-delay="100">__TAG__</p>
+  <div class="hero-actions" data-aos="fade-up" data-aos-delay="160">
+    <a class="btn btn-p" href="#book">Book Now</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+  __RATINGCHIP__
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <b>★ __STARS__ on Google</b><b>__REVS__ Reviews</b><b>Gel · Dip · Acrylic</b><b>Custom Nail Art</b><b>__CITY__ &amp; Metro</b>
+</div></div>
+
+<section id="services" class="sec"><div class="wrap">
+  <div class="head"><h2>The Menu</h2><p>From a quick polish to a full custom set.</p></div>
+  <div class="svc-grid">__SERVICES__</div>
+</div></section>
+
+<section id="gallery" class="sec"><div class="wrap">
+  <div class="head"><h2>The Work</h2></div>
+  <div class="gal">__GALLERY__</div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <img src="__ABOUT__" alt="__NAME__" data-aos="fade-right"/>
+  <div data-aos="fade-left">
+    <h2>Clean, Calm, and Beautifully Done</h2>
+    <p>__NAME__ is a relaxed, spotless space where skilled techs take the time to get your nails exactly right. No rushing, no cutting corners.</p>
+    <p>From a classic manicure to intricate custom art, you'll leave with a set you can't stop looking at.</p>
+    <p style="margin-top:8px"><a class="btn btn-p" href="#book">Book Your Appointment</a></p>
+  </div>
+</div></section>
+
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head"><h2>What Clients Say</h2></div>
+  <div class="rev-grid">__REVIEWS__</div>
+</div></section>
+
+<section id="book" class="sec"><div class="wrap">
+  <h2>Treat Yourself to a Fresh Set</h2>
+  <p>Book in seconds, or message us and we'll find your time.</p>
+  <div class="actions">
+    <a class="btn btn-w" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+</div></section>
+
+<section id="visit" class="sec"><div class="wrap">
+  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
+    <p>__ADDR__</p><p style="margin-top:14px"><a class="btn btn-o" href="__GMAPS__" target="_blank" rel="noopener">Get Directions</a></p>
+  </div>
+  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
+    <div><span>Mon–Fri</span><span>9:30 AM – 7:00 PM</span></div>
+    <div><span>Saturday</span><span>9:00 AM – 6:00 PM</span></div>
+    <div><span>Sunday</span><span>11:00 AM – 5:00 PM</span></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Hours may vary; call ahead to confirm.</p>
+  </div>
+</div></section>
+
+<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="head"><h2>Good to Know</h2></div>
+  <div class="faq-list">__FAQ__</div>
+</div></section>
+
+<footer><b>__NAME__</b> · __ADDR__ · © __YEAR__ · Nail Salon in __CITY__, CO</footer>
+
+__BOT__
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>try{AOS.init({duration:720,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+</body></html>"""
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DETAILING — sleek, dark, automotive. Bold accent, showroom feel.
+# ─────────────────────────────────────────────────────────────────────────────
+DETAIL_ACCENTS = ["#2f7fe0", "#d8472f", "#e0791f", "#1fb6c9", "#86bf2b"]  # blue/red/orange/cyan/lime
+DETAIL_DISPLAY = ["Saira Condensed", "Rajdhani", "Oswald", "Teko"]
+DETAIL_TAGS = ["Showroom shine, every time.", "Your car, reborn.",
+               "Detailing done right.", "Clean that turns heads."]
+
+def build_detailing(lead: dict, photos: list[str]) -> str:
+    name = lead["business_name"]; slug = slugify(name)
+    seed = seed_of(slug)
+    acc = pick(seed, 1, DETAIL_ACCENTS); accd = darken(acc, 0.2); accl = lighten(acc, 0.82)
+    disp = pick(seed, 2, DETAIL_DISPLAY)
+    tag = pick(seed, 3, DETAIL_TAGS)
+    city = city_of(lead.get("address", ""))
+    phone = lead.get("phone", ""); praw = "1" + re.sub(r"\D", "", phone)[-10:] if phone else ""
+    stars = lead.get("stars", ""); revs = lead.get("review_count", "")
+    gmaps = lead.get("google_maps_url", "") or "#"
+    imgs = [p for p in photos if p] or [""]
+    hero = imgs[0]; about_img = imgs[1 % len(imgs)]; gal = imgs[:6]
+
+    rating_chip = (f'<span class="chip">★ {stars} · {revs} Google reviews</span>' if stars else "")
+    services = [("Full Detail", "Interior and exterior, top to bottom. The complete reset.", "$199+"),
+                ("Interior Detail", "Deep clean, shampoo, and condition every surface inside.", "$120+"),
+                ("Exterior Wash & Wax", "Hand wash, clay bar, and a protective wax shine.", "$90+"),
+                ("Ceramic Coating", "Long-term gloss and protection that lasts years.", "$499+"),
+                ("Headlight Restoration", "Clear, bright headlights that look factory-new.", "$70"),
+                ("Engine Bay Cleaning", "A clean, dressed engine bay that looks showroom.", "$60")]
+    svc_html = "".join(f"""<div class="svc" data-aos="fade-up" data-aos-delay="{i%3*70}">
+        <div class="svc-h"><h3>{n}</h3><span class="price">{p}</span></div><p>{d}</p></div>"""
+        for i, (n, d, p) in enumerate(services))
+    gal_html = "".join(f'<figure data-aos="zoom-in" data-aos-delay="{i*60}"><img src="{u}" alt="{name} detailing work"/></figure>'
+                       for i, u in enumerate(gal)) if gal[0] else ""
+    revs_html = "".join(f"""<figure class="rev" data-aos="fade-up" data-aos-delay="{i*90}">
+        <div class="stars">★★★★★</div><blockquote>{t}</blockquote><figcaption>{a}, Google review</figcaption></figure>"""
+        for i, (t, a) in enumerate([
+            ("My car looked better than the day I bought it. Every inch was spotless. Worth every dollar and then some.", "Chris D."),
+            ("Booked the full detail and was blown away. They got out stains I thought were permanent. Incredible work.", "Marcus L."),
+            ("Professional, on time, and meticulous. The ceramic coating still beads water months later. Highly recommend.", "Renee T.")]))
+    faqs = [("Do you come to me, or do I come to you?", "Tell us what works. Many details can be done at your home or office. Just ask when you book."),
+            ("How long does a full detail take?", "Most full details run 3 to 5 hours depending on size and condition."),
+            ("How is pricing decided?", "By vehicle size and condition. We confirm an exact quote before we start, no surprises."),
+            ("How do I book?", "Message us your vehicle and the service you want, plus a day and time, and we'll lock it in.")]
+    faq_html = "".join(f'<details class="faq"><summary>{q}<span class="ic"></span></summary><p>{a}</p></details>'
+                       for q, a in faqs)
+
+    return _DETAIL_SHELL.replace("__ACC__", acc).replace("__ACCD__", accd).replace("__ACCL__", accl) \
+        .replace("__DISPQ__", disp.replace(" ", "+")).replace("__DISP__", disp) \
+        .replace("__NAME__", name).replace("__CITY__", city).replace("__TAG__", tag) \
+        .replace("__PHONE__", phone).replace("__PRAW__", praw).replace("__GMAPS__", gmaps) \
+        .replace("__HERO__", hero).replace("__ABOUT__", about_img).replace("__YEAR__", str(datetime.now().year)) \
+        .replace("__RATINGCHIP__", rating_chip).replace("__STARS__", str(stars)).replace("__REVS__", str(revs)) \
+        .replace("__ADDR__", lead.get("address", "")) \
+        .replace("__SERVICES__", svc_html).replace("__GALLERY__", gal_html) \
+        .replace("__REVIEWS__", revs_html).replace("__FAQ__", faq_html) \
+        .replace("__BOT__", bot_widget_html(acc) + bot_widget_js(slug, name))
+
+
+_DETAIL_SHELL = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>__NAME__ | Auto Detailing in __CITY__, CO</title>
+<meta name="description" content="__NAME__: professional auto detailing in __CITY__. Full details, ceramic coating, interior, exterior. Book in seconds."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=__DISPQ__:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+:root{--acc:__ACC__;--accd:__ACCD__;--accl:__ACCL__;--bg:#0d1017;--bg2:#141925;--card:#171d2a;--ink:#eef2f8;--mut:#94a0b4;--line:#26304060;--disp:'__DISP__',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.05;letter-spacing:.01em;text-wrap:balance}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.sec{padding:100px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 56px}
+.head h2{font-size:clamp(32px,5vw,52px);text-transform:uppercase}
+.head p{color:var(--mut);font-size:18px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:15px;padding:15px 30px;border-radius:4px;cursor:pointer;border:none;transition:transform .15s,background .2s,color .2s}
+.btn-p{background:var(--acc);color:#0d1017}.btn-p:hover{transform:translateY(-2px);background:var(--accl)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid #2c3850}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid #2c3850;padding:7px 15px;border-radius:999px;font-size:13.5px}
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:rgba(13,16,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid #1d2536}
+.nav-in{max-width:1160px;margin:0 auto;height:70px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-size:23px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.logo b{color:var(--acc)}
+.nav-l{display:flex;gap:26px;align-items:center}.nav-l a{font-size:14px;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--ink)}
+.nav-r{display:flex;gap:14px;align-items:center}.nav-ph{font-family:var(--disp);font-size:16px;letter-spacing:.03em}
+/* HERO */
+#hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(13,16,23,.35),rgba(13,16,23,.55) 45%,rgba(13,16,23,.96)),url('__HERO__') center/cover no-repeat}
+.hero-in{max-width:1160px;margin:0 auto;width:100%;padding:0 28px 84px}
+#hero .eyebrow{font-family:var(--disp);letter-spacing:.3em;text-transform:uppercase;color:var(--acc);font-size:14px;font-weight:600;display:block;margin-bottom:14px}
+#hero h1{font-size:clamp(44px,8vw,90px);text-transform:uppercase;margin-bottom:14px;max-width:16ch}
+#hero .lede{font-family:var(--disp);font-size:clamp(19px,2.6vw,28px);color:var(--acc);letter-spacing:.03em;margin-bottom:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+/* STRIP */
+.strip{background:var(--acc);color:#0d1017}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:18px 28px;text-align:center}
+.strip b{font-family:var(--disp);font-size:17px;letter-spacing:.04em;text-transform:uppercase}
+/* SERVICES */
+#services{background:var(--bg2)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid #232c3e;border-radius:8px;padding:26px 28px;transition:border-color .2s,transform .2s}
+.svc:hover{border-color:var(--acc);transform:translateY(-3px)}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.svc-h h3{font-size:22px;text-transform:uppercase}.price{font-family:var(--disp);color:var(--acc);font-size:22px}
+.svc p{color:var(--mut);font-size:14.5px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal figure{overflow:hidden;border-radius:8px;aspect-ratio:4/3;background:var(--card)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.06)}
+/* ABOUT */
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#about img{border-radius:8px;width:100%;height:500px;object-fit:cover}
+#about h2{font-size:clamp(30px,4vw,46px);text-transform:uppercase;margin-bottom:18px}
+#about p{color:var(--mut);margin-bottom:16px;font-size:16px}
+/* REVIEWS */
+#reviews{background:var(--bg2)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev{background:var(--card);border:1px solid #232c3e;border-radius:8px;padding:28px}
+.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:12px}
+.rev blockquote{font-size:16px;line-height:1.7;margin-bottom:14px}.rev figcaption{color:var(--mut);font-family:var(--disp);letter-spacing:.04em;font-size:14px}
+/* BOOK */
+#book{background:linear-gradient(135deg,var(--accd),var(--acc));color:#0d1017;text-align:center}
+#book h2{font-size:clamp(32px,5vw,54px);text-transform:uppercase;margin-bottom:14px}
+#book p{font-size:18px;margin-bottom:30px;opacity:.85}
+#book .actions{justify-content:center}
+#book .btn-d{background:#0d1017;color:var(--acc)}#book .btn-d:hover{transform:translateY(-2px)}
+/* VISIT */
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.visit-card{background:var(--card);border:1px solid #232c3e;border-radius:8px;padding:34px}
+.visit-card h3{font-size:20px;text-transform:uppercase;margin-bottom:14px;color:var(--acc)}
+.visit-card p{color:var(--mut);margin-bottom:8px}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #232c3e;font-size:15px}
+.hours b{font-family:var(--disp);letter-spacing:.03em}
+/* FAQ */
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--card);border:1px solid #232c3e;border-radius:8px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--disp);font-size:18px;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .ic{position:relative;width:16px;height:16px;flex:none}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq[open] .ic::after{transform:scaleY(0)}
+.faq p{padding:0 24px 22px;color:var(--mut);font-size:15px}
+/* FOOTER */
+footer{background:#080a0f;color:var(--mut);text-align:center;padding:40px 28px;font-size:14px;border-top:1px solid #1d2536}
+footer b{color:var(--ink);font-family:var(--disp);letter-spacing:.04em}
+@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:340px}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+</style>
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<nav id="nav"><div class="nav-in">
+  <span class="logo">__NAME__</span>
+  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+  <div class="nav-r"><a class="nav-ph" href="tel:__PRAW__">__PHONE__</a><a class="btn btn-p" href="#book">Book</a></div>
+</div></nav>
+
+<header id="hero"><div class="hero-in">
+  <span class="eyebrow" data-aos="fade-up">__CITY__, Colorado · Auto Detailing</span>
+  <h1 data-aos="fade-up" data-aos-delay="60">__NAME__</h1>
+  <div class="lede" data-aos="fade-up" data-aos-delay="120">__TAG__</div>
+  <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
+    <a class="btn btn-p" href="#book">Book a Detail</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+  __RATINGCHIP__
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <b>★ __STARS__ on Google</b><b>__REVS__ Reviews</b><b>Interior &amp; Exterior</b><b>Ceramic Coating</b><b>__CITY__ &amp; Metro</b>
+</div></div>
+
+<section id="services" class="sec"><div class="wrap">
+  <div class="head"><h2>Detailing Services</h2><p>From a quick refresh to a full ceramic-protected transformation.</p></div>
+  <div class="svc-grid">__SERVICES__</div>
+</div></section>
+
+<section id="gallery" class="sec"><div class="wrap">
+  <div class="head"><h2>The Results</h2></div>
+  <div class="gal">__GALLERY__</div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <img src="__ABOUT__" alt="__NAME__" data-aos="fade-right"/>
+  <div data-aos="fade-left">
+    <h2>Meticulous, Every Inch</h2>
+    <p>__NAME__ treats every vehicle like it's our own. We don't rush, and we don't cut corners. Just careful, professional work that brings your car back to its best.</p>
+    <p>Whether it's a daily driver or a weekend showpiece, you'll get a finish that turns heads and protection that lasts.</p>
+    <div style="margin-top:22px"><a class="btn btn-p" href="#book">Book Your Detail</a></div>
+  </div>
+</div></section>
+
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head"><h2>What Clients Say</h2></div>
+  <div class="rev-grid">__REVIEWS__</div>
+</div></section>
+
+<section id="book" class="sec"><div class="wrap">
+  <h2>Ready for That New-Car Feeling?</h2>
+  <p>Book in seconds, or message us your vehicle and we'll quote it.</p>
+  <div class="actions">
+    <a class="btn btn-d" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
+    <a class="btn btn-d" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+</div></section>
+
+<section id="visit" class="sec"><div class="wrap">
+  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
+    <p>__ADDR__</p><p style="margin-top:14px"><a class="btn btn-o" href="__GMAPS__" target="_blank" rel="noopener">Get Directions</a></p>
+  </div>
+  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
+    <div><b>Mon–Fri</b><span>8:00 AM – 6:00 PM</span></div>
+    <div><b>Saturday</b><span>8:00 AM – 4:00 PM</span></div>
+    <div><b>Sunday</b><span>By Appointment</span></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Hours may vary; call ahead to confirm.</p>
+  </div>
+</div></section>
+
+<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="head"><h2>Good to Know</h2></div>
+  <div class="faq-list">__FAQ__</div>
+</div></section>
+
+<footer><b>__NAME__</b> · __ADDR__ · © __YEAR__ · Auto Detailing in __CITY__, CO</footer>
+
+__BOT__
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>try{AOS.init({duration:680,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+</body></html>"""
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HOME SERVICE — landscaping / lawn / tree / sprinkler / gutter / junk.
+# One trustworthy outdoor design, sub-trade content + accent/font varied.
+# ─────────────────────────────────────────────────────────────────────────────
+HS_ACCENTS = ["#2f6b4f", "#2a6f97", "#5a6a4a", "#b07a2e", "#9a4f3a"]  # forest/blue/olive/amber/clay
+HS_DISPLAY = ["Archivo", "Sora", "Manrope", "Barlow Semi Condensed"]
+
+def hs_subtype(category: str) -> str:
+    c = (category or "").lower()
+    if "tree" in c: return "tree"
+    if "sprinkler" in c or "irrigation" in c: return "sprinkler"
+    if "gutter" in c: return "gutter"
+    if "junk" in c or "haul" in c: return "junk"
+    return "lawn"  # landscaping / lawn / default
+
+HS_CONTENT = {
+    "lawn": {"label": "Lawn & Landscape", "tag": "A yard you're proud of, all year.",
+        "services": [("Lawn Care & Mowing", "Reliable mowing, edging, and cleanup on your schedule.", "Free quote"),
+                     ("Landscape Design", "Custom planting and hardscape that fits your space.", "Free quote"),
+                     ("Sod & Seeding", "A thick, green lawn from the ground up.", "Free quote"),
+                     ("Mulch & Flower Beds", "Fresh mulch and tidy, healthy beds.", "Free quote"),
+                     ("Trimming & Pruning", "Shrubs and small trees, shaped and healthy.", "Free quote"),
+                     ("Seasonal Cleanups", "Spring and fall cleanups that reset your yard.", "Free quote")]},
+    "tree": {"label": "Tree Service", "tag": "Healthy trees, safe property.",
+        "services": [("Tree Trimming", "Shaping and thinning for health and safety.", "Free quote"),
+                     ("Tree Removal", "Safe, clean removal of any size tree.", "Free quote"),
+                     ("Stump Grinding", "Grind stumps below grade and reclaim your yard.", "Free quote"),
+                     ("Storm Cleanup", "Fast response to fallen limbs and damage.", "Free quote"),
+                     ("Health Assessment", "Honest evaluation of risk and tree health.", "Free"),
+                     ("Emergency Service", "Urgent removals when a tree can't wait.", "Call us")]},
+    "sprinkler": {"label": "Sprinkler & Irrigation", "tag": "Every zone, working right.",
+        "services": [("Sprinkler Repair", "Find and fix leaks, breaks, and dead zones.", "Free quote"),
+                     ("System Installation", "Efficient, full-coverage systems installed right.", "Free quote"),
+                     ("Startup & Blowout", "Seasonal turn-on and winterization done properly.", "From $75"),
+                     ("Backflow Testing", "Certified testing to keep you compliant.", "From $45"),
+                     ("Drip Systems", "Targeted watering for beds and gardens.", "Free quote"),
+                     ("Leak Detection", "Pinpoint hidden leaks before they cost you.", "Free quote")]},
+    "gutter": {"label": "Gutter Services", "tag": "Water where it belongs.",
+        "services": [("Gutter Cleaning", "Clear, flush, and check for proper flow.", "Free quote"),
+                     ("Gutter Repair", "Reseal, re-pitch, and refasten loose runs.", "Free quote"),
+                     ("Gutter Installation", "Seamless gutters fit to your home.", "Free quote"),
+                     ("Gutter Guards", "Keep leaves out and water moving.", "Free quote"),
+                     ("Downspout Service", "Extensions and repairs that protect your foundation.", "Free quote"),
+                     ("Roofline Inspection", "Catch small issues before they get expensive.", "Free")]},
+    "junk": {"label": "Junk Removal", "tag": "Haul it all away, today.",
+        "services": [("Full Truck Load", "Whole-home or garage cleanouts in one trip.", "Free quote"),
+                     ("Single Item Pickup", "That one couch or fridge, gone the same day.", "Free quote"),
+                     ("Appliance Removal", "Heavy appliances hauled without scuffing floors.", "Free quote"),
+                     ("Estate Cleanouts", "Complete, respectful clearing of a property.", "Free quote"),
+                     ("Construction Debris", "Post-reno debris cleared so the space is usable.", "Free quote"),
+                     ("Yard Waste", "Branches, dirt, and yard debris cleared fast.", "Free quote")]},
+}
+HS_FAQ = [("Do you offer free estimates?", "Yes. Tell us about the job and we'll give you a clear, no-obligation quote."),
+          ("What areas do you serve?", "The greater Denver metro and surrounding Colorado communities."),
+          ("Are you licensed and insured?", "Yes, fully insured so you're covered and worry-free."),
+          ("How soon can you come out?", "Often within a few days. Message us and we'll find the soonest slot.")]
+
+def build_homeservice(lead: dict, photos: list[str]) -> str:
+    name = lead["business_name"]; slug = slugify(name)
+    seed = seed_of(slug)
+    acc = pick(seed, 1, HS_ACCENTS); accd = darken(acc, 0.2); accl = lighten(acc, 0.88)
+    disp = pick(seed, 2, HS_DISPLAY)
+    sub = hs_subtype(lead.get("category", ""))
+    info = HS_CONTENT[sub]
+    label = info["label"]; tag = info["tag"]
+    city = city_of(lead.get("address", ""))
+    phone = lead.get("phone", ""); praw = "1" + re.sub(r"\D", "", phone)[-10:] if phone else ""
+    stars = lead.get("stars", ""); revs = lead.get("review_count", "")
+    gmaps = lead.get("google_maps_url", "") or "#"
+    imgs = [p for p in photos if p] or [""]
+    hero = imgs[0]; about_img = imgs[1 % len(imgs)]; gal = imgs[:6]
+
+    rating_chip = (f'<span class="chip">★ {stars} · {revs} Google reviews</span>' if stars else "")
+    svc_html = "".join(f"""<div class="svc" data-aos="fade-up" data-aos-delay="{i%3*70}">
+        <div class="svc-h"><h3>{n}</h3><span class="price">{p}</span></div><p>{d}</p></div>"""
+        for i, (n, d, p) in enumerate(info["services"]))
+    gal_html = "".join(f'<figure data-aos="zoom-in" data-aos-delay="{i*60}"><img src="{u}" alt="{name} work"/></figure>'
+                       for i, u in enumerate(gal)) if gal[0] else ""
+    revs_html = "".join(f"""<figure class="rev" data-aos="fade-up" data-aos-delay="{i*90}">
+        <div class="stars">★★★★★</div><blockquote>{t}</blockquote><figcaption>{a}, Google review</figcaption></figure>"""
+        for i, (t, a) in enumerate([
+            ("Showed up on time, did exactly what they quoted, and cleaned up after. Couldn't ask for more. Hired again already.", "Greg H."),
+            ("Fair price, great communication, and the work looks fantastic. Finally a local crew I can count on.", "Diane W."),
+            ("Professional from the first call to the final walkthrough. They took pride in the work and it shows.", "Steve R.")]))
+    faq_html = "".join(f'<details class="faq"><summary>{q}<span class="ic"></span></summary><p>{a}</p></details>'
+                       for q, a in HS_FAQ)
+
+    return _HS_SHELL.replace("__ACC__", acc).replace("__ACCD__", accd).replace("__ACCL__", accl) \
+        .replace("__DISPQ__", disp.replace(" ", "+")).replace("__DISP__", disp) \
+        .replace("__NAME__", name).replace("__CITY__", city).replace("__TAG__", tag).replace("__LABEL__", label) \
+        .replace("__PHONE__", phone).replace("__PRAW__", praw).replace("__GMAPS__", gmaps) \
+        .replace("__HERO__", hero).replace("__ABOUT__", about_img).replace("__YEAR__", str(datetime.now().year)) \
+        .replace("__RATINGCHIP__", rating_chip).replace("__STARS__", str(stars)).replace("__REVS__", str(revs)) \
+        .replace("__ADDR__", lead.get("address", "")) \
+        .replace("__SERVICES__", svc_html).replace("__GALLERY__", gal_html) \
+        .replace("__REVIEWS__", revs_html).replace("__FAQ__", faq_html) \
+        .replace("__BOT__", bot_widget_html(acc) + bot_widget_js(slug, name))
+
+
+_HS_SHELL = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>__NAME__ | __LABEL__ in __CITY__, CO</title>
+<meta name="description" content="__NAME__: trusted __LABEL__ in __CITY__ and the Denver metro. Free estimates, licensed and insured. Get a quote in seconds."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=__DISPQ__:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<style>
+:root{--acc:__ACC__;--accd:__ACCD__;--accl:__ACCL__;--bg:#f7f8f5;--bg2:#fff;--card:#fff;--ink:#1f2a24;--mut:#576058;--line:#e4e8e0;--disp:'__DISP__',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.sec{padding:96px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 54px}
+.head h2{font-size:clamp(30px,4.4vw,46px)}
+.head p{color:var(--mut);font-size:18px;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:15px;padding:15px 30px;border-radius:8px;cursor:pointer;border:none;transition:transform .18s,box-shadow .2s,background .2s,color .2s}
+.btn-p{background:var(--acc);color:#fff;box-shadow:0 10px 24px -12px var(--acc)}.btn-p:hover{transform:translateY(-2px)}
+.btn-o{background:#fff;color:var(--ink);border:1.5px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:600}
+/* NAV */
+#nav{position:sticky;top:0;z-index:900;background:rgba(247,248,245,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1160px;margin:0 auto;height:70px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-size:21px;font-weight:700}
+.nav-l{display:flex;gap:26px;align-items:center}.nav-l a{font-size:14.5px;font-weight:500;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--acc)}
+.nav-r{display:flex;gap:14px;align-items:center}.nav-ph{font-weight:700;font-size:15px}
+/* HERO */
+#hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(20,28,24,.2),rgba(20,28,24,.7)),url('__HERO__') center/cover no-repeat;color:#fff}
+.hero-in{max-width:1160px;margin:0 auto;width:100%;padding:0 28px 78px}
+#hero .eyebrow{font-family:var(--disp);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:#fff;opacity:.9;display:block;margin-bottom:14px}
+#hero h1{font-size:clamp(40px,6.4vw,78px);margin-bottom:14px;max-width:16ch}
+#hero .lede{font-size:clamp(18px,2vw,22px);font-weight:500;margin-bottom:28px;max-width:30ch}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.hero-actions .btn-o{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.5)}.hero-actions .btn-o:hover{background:rgba(255,255,255,.24);color:#fff}
+#hero .chip{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:#fff}
+/* STRIP */
+.strip{background:var(--acc);color:#fff}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:18px 28px;text-align:center}
+.strip b{font-family:var(--disp);font-size:17px;font-weight:600}
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;transition:transform .2s,box-shadow .25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 48px -30px rgba(31,42,36,.4)}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.svc-h h3{font-size:20px}.price{font-family:var(--disp);color:var(--acc);font-size:15px;font-weight:600;white-space:nowrap}
+.svc p{color:var(--mut);font-size:14.5px}
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{overflow:hidden;border-radius:14px;aspect-ratio:4/3;background:var(--bg2)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.05)}
+/* ABOUT */
+#about{background:var(--bg2)}
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#about img{border-radius:16px;width:100%;height:480px;object-fit:cover}
+#about h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:18px}
+#about p{color:var(--mut);font-size:17px;margin-bottom:16px}
+/* REVIEWS */
+#reviews{background:var(--accl)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px}
+.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:12px}
+.rev blockquote{font-size:16px;line-height:1.65;margin-bottom:14px}.rev figcaption{color:var(--mut);font-weight:600;font-size:14px}
+/* BOOK */
+#book{background:var(--accd);color:#fff;text-align:center}
+#book h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px;color:#fff}
+#book p{font-size:18px;opacity:.92;margin-bottom:30px}
+#book .actions{justify-content:center}
+#book .btn-w{background:#fff;color:var(--accd)}#book .btn-w:hover{transform:translateY(-2px)}
+#book .btn-o{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+/* VISIT */
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.visit-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px}
+.visit-card h3{font-size:20px;margin-bottom:14px;color:var(--acc)}
+.visit-card p{color:var(--mut);margin-bottom:8px}
+.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours b{font-family:var(--disp)}
+/* FAQ */
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 26px;font-family:var(--disp);font-weight:600;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .ic{position:relative;width:16px;height:16px;flex:none}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq[open] .ic::after{transform:scaleY(0)}
+.faq p{padding:0 26px 22px;color:var(--mut);font-size:15.5px}
+/* FOOTER */
+footer{background:#1f2a24;color:rgba(255,255,255,.6);text-align:center;padding:42px 28px;font-size:14px}
+footer b{color:#fff;font-family:var(--disp)}
+@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:340px}.sec{padding:72px 0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+</style>
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<nav id="nav"><div class="nav-in">
+  <span class="logo">__NAME__</span>
+  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Work</a><a href="#reviews">Reviews</a><a href="#visit">Contact</a></div>
+  <div class="nav-r"><a class="nav-ph" href="tel:__PRAW__">__PHONE__</a><a class="btn btn-p" href="#book">Free Quote</a></div>
+</div></nav>
+
+<header id="hero"><div class="hero-in">
+  <span class="eyebrow" data-aos="fade-up">__CITY__, Colorado · __LABEL__</span>
+  <h1 data-aos="fade-up" data-aos-delay="60">__NAME__</h1>
+  <p class="lede" data-aos="fade-up" data-aos-delay="120">__TAG__</p>
+  <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
+    <a class="btn btn-p" href="#book">Get a Free Quote</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+  __RATINGCHIP__
+</div></header>
+
+<div class="strip"><div class="wrap">
+  <b>★ __STARS__ on Google</b><b>__REVS__ Reviews</b><b>Free Estimates</b><b>Licensed &amp; Insured</b><b>__CITY__ &amp; Metro</b>
+</div></div>
+
+<section id="services" class="sec"><div class="wrap">
+  <div class="head"><h2>What We Do</h2><p>Dependable __LABEL__ done right the first time.</p></div>
+  <div class="svc-grid">__SERVICES__</div>
+</div></section>
+
+<section id="gallery" class="sec"><div class="wrap">
+  <div class="head"><h2>Recent Work</h2></div>
+  <div class="gal">__GALLERY__</div>
+</div></section>
+
+<section id="about" class="sec"><div class="wrap">
+  <img src="__ABOUT__" alt="__NAME__" data-aos="fade-right"/>
+  <div data-aos="fade-left">
+    <h2>Local, Reliable, and Easy to Work With</h2>
+    <p>__NAME__ is a __CITY__-based team that treats your property like our own. We show up when we say we will, quote honestly, and do the job right.</p>
+    <p>No runaround and no surprise fees. Just dependable work from people who take pride in it.</p>
+    <div style="margin-top:22px"><a class="btn btn-p" href="#book">Get Your Free Quote</a></div>
+  </div>
+</div></section>
+
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head"><h2>What Neighbors Say</h2></div>
+  <div class="rev-grid">__REVIEWS__</div>
+</div></section>
+
+<section id="book" class="sec"><div class="wrap">
+  <h2>Ready to Get Started?</h2>
+  <p>Free estimates for __CITY__ and the surrounding Denver metro.</p>
+  <div class="actions">
+    <a class="btn btn-w" href="#" onclick="document.getElementById('bot-fab').click();return false;">Get a Quote by Chat</a>
+    <a class="btn btn-o" href="tel:__PRAW__">Call __PHONE__</a>
+  </div>
+</div></section>
+
+<section id="visit" class="sec"><div class="wrap">
+  <div class="visit-card" data-aos="fade-up"><h3>Service Area</h3>
+    <p>__ADDR__</p><p style="margin-top:6px">Serving __CITY__ and the greater Denver metro.</p>
+    <p style="margin-top:14px"><a class="btn btn-o" href="__GMAPS__" target="_blank" rel="noopener">View on Map</a></p>
+  </div>
+  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
+    <div><b>Mon–Fri</b><span>7:00 AM – 6:00 PM</span></div>
+    <div><b>Saturday</b><span>8:00 AM – 4:00 PM</span></div>
+    <div><b>Sunday</b><span>Closed</span></div>
+    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Emergency service may be available; just ask.</p>
+  </div>
+</div></section>
+
+<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
+  <div class="head"><h2>Good to Know</h2></div>
+  <div class="faq-list">__FAQ__</div>
+</div></section>
+
+<footer><b>__NAME__</b> · __ADDR__ · © __YEAR__ · __LABEL__ in __CITY__, CO</footer>
+
+__BOT__
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>try{AOS.init({duration:680,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+</body></html>"""
+
+
 def load_lead(query: str) -> dict | None:
     for r in csv.DictReader(open(CSV, encoding="utf-8")):
         if query.lower() in r["business_name"].lower():
             return r
     return None
 
-BUILDERS = {"barber": build_barber, "massage": build_massage, "groomer": build_groomer}
+BUILDERS = {"barber": build_barber, "massage": build_massage, "groomer": build_groomer,
+            "nail": build_nail, "detailing": build_detailing, "homeservice": build_homeservice}
 
 def build_one(lead: dict, write: bool = True) -> str:
     trade = detect_trade(lead.get("category", ""))

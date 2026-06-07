@@ -438,5 +438,269 @@
     "owner_phone": "",
     "owner_email": "",
     "airtable_base": ""
+  },
+  "bright-nails-spa": {
+    "assistant_id": "asst_Ou1EPW5LP9H62C04a7tjAOwb",
+    "vector_store_id": "vs_6a251b263dd481919f399c128639d256",
+    "biz": "BRIGHT NAILS & SPA",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "nail-rume": {
+    "assistant_id": "asst_bxTzIvK6xawV4NKvX92rxeHR",
+    "vector_store_id": "vs_6a251b30d174819190f9b72e9b18284d",
+    "biz": "Nail Rume",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "kar-liz-beauty-salon": {
+    "assistant_id": "asst_b9EJysHadLLMqgTM3cHExABE",
+    "vector_store_id": "vs_6a251b3d74f48191a4b0d041868d610a",
+    "biz": "Kar & Liz Beauty Salon",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "guapa-s-beauty-salon": {
+    "assistant_id": "asst_R5MGLosJVL7s34eUPvxu09w2",
+    "vector_store_id": "vs_6a251b47b3fc8191bfb0a323564a551a",
+    "biz": "Guapa's Beauty Salon",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "el-camerino-hair-studio": {
+    "assistant_id": "asst_xyqCPhziirmGfcMkzQLv0PJX",
+    "vector_store_id": "vs_6a251b4fdcc88191b92a5270a31b2580",
+    "biz": "El Camerino Hair Studio",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "nails-tech-spa-lash": {
+    "assistant_id": "asst_ZLUoL5J1607xfI6nV9SXkTwZ",
+    "vector_store_id": "vs_6a251b58e6488191a1e95c682a051cd7",
+    "biz": "Nails Tech Spa & Lash",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "slay-d-nail-studio": {
+    "assistant_id": "asst_6SNVBlRnIIWVNMXYsj0MLhhZ",
+    "vector_store_id": "vs_6a251b60b7588191823a7b654a9959f9",
+    "biz": "Slay\u2019d Nail Studio",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "arce-auto-detailing-llc": {
+    "assistant_id": "asst_TafVVAaB5oTVZAF3H35qFq7n",
+    "vector_store_id": "vs_6a251b6acd708191a541384c27eda258",
+    "biz": "Arce Auto Detailing llc",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "special-editions-auto-detail": {
+    "assistant_id": "asst_FgA8TgAyn1ONIkjvVxcnx4to",
+    "vector_store_id": "vs_6a251b7302388191a8150e95c0f7af6f",
+    "biz": "Special Editions Auto Detail",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "nice-and-clean-car-services-llc": {
+    "assistant_id": "asst_rx5JxBN1q8COBuAGdFzaELbg",
+    "vector_store_id": "vs_6a251b7ec8488191a6c1d0f4e537fe80",
+    "biz": "Nice and Clean Car Services, LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "kinkin-details": {
+    "assistant_id": "asst_qGjJdaivXcg7AbVNKrREtTlk",
+    "vector_store_id": "vs_6a251b8b665c81919cf680f220b05a29",
+    "biz": "Kinkin Details",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "red-rocks-mobile-detailing": {
+    "assistant_id": "asst_uVxRYSIijzuX5FVWIylMjgGV",
+    "vector_store_id": "vs_6a251b939be88191b7e990cd1c1e5ed6",
+    "biz": "Red Rocks Mobile Detailing",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "dirty-whip-details": {
+    "assistant_id": "asst_DneaZa6Vbzq1KjfzA6Fcunfs",
+    "vector_store_id": "vs_6a251b9b77bc8191b237d2da247d05ad",
+    "biz": "Dirty Whip Details",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "swift-auto-detailing": {
+    "assistant_id": "asst_TyBHEbd2buZBoqFITn13vtPo",
+    "vector_store_id": "vs_6a251ba36d708191b2ce09a2fd38b177",
+    "biz": "Swift Auto Detailing",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "fb-mobile-auto-detailing-llc": {
+    "assistant_id": "asst_LS6vS9x290x5LpqZH4bIeVrF",
+    "vector_store_id": "vs_6a251bae74a88191a28133e4784cd443",
+    "biz": "FB Mobile Auto Detailing LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "always-there-irrigation-and-topdressing": {
+    "assistant_id": "asst_pAK6nibjCRPBoLefG1rpeXeX",
+    "vector_store_id": "vs_6a251bba933c81918ece27804d644ff7",
+    "biz": "Always There Irrigation and Topdressing",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "unique-lawn-and-landscaping-llc": {
+    "assistant_id": "asst_dmfCSq9yRYPKUAY1M3HhWbjh",
+    "vector_store_id": "vs_6a251bc1a71c8191b15d46affc279415",
+    "biz": "Unique Lawn and Landscaping LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mark-s-quality-lawn-care": {
+    "assistant_id": "asst_miOvDjpvaVmnHvUl6kZv77ZI",
+    "vector_store_id": "vs_6a251bc9b81081918bb8d02a6dd991d6",
+    "biz": "Mark's Quality Lawn Care",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "handyman-sprinkler-services-llc": {
+    "assistant_id": "asst_zYN62FM5S3MZr5JDMLwCe2ZE",
+    "vector_store_id": "vs_6a251bd0f94c819187afffcd709c416e",
+    "biz": "Handyman & Sprinkler Services, LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "castanon-landscape-services": {
+    "assistant_id": "asst_WpAaSlxBtBOmCUirRA809nu1",
+    "vector_store_id": "vs_6a251c17677c81918dc543d991f441a2",
+    "biz": "Castanon Landscape Services",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "premier-gutter-solutions-llc": {
+    "assistant_id": "asst_ifbreILc9QodJbNPK6wkG4Pz",
+    "vector_store_id": "vs_6a251c1f2e9c8191bc09993f8053a58e",
+    "biz": "Premier Gutter Solutions, LLC.",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "victors-seamless-gutters": {
+    "assistant_id": "asst_PH2p6zmd85bw3rZvebtvFABX",
+    "vector_store_id": "vs_6a251c271d3081918a8de6e88e0fb296",
+    "biz": "Victors Seamless Gutters",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "green-bean-s-organic-ideas-landscaping-and-design-llc": {
+    "assistant_id": "asst_xBT0nWCzvXvDirTbh8cUPWKM",
+    "vector_store_id": "vs_6a251c3151b0819196219e7d16ceb7a7",
+    "biz": "Green Bean\u2019s Organic Ideas Landscaping and Design LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "blue-columbine-landscaping": {
+    "assistant_id": "asst_BLDoqOOoZbSaQCfDhMViXZzC",
+    "vector_store_id": "vs_6a251c3de134819193d23f9e680e7863",
+    "biz": "Blue Columbine Landscaping",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "brilliant-landscaping-llc": {
+    "assistant_id": "asst_rcN01ajvpm6X94w962YOqLGO",
+    "vector_store_id": "vs_6a251c504ad081918afb8aa753376d02",
+    "biz": "Brilliant Landscaping LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "southwest-sprinkler-services": {
+    "assistant_id": "asst_xM2caXHTqj457onGeho81Zs6",
+    "vector_store_id": "vs_6a251c583ec481918b5acdca973d3f59",
+    "biz": "Southwest Sprinkler Services",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "little-man-landscaping-llc": {
+    "assistant_id": "asst_uZc0qIdO2t0tTelTfyltE0EI",
+    "vector_store_id": "vs_6a251c6290e48191a49648413c57b9f7",
+    "biz": "Little Man Landscaping LLC",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "c-c-green-lawn-and-landscaping-service": {
+    "assistant_id": "asst_STNVMOIxiiZ5n28qxd4F579i",
+    "vector_store_id": "vs_6a251c6b0b7481919872bbb32f846782",
+    "biz": "C&c green lawn and landscaping service",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mr-hoang-lawn-care-garden-landscape-services": {
+    "assistant_id": "asst_BAjbnfjW4xQmgjt5cIgawUVX",
+    "vector_store_id": "vs_6a251c740b00819184a490b4b4657ebe",
+    "biz": "Mr Hoang Lawn Care Garden Landscape Services",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "area-northwest-lawn-services": {
+    "assistant_id": "asst_y1ANjEDUQpkuCsVbLHQ665He",
+    "vector_store_id": "vs_6a251c7d52c0819182a9ea3b33b7f134",
+    "biz": "Area Northwest Lawn Services",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "qhaul-junk-removal": {
+    "assistant_id": "asst_3Fur330lgANe2nC2EisJ1FGi",
+    "vector_store_id": "vs_6a251c8648a8819199ffb71703a9c135",
+    "biz": "QHAUL Junk Removal",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "mq-landscaping-tree-services": {
+    "assistant_id": "asst_k9WY5s7YVAjRASSj2fQl3Vgv",
+    "vector_store_id": "vs_6a251c8fc64c8191aaa8c37ab58e1c5b",
+    "biz": "MQ Landscaping & Tree Services",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
+  },
+  "blue-ridge-landscaping-design": {
+    "assistant_id": "asst_sfsTMSCj4R82RNeR4FVYfWHM",
+    "vector_store_id": "vs_6a251c98f03c81919a22857fbb4e9c90",
+    "biz": "Blue Ridge Landscaping Design",
+    "owner_phone": "",
+    "owner_email": "",
+    "airtable_base": ""
   }
 }
