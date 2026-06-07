@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sales Dashboard — its-fixed</title>
+<link rel="stylesheet" href="/dashboard/static/styles.css" />
+</head>
+<body>
+
+<!-- Login -->
+<div id="login">
+  <form class="login-card" id="loginForm">
+    <h1>its-fixed · Sales</h1>
+    <p>Lead &amp; booking-bot control room</p>
+    <label for="u">Username</label>
+    <input id="u" autocomplete="username" autofocus />
+    <label for="p">Password</label>
+    <input id="p" type="password" autocomplete="current-password" />
+    <button type="submit">Sign in</button>
+    <div class="err" id="loginErr"></div>
+  </form>
+</div>
+
+<!-- App -->
+<div id="app" class="hidden">
+  <aside class="side">
+    <div class="brand">its-fixed<small>sales control room</small></div>
+    <button class="nav-item active" data-view="leads">📋 Leads</button>
+    <button class="nav-item" data-view="feed">🔔 Bookings &amp; Activity</button>
+    <button class="nav-item" data-view="pipeline" id="navPipeline">⚙️ Pipeline</button>
+    <div class="side-foot">
+      <b id="whoami">—</b>
+      <span id="whorole"></span>
+      <button id="logoutBtn">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- LEADS -->
+    <section id="view-leads">
+      <h1 class="view-title">Leads</h1>
+      <p class="view-sub">Every prospect from the finder. Click a row to call, log outcomes, and set up the booking bot.</p>
+      <div class="filters">
+        <input type="search" id="fSearch" placeholder="Search business, phone, address…" />
+        <select id="fStatus"><option value="">All statuses</option></select>
+        <input id="fCategory" placeholder="Category…" style="width:150px" />
+        <span class="count-pill" id="leadCount"></span>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr>
+            <th>Business</th><th>Category</th><th>Phone</th>
+            <th>Status</th><th>Owner</th><th>Site</th><th>Bot</th>
+          </tr></thead>
+          <tbody id="leadRows"></tbody>
+        </table>
+        <div class="empty hidden" id="leadEmpty">No leads match. Try Pipeline → Sync to import candidates.csv.</div>
+      </div>
+    </section>
+
+    <!-- FEED -->
+    <section id="view-feed" class="hidden">
+      <h1 class="view-title">Bookings &amp; Activity</h1>
+      <p class="view-sub">Live booking-bot appointments and what the team has been doing.</p>
+      <div class="grid2">
+        <div>
+          <h3 class="view-sub" style="font-weight:700;color:var(--ink)">Recent team activity</h3>
+          <ul class="timeline" id="feedActivity"></ul>
+        </div>
+        <div>
+          <h3 class="view-sub" style="font-weight:700;color:var(--ink)">Tip</h3>
+          <div class="card" style="padding:16px;font-size:13.5px;color:var(--ink-2)">
+            Bot bookings appear inside each lead's drawer (Bookings section), pulled live from
+            that lead's Airtable base. On a Zoom demo, set the prospect's phone/email under
+            <b>Client&nbsp;contact</b>, then book a test appointment on their site — their phone buzzes.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section id="view-pipeline" class="hidden">
+      <h1 class="view-title">Pipeline</h1>
+      <p class="view-sub">Find new leads, build demo sites, and sync with candidates.csv.</p>
+      <div id="pipeOff" class="wire-banner hidden">Pipeline execution is disabled on this host (it runs where the full repo is checked out).</div>
+      <div class="grid2">
+        <div class="card" style="padding:18px">
+          <h3>Find leads</h3>
+          <div class="field"><label>Categories (comma-separated)</label>
+            <input id="pCats" placeholder="pet grooming, landscaping, sprinkler repair" /></div>
+          <div class="field"><label>ZIP codes (comma-separated)</label>
+            <input id="pZips" placeholder="80123, 80219" /></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="runFind">Run finder</button>
+            <button class="btn btn-ghost" id="runSync">Sync CSV → dashboard</button>
+            <button class="btn btn-ghost" id="runExport">Export → candidates.csv</button>
+          </div>
+        </div>
+        <div class="card" style="padding:18px">
+          <h3>Build a demo site</h3>
+          <div class="field"><label>Lead name (substring)</label>
+            <input id="pLead" placeholder="Wally" /></div>
+          <div class="btn-row"><button class="btn btn-accent" id="runDemo">Build demo</button></div>
+          <p class="notify-note">Writes <code>phase4_backend/sites/&lt;slug&gt;.html</code>, served at <code>/site/&lt;slug&gt;</code>.</p>
+        </div>
+      </div>
+      <h3 class="view-sub" style="margin-top:22px;font-weight:700;color:var(--ink)">Output</h3>
+      <div class="console" id="console">Ready.</div>
+    </section>
+  </main>
+</div>
+
+<!-- Lead drawer -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <button class="close" id="drawerClose">×</button>
+  <div class="drawer-head">
+    <h2 id="dBiz">—</h2>
+    <div class="muted" id="dMeta"></div>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="/dashboard/static/app.js"></script>
+</body>
+</html>

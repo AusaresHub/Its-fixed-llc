@@ -12,8 +12,18 @@ Endpoints:
 import json
 import os
 import re
+import sys
 from pathlib import Path
 from contextlib import asynccontextmanager
+
+# This service prints status emojis throughout. On Linux/VPS stdout is UTF-8, but a
+# local Windows console defaults to cp1252 and would crash on the first emoji print.
+# Force UTF-8 so the dashboard runs identically in both places.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,6 +48,23 @@ def load_registry() -> dict:
     return {}
 
 
+# leads.json is the source of truth and the dashboard writes it live (new wirings,
+# owner email/phone). Re-read it whenever the file changes so /chat and notify_owner
+# pick up dashboard edits without a server restart — cached by mtime to stay cheap.
+_registry_cache: dict = {"mtime": 0.0, "data": {}}
+
+
+def current_registry() -> dict:
+    try:
+        mtime = REGISTRY_PATH.stat().st_mtime
+    except FileNotFoundError:
+        return {}
+    if mtime != _registry_cache["mtime"]:
+        _registry_cache["data"] = load_registry()
+        _registry_cache["mtime"] = mtime
+    return _registry_cache["data"]
+
+
 registry: dict = {}
 
 # In-memory thread map: session_id → OpenAI thread_id
@@ -49,8 +76,18 @@ threads: dict[str, str] = {}
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     global registry
-    registry = load_registry()
+    registry = current_registry()
     print(f"✅  Loaded {len(registry)} lead(s) from registry")
+
+    # Sales dashboard: init SQLite, seed admin from ADMIN_KEY, import candidates.csv.
+    try:
+        from dashboard import db as dash_db, auth as dash_auth
+        dash_db.init_db()
+        dash_auth.seed_admin()
+        synced = dash_db.import_csv()
+        print(f"✅  Dashboard ready — synced {synced.get('imported', 0)} lead(s) from CSV")
+    except Exception as exc:
+        print(f"⚠️   Dashboard init skipped: {exc}")
     yield
 
 
@@ -59,8 +96,19 @@ app = FastAPI(title="Alim's Booking Bot API", version="1.0.0", lifespan=lifespan
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_methods=["POST", "GET", "OPTIONS"],
+    allow_methods=["POST", "GET", "OPTIONS", "PATCH"],
     allow_headers=["*"],
+)
+
+# ── Sales dashboard (auth-gated /dashboard/*) ────────────────────────────────
+from fastapi.staticfiles import StaticFiles  # noqa: E402
+from dashboard import routes as dashboard_routes  # noqa: E402
+
+app.include_router(dashboard_routes.router)
+app.mount(
+    "/dashboard/static",
+    StaticFiles(directory=str(Path(__file__).parent / "dashboard" / "static")),
+    name="dashboard-static",
 )
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
@@ -102,10 +150,11 @@ async def chat(req: ChatRequest):
 
 
 async def _chat_inner(req: ChatRequest) -> ChatResponse:
-    if req.site_id not in registry:
+    reg = current_registry()
+    if req.site_id not in reg:
         raise HTTPException(404, f"Unknown site_id: {req.site_id!r}")
 
-    lead_cfg     = registry[req.site_id]
+    lead_cfg     = reg[req.site_id]
     assistant_id = lead_cfg["assistant_id"]
 
     # Get or create thread
@@ -216,10 +265,11 @@ async def admin(site_id: str, key: str = ""):
     expected = os.environ.get("ADMIN_KEY", "changeme")
     if key != expected:
         raise HTTPException(403, "Invalid admin key")
-    if site_id not in registry:
+    reg = current_registry()
+    if site_id not in reg:
         raise HTTPException(404, f"Unknown site_id: {site_id!r}")
 
-    base_id = registry[site_id].get("airtable_base", "")
+    base_id = reg[site_id].get("airtable_base", "")
     if not base_id:
         return {"site_id": site_id, "bookings": [], "contacts": [], "note": "No Airtable base configured"}
 
@@ -230,4 +280,4 @@ async def admin(site_id: str, key: str = ""):
 # ── /health ───────────────────────────────────────────────────────────────────
 @app.get("/health")
 def health():
-    return {"status": "ok", "leads": len(registry)}
+    return {"status": "ok", "leads": len(current_registry())}

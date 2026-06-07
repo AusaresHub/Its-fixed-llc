@@ -20,9 +20,15 @@ _img_specs_run2.json
 
 candidates.csv
 candidates.csv.bak-*
+candidates.csv.tmp
 seed_candidates.csv
 
 # leads.json IS tracked: the GitHub-built api needs the booking registry baked in.
+
+# Sales dashboard SQLite store (created at runtime; never commit)
+phase4_backend/dashboard.db
+phase4_backend/dashboard.db-wal
+phase4_backend/dashboard.db-shm
 
 *.pptx
 *.pdf
