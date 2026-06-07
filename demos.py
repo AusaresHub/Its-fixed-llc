@@ -1529,6 +1529,17 @@ def load_lead(query: str) -> dict | None:
 BUILDERS = {"barber": build_barber, "massage": build_massage, "groomer": build_groomer,
             "nail": build_nail, "detailing": build_detailing, "homeservice": build_homeservice}
 
+def _no_photo_fallback(html: str) -> str:
+    """Make a photo-less site presentable: branded gradient hero, hide the gallery
+       and any empty images, single-column about. Applies to every trade template."""
+    html = re.sub(r"background:[^;]*url\(''\)[^;]*?no-repeat",
+                  "background:linear-gradient(135deg,var(--accd),var(--acc))", html)
+    html = re.sub(r'<section id="gallery".*?</section>\s*', "", html, flags=re.S)
+    html = html.replace("</head>",
+        "<style>img[src='']{display:none}#about .wrap{grid-template-columns:1fr!important}"
+        "#about img{display:none}</style></head>")
+    return html
+
 def build_one(lead: dict, write: bool = True) -> str:
     trade = detect_trade(lead.get("category", ""))
     builder = BUILDERS.get(trade)
@@ -1536,6 +1547,8 @@ def build_one(lead: dict, write: bool = True) -> str:
         raise SystemExit(f"No builder yet for trade '{trade}' ({lead['business_name']})")
     photos = fetch_place_photos(lead.get("place_id", ""), n=8)
     html = builder(lead, photos)
+    if not any(photos):
+        html = _no_photo_fallback(html)
     if write:
         slug = slugify(lead["business_name"])
         SITES_DIR.mkdir(parents=True, exist_ok=True)
