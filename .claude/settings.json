@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/alima/OneDrive/Documents/Claude/Projects/Alim's Freelancing/_lead_finder_leadgen/**)",
+      "Bash(sed -n '1,54p' demos.py)",
+      "Bash(python -c ' *)",
+      "Bash(python -m uvicorn main:app --host 127.0.0.1 --port 8111 --log-level warning)",
+      "PowerShell(git fetch origin 2>&1)",
+      "PowerShell(git rev-list --left-right --count main...origin/main)",
+      "PowerShell(foreach \\($b in @\\('main','dashboard','leadgen'\\)\\) { $counts = git rev-list --left-right --count \"$b...origin/$b\" 2>$null; Write-Output \"$b  \\(local<->origin ahead/behind\\): $counts\" }; Write-Output \"----- dashboard behind preview -----\"; git log dashboard..origin/dashboard --oneline 2>$null | Select-Object -First 15; Write-Output \"----- leadgen behind preview -----\"; git log leadgen..origin/leadgen --oneline 2>$null | Select-Object -First 15)",
+      "PowerShell(git fetch origin leadgen:leadgen 2>&1)",
+      "PowerShell(git rev-list --left-right --count leadgen...origin/leadgen)",
+      "PowerShell(git add -A)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\alima\\OneDrive\\Documents\\Claude\\Projects\\Alim's Freelancing\\_lead_finder_leadgen\\phase4_backend\\dashboard",
+      "c:\\Users\\alima\\OneDrive\\Documents\\Claude\\Projects\\Alim's Freelancing\\_lead_finder_leadgen\\phase4_backend",
+      "c:\\Users\\alima\\OneDrive\\Documents\\Claude\\Projects\\Alim's Freelancing\\_lead_finder_leadgen"
+    ]
+  }
+}

@@ -1,6 +1,5 @@
 :root {
   --bg: #f4ede2;
-  --bg-deep: #eadbc6;
   --surface: rgba(252, 249, 243, 0.82);
   --surface-solid: #fbf7f0;
   --ink: #14242c;
@@ -8,16 +7,13 @@
   --line: rgba(20, 36, 44, 0.12);
   --navy: #10212b;
   --teal: #71b8b1;
-  --teal-deep: #4e8f89;
   --coral: #ea7856;
   --coral-deep: #cd5c3b;
-  --sand: #d5c1a6;
   --white: #fffdfa;
   --shadow: 0 22px 60px rgba(16, 33, 43, 0.12);
   --max: 1220px;
   --radius-xl: 34px;
   --radius-lg: 26px;
-  --radius-md: 18px;
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -54,11 +50,15 @@ img {
 .announcement,
 .site-header,
 .hero,
+.trust-band,
 .logo-row,
+.launch-offer,
 .proof-strip,
+.testimonials,
 .value,
 .examples,
 .comparison,
+.inclusions,
 .features,
 .ownership,
 .pricing,
@@ -108,9 +108,11 @@ img {
 .eyebrow,
 .pricing-eyebrow,
 .comparison-label,
-.hero-note strong,
 .feature-icon,
-.step-card span {
+.step-card span,
+.trust-stat span,
+.hero-note strong,
+.bonus-grid span {
   font-family: "Space Grotesk", sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -157,11 +159,15 @@ img {
 }
 
 .hero,
+.trust-band,
 .logo-row,
+.launch-offer,
 .proof-strip,
+.testimonials,
 .value,
 .examples,
 .comparison,
+.inclusions,
 .features,
 .ownership,
 .pricing,
@@ -171,29 +177,38 @@ img {
   margin: 0 auto;
 }
 
+.hero-copy,
+.hero-visual,
+.trust-stat,
+.trust-proof,
+.offer-main,
+.offer-bonuses,
+.proof-strip article,
+.testimonial-card,
+.step-card,
+.example-card,
+.comparison-card,
+.inclusion-columns article,
+.feature-card,
+.ownership-copy,
+.ownership-art,
+.pricing-card,
+.plan-compare,
+.pricing-media-copy,
+.pricing-media-art,
+.faq-list details,
+.contact-shell {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
   gap: 28px;
   align-items: center;
   padding-top: 28px;
-  padding-bottom: 78px;
-}
-
-.hero-copy,
-.hero-visual,
-.proof-strip article,
-.step-card,
-.example-card,
-.comparison-card,
-.feature-card,
-.ownership-copy,
-.ownership-art,
-.pricing-card,
-.faq-list details,
-.contact-shell {
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  padding-bottom: 54px;
 }
 
 .hero-copy {
@@ -223,8 +238,8 @@ img {
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 6.8vw, 5.2rem);
-  max-width: 11.5ch;
+  font-size: clamp(3rem, 6.6vw, 5.1rem);
+  max-width: 11ch;
 }
 
 .hero-text,
@@ -236,6 +251,11 @@ img {
 .feature-card p,
 .ownership-copy p,
 .pricing-copy,
+.offer-price-copy,
+.offer-list li,
+.bonus-grid p,
+.trust-proof p,
+.inclusion-columns li,
 .faq p,
 .contact-copy p,
 .site-footer p {
@@ -308,8 +328,7 @@ img {
   min-height: 620px;
   padding: 20px;
   border-radius: var(--radius-xl);
-  background:
-    linear-gradient(180deg, rgba(16, 33, 43, 0.96), rgba(32, 59, 70, 0.94));
+  background: linear-gradient(180deg, rgba(16, 33, 43, 0.96), rgba(32, 59, 70, 0.94));
   overflow: hidden;
 }
 
@@ -327,6 +346,35 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.trust-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 18px;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 28px;
+}
+
+.trust-stat,
+.trust-proof {
+  padding: 22px 24px;
+  border-radius: 24px;
+  background: rgba(252, 249, 243, 0.8);
+}
+
+.trust-stat span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--coral-deep);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.trust-stat strong {
+  font-size: 26px;
+  line-height: 1.12;
 }
 
 .logo-row {
@@ -353,34 +401,12 @@ img {
   font-weight: 600;
 }
 
-.proof-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  padding-top: 10px;
-  padding-bottom: 74px;
-}
-
-.proof-strip article {
-  padding: 24px;
-  border-radius: 24px;
-  background: rgba(252, 249, 243, 0.78);
-}
-
-.proof-strip strong,
-.example-card h3,
-.step-card h3,
-.feature-card h3,
-.pricing-card h3 {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 22px;
-  line-height: 1.14;
-}
-
+.launch-offer,
+.testimonials,
 .value,
 .examples,
 .comparison,
+.inclusions,
 .features,
 .ownership,
 .pricing,
@@ -401,16 +427,123 @@ img {
   font-size: clamp(2.3rem, 4.6vw, 4rem);
 }
 
-.process-grid {
+.offer-shell,
+.examples-layout,
+.ownership,
+.pricing-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
+  gap: 22px;
+  align-items: center;
+}
+
+.offer-main,
+.offer-bonuses,
+.testimonial-card,
+.step-card,
+.example-card,
+.comparison-card,
+.inclusion-columns article,
+.feature-card,
+.ownership-copy,
+.pricing-card,
+.plan-compare,
+.pricing-media-copy {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(252, 249, 243, 0.8);
+}
+
+.offer-main h3,
+.offer-bonuses h3,
+.plan-compare h3,
+.pricing-media-copy h3,
+.inclusion-columns h3,
+.testimonial-card strong,
+.proof-strip strong,
+.example-card h3,
+.step-card h3,
+.feature-card h3,
+.pricing-card h3 {
+  display: block;
+  margin: 0 0 12px;
+  font-size: 22px;
+  line-height: 1.14;
+}
+
+.offer-price {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.offer-price-value {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.offer-list,
+.comparison-card ul,
+.pricing-card ul,
+.inclusion-columns ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.offer-list {
+  margin-bottom: 22px;
+}
+
+.offer-list li + li,
+.comparison-card li + li,
+.pricing-card li + li,
+.inclusion-columns li + li {
+  margin-top: 10px;
+}
+
+.bonus-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.bonus-grid article {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(16, 33, 43, 0.05);
+}
+
+.bonus-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.proof-strip,
+.process-grid,
+.testimonial-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
-.step-card {
-  padding: 26px;
+.proof-strip {
+  padding-top: 10px;
+  padding-bottom: 74px;
+}
+
+.proof-strip article {
+  padding: 24px;
   border-radius: 24px;
   background: rgba(252, 249, 243, 0.78);
+}
+
+.testimonial-card p {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1.45;
 }
 
 .step-card span,
@@ -420,23 +553,17 @@ img {
   font-weight: 700;
 }
 
-.examples-layout,
-.ownership {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.94fr);
-  gap: 22px;
-  align-items: center;
-}
-
 .examples-art,
-.ownership-art {
+.ownership-art,
+.pricing-media-art {
   padding: 18px;
   border-radius: 30px;
   background: rgba(16, 33, 43, 0.96);
 }
 
 .examples-art img,
-.ownership-art img {
+.ownership-art img,
+.pricing-media-art img {
   width: 100%;
   border-radius: 24px;
 }
@@ -446,42 +573,14 @@ img {
   gap: 14px;
 }
 
-.example-card {
-  padding: 24px;
-  border-radius: 24px;
-  background: rgba(252, 249, 243, 0.76);
-}
-
-.comparison-grid,
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
 .comparison-grid {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.comparison-card {
-  padding: 28px;
-  border-radius: 28px;
-  background: rgba(252, 249, 243, 0.74);
+  gap: 18px;
 }
 
 .comparison-card-strong {
   background: linear-gradient(180deg, rgba(234, 120, 86, 0.12), rgba(252, 249, 243, 0.9));
-}
-
-.comparison-card ul,
-.pricing-card ul {
-  padding-left: 20px;
-  margin: 0;
-}
-
-.comparison-card li + li,
-.pricing-card li + li {
-  margin-top: 12px;
 }
 
 .comparison-label {
@@ -489,6 +588,12 @@ img {
   font-size: 12px;
   font-weight: 700;
   color: var(--navy);
+}
+
+.inclusion-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .feature-grid {
@@ -499,26 +604,21 @@ img {
 
 .feature-card {
   grid-column: span 4;
-  padding: 24px;
-  border-radius: 24px;
-  background: rgba(252, 249, 243, 0.78);
 }
 
 .feature-card-large {
-  grid-column: span 4;
   background: linear-gradient(180deg, rgba(113, 184, 177, 0.18), rgba(252, 249, 243, 0.86));
 }
 
-.ownership-copy {
-  padding: 32px;
-  border-radius: 28px;
-  background: rgba(252, 249, 243, 0.8);
+.ownership-art {
+  padding: 18px;
+  border-radius: 30px;
 }
 
-.pricing-card {
-  padding: 28px;
-  border-radius: 28px;
-  background: rgba(252, 249, 243, 0.8);
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .pricing-card-featured {
@@ -530,6 +630,33 @@ img {
 .pricing-card-featured li,
 .pricing-card-featured .pricing-eyebrow {
   color: rgba(252, 249, 243, 0.82);
+}
+
+.plan-compare {
+  margin-top: 28px;
+}
+
+.plan-table {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(80px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.plan-table > div {
+  padding: 14px 16px;
+  background: var(--surface-solid);
+}
+
+.pricing-media {
+  margin-top: 28px;
+}
+
+.pricing-media-copy h3 {
+  font-size: 30px;
+  line-height: 1.08;
 }
 
 .faq-list {
@@ -564,8 +691,7 @@ img {
   gap: 24px;
   padding: 34px;
   border-radius: 30px;
-  background:
-    linear-gradient(135deg, rgba(16, 33, 43, 0.98), rgba(34, 68, 79, 0.96));
+  background: linear-gradient(135deg, rgba(16, 33, 43, 0.98), rgba(34, 68, 79, 0.96));
   color: var(--white);
 }
 
@@ -603,18 +729,22 @@ img {
 
 @media (max-width: 1080px) {
   .hero,
-  .examples-layout,
-  .ownership,
-  .contact-shell,
+  .trust-band,
+  .offer-shell,
+  .proof-strip,
+  .testimonial-grid,
   .process-grid,
+  .examples-layout,
   .comparison-grid,
+  .inclusion-columns,
+  .ownership,
   .pricing-grid,
-  .proof-strip {
+  .pricing-media,
+  .contact-shell {
     grid-template-columns: 1fr;
   }
 
-  .feature-card,
-  .feature-card-large {
+  .feature-card {
     grid-column: span 12;
   }
 }
@@ -638,14 +768,23 @@ img {
 
   .hero-copy,
   .hero-visual,
+  .trust-stat,
+  .trust-proof,
+  .offer-main,
+  .offer-bonuses,
   .proof-strip article,
+  .testimonial-card,
   .step-card,
   .example-card,
   .comparison-card,
+  .inclusion-columns article,
   .feature-card,
   .ownership-copy,
   .ownership-art,
   .pricing-card,
+  .plan-compare,
+  .pricing-media-copy,
+  .pricing-media-art,
   .faq-list details,
   .contact-shell {
     border-radius: 24px;
@@ -660,14 +799,12 @@ img {
     min-height: auto;
   }
 
-  .button,
-  .nav-cta {
-    width: 100%;
-  }
-
+  .launch-offer,
+  .testimonials,
   .value,
   .examples,
   .comparison,
+  .inclusions,
   .features,
   .ownership,
   .pricing,
@@ -675,6 +812,15 @@ img {
   .contact {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  .button,
+  .nav-cta {
+    width: 100%;
+  }
+
+  .plan-table {
+    grid-template-columns: 1fr;
   }
 }
 
