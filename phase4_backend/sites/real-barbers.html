@@ -1,326 +1,611 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Real Barbers | Barbershop in Littleton, CO</title>
-<meta name="description" content="Real Barbers: top-rated barbershop in Littleton. Fades, beard work, hot-towel shaves. Book in seconds."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Real Barbers | Barbershop in Littleton, CO — Fades, Beards & Shaves</title>
+<meta name="description" content="Real Barbers is a barbershop in Littleton, CO. Skin fades, beard work, and classic hot-towel shaves. Walk-ins welcome — book a chair in seconds. Rated 4.8 on Google."/>
+<link rel="canonical" href="https://realbarbers.example/"/>
+<meta name="theme-color" content="#16181b"/>
+<meta property="og:title" content="Real Barbers — Barbershop in Littleton, CO"/>
+<meta property="og:description" content="Sharp fades, clean beard work, hot-towel shaves. Walk-ins welcome. Rated 4.8 on Google."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Real Barbers"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--acc:#7d8aa0;--accd:#667183;--accl:#e5e7ec;--bg:#141210;--bg2:#1c1916;--card:#211d19;--ink:#f4efe9;--mut:#a99f93;--line:#332d27;--disp:'Oswald',sans-serif}
+:root{
+  --ink:#16181b;
+  --ink2:#1d2024;
+  --panel:#23272c;
+  --line:#33383f;
+  --steel:#9aa3ab;
+  --steel-d:#6b727a;
+  --paper:#f3f4f2;
+  --acc:#ff5a1f;
+  --acc-d:#e64a12;
+  --txt:#f1f2ef;
+  --mut:#a7adb3;
+  --disp:'Archivo',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --maxw:1200px;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:.01em;line-height:1.05}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-.eyebrow{font-family:var(--disp);letter-spacing:.32em;text-transform:uppercase;color:var(--acc);font-size:14px;font-weight:600}
-.sec{padding:100px 0}
-.head{text-align:center;max-width:640px;margin:0 auto 56px}
-.head h2{font-size:clamp(32px,5vw,52px);text-transform:uppercase}
-.head .eyebrow{display:block;margin-bottom:14px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:15px;padding:15px 30px;border-radius:2px;cursor:pointer;border:none;transition:transform .15s,background .2s,color .2s}
-.btn-p{background:var(--acc);color:#15110d}.btn-p:hover{transform:translateY(-2px);background:var(--accl);color:#15110d}
-.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
-.actions{display:flex;gap:14px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--ink);padding:7px 14px;border-radius:999px;font-size:13px;font-weight:500}
-/* NAV */
-#nav{position:sticky;top:0;z-index:900;background:rgba(20,18,16,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1180px;margin:0 auto;height:70px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--disp);font-weight:700;font-size:23px;letter-spacing:.04em;text-transform:uppercase}
-.logo b{color:var(--acc)}
-.nav-l{display:flex;gap:28px;align-items:center}.nav-l a{font-size:14px;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--ink)}
-.nav-r{display:flex;gap:16px;align-items:center}.nav-ph{font-family:var(--disp);font-size:16px;letter-spacing:.04em}
-/* HERO */
-#hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(20,18,16,.4) 0%,rgba(20,18,16,.5) 40%,rgba(20,18,16,.96) 100%),url('') center/cover no-repeat}
-.hero-in{max-width:1180px;margin:0 auto;width:100%;padding:0 28px 84px}
-.hero-in .eyebrow{display:block;margin-bottom:18px}
-#hero h1{font-size:clamp(40px,7vw,82px);text-transform:uppercase;margin-bottom:14px;text-wrap:balance}
-#hero .tagline{font-family:var(--disp);font-size:clamp(20px,3vw,30px);color:var(--acc);letter-spacing:.04em;margin-bottom:26px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
-/* STRIP */
-.strip{background:var(--acc);color:#15110d}
-.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:18px 28px;text-align:center}
-.strip b{font-family:var(--disp);font-size:18px;letter-spacing:.04em;text-transform:uppercase}
-/* SERVICES */
-#services{background:var(--bg2)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 28px;transition:border-color .2s,transform .2s}
-.svc:hover{border-color:var(--acc);transform:translateY(-3px)}
-.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.svc-h h3{font-size:21px;text-transform:uppercase}.price{font-family:var(--disp);color:var(--acc);font-size:22px}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:1.02;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.sec{padding:96px 0}
+.mono{font-family:var(--mono);font-weight:500}
+.label{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+.head{margin:0 0 52px}
+.head h2{font-size:clamp(32px,5.5vw,60px);text-transform:uppercase}
+.head .label{display:block;margin-bottom:16px}
+.head p{color:var(--mut);max-width:560px;margin-top:14px;font-size:16px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:700;letter-spacing:.02em;text-transform:uppercase;font-size:14px;padding:15px 26px;border-radius:0;cursor:pointer;border:2px solid transparent;transition:transform .15s,background .2s,color .2s,border-color .2s}
+.btn svg{width:18px;height:18px}
+.btn-p{background:var(--acc);color:#16181b;border-color:var(--acc)}
+.btn-p:hover{transform:translateY(-2px);background:var(--acc-d);border-color:var(--acc-d)}
+.btn-o{background:transparent;color:var(--txt);border-color:var(--line)}
+.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.btn-d{background:#16181b;color:var(--acc);border-color:#16181b}
+.btn-d:hover{transform:translateY(-2px);background:#000}
+#nav{position:sticky;top:0;z-index:900;background:rgba(22,24,27,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;height:68px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-weight:900;font-size:21px;letter-spacing:-.02em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo .mk{width:14px;height:14px;background:var(--acc);display:inline-block;flex:none}
+.nav-l{display:flex;gap:30px;align-items:center}
+.nav-l a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);transition:color .2s}
+.nav-l a:hover{color:var(--txt)}
+.nav-r{display:flex;gap:14px;align-items:center}
+.nav-ph{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--txt)}
+#hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0,transparent 119px,rgba(255,255,255,.025) 119px,rgba(255,255,255,.025) 120px),radial-gradient(1100px 540px at 78% -10%,rgba(255,90,31,.14),transparent 60%),var(--ink)}
+.hero-in{max-width:var(--maxw);margin:0 auto;padding:84px 24px 90px;position:relative}
+.hero-meta{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;margin-bottom:30px}
+.hero-meta .label{margin:0}
+.hero-meta .dot{width:5px;height:5px;background:var(--steel-d);border-radius:50%}
+#hero h1{font-size:clamp(52px,11vw,148px);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;line-height:.9}
+#hero h1 .o{color:var(--acc)}
+.hero-sub{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;margin-top:34px}
+.hero-sub .tag{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;letter-spacing:-.01em;color:var(--steel)}
+.hero-sub .tag b{color:var(--txt)}
+.hero-copy p{color:var(--mut);font-size:16px;margin-bottom:22px;max-width:380px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-rating{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:.04em}
+.stars{display:inline-flex;gap:2px}
+.stars svg{width:16px;height:16px;color:var(--acc)}
+.ticker{background:var(--acc);color:#16181b;overflow:hidden;border-bottom:1px solid var(--acc-d)}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:scroll 26s linear infinite;will-change:transform}
+.ticker-track span{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:14px 0}
+.ticker-track .gap{padding:14px 26px;display:inline-flex;align-items:center}
+.ticker-track .gap::after{content:"";width:6px;height:6px;background:#16181b;transform:rotate(45deg)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#services{background:var(--ink2)}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-bottom:none}
+.svc{padding:30px 30px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);transition:background .2s}
+.svc:nth-child(2n){border-right:none}
+.svc:hover{background:var(--panel)}
+.svc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px}
+.svc .num{font-family:var(--mono);font-size:12px;color:var(--steel-d);letter-spacing:.1em}
+.svc h3{font-size:23px;text-transform:uppercase;margin:6px 0 0}
 .svc p{color:var(--mut);font-size:14.5px}
-/* GALLERY */
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gal figure{overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:var(--card)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .4s;filter:grayscale(.3) contrast(1.05)}
-.gal figure:hover img{transform:scale(1.06);filter:none}
-/* ABOUT */
-#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-#about img{border-radius:4px;width:100%;height:520px;object-fit:cover;filter:grayscale(.2)}
-#about h2{font-size:clamp(30px,4vw,46px);text-transform:uppercase;margin-bottom:18px}
+.svc .pill{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);border:1px solid var(--line);padding:5px 10px;white-space:nowrap}
+.svc-note{margin-top:22px;font-family:var(--mono);font-size:13px;color:var(--steel);letter-spacing:.02em}
+#craft{background:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.craft-card{border:1px solid var(--line);padding:34px 28px;background:var(--ink2)}
+.craft-card .ic{width:44px;height:44px;border:1.5px solid var(--acc);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.craft-card .ic svg{width:22px;height:22px;color:var(--acc)}
+.craft-card h3{font-size:20px;text-transform:uppercase;margin-bottom:10px}
+.craft-card p{color:var(--mut);font-size:14.5px}
+#about{background:var(--ink2)}
+#about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.about-mk{position:relative;aspect-ratio:1/1;border:1px solid var(--line);background:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 1px,transparent 11px),var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.about-mk .pole{width:54px;height:78%;border-radius:40px;border:3px solid var(--steel-d);position:relative;overflow:hidden;background:#0e1012}
+.about-mk .pole::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,var(--acc) 0,var(--acc) 14px,var(--paper) 14px,var(--paper) 28px,var(--steel) 28px,var(--steel) 42px);opacity:.9;animation:spin 3.5s linear infinite}
+@keyframes spin{from{background-position:0 0}to{background-position:0 84px}}
+.about-mk .est{position:absolute;bottom:18px;left:18px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--steel-d);text-transform:uppercase}
+#about h2{font-size:clamp(30px,4.4vw,52px);text-transform:uppercase;margin-bottom:18px}
 #about p{color:var(--mut);margin-bottom:16px;font-size:16px}
-.about-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.about-tags span{border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:2px;font-family:var(--disp);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-/* REVIEWS */
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.rev{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:28px}
-.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:12px}
-.rev blockquote{font-size:16px;line-height:1.7;margin-bottom:14px}.rev figcaption{color:var(--mut);font-family:var(--disp);letter-spacing:.06em;font-size:14px}
-/* BOOK CTA */
-#book{background:linear-gradient(135deg,var(--accd),var(--acc));color:#15110d;text-align:center}
-#book h2{font-size:clamp(32px,5vw,54px);text-transform:uppercase;margin-bottom:14px}
-#book p{font-size:18px;margin-bottom:30px;opacity:.85}
-#book .actions{justify-content:center}
-#book .btn-d{background:#15110d;color:var(--acc)}#book .btn-d:hover{transform:translateY(-2px)}
-/* VISIT */
-#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.visit-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:34px}
-.visit-card h3{font-size:20px;text-transform:uppercase;margin-bottom:14px;color:var(--acc)}
-.visit-card p{color:var(--mut);margin-bottom:8px}
-.hours div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
-.hours b{font-family:var(--disp);letter-spacing:.04em}
-/* FAQ */
-.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.faq{background:var(--card);border:1px solid var(--line);border-radius:4px}
-.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--disp);font-size:18px;letter-spacing:.02em;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.about-tags{display:flex;gap:0;flex-wrap:wrap;margin-top:24px;border:1px solid var(--line)}
+.about-tags span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);padding:11px 16px;border-right:1px solid var(--line)}
+.about-tags span:last-child{border-right:none}
+#reviews{background:var(--ink)}
+.rev-top{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;margin-bottom:44px;border:1px solid var(--line);padding:30px;background:var(--ink2)}
+.rev-score{display:flex;align-items:center;gap:22px}
+.rev-score .big{font-family:var(--disp);font-weight:900;font-size:64px;line-height:.9;color:var(--txt)}
+.rev-score .meta .stars{margin-bottom:6px}
+.rev-score .meta .mono{display:block;font-size:13px;color:var(--mut);letter-spacing:.04em}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-right:none}
+.rev{padding:30px;border-right:1px solid var(--line)}
+.rev .stars{margin-bottom:14px}
+.rev blockquote{font-size:16px;line-height:1.65;color:var(--txt)}
+.rev figcaption{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--steel);letter-spacing:.04em;text-transform:uppercase}
+.rev-disc{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--steel-d);letter-spacing:.02em}
+#book{background:var(--acc);color:#16181b;border-top:1px solid var(--acc-d)}
+#book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#book h2{font-size:clamp(34px,5vw,60px);text-transform:uppercase;color:#16181b;letter-spacing:-.02em}
+#book .lead{font-size:18px;margin:16px 0 26px;max-width:420px;color:#241405}
+#book .label{color:#7a2c08}
+.book-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.book-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.book-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:#241405;font-weight:500}
+.book-list svg{width:20px;height:20px;flex:none;color:#16181b;margin-top:1px}
+.form-card{background:#16181b;color:var(--txt);padding:32px;border:2px solid #16181b}
+.form-card h3{font-size:24px;text-transform:uppercase;color:var(--txt);margin-bottom:6px}
+.form-card .sub{color:var(--mut);font-size:14px;margin-bottom:22px}
+.hp{position:absolute;left:-9999px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px;display:flex;flex-direction:column}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:7px}
+.field .req{color:var(--acc)}
+.field input,.field select{font:inherit;font-size:15px;padding:12px 14px;background:var(--ink2);border:1.5px solid var(--line);color:var(--txt);border-radius:0}
+.field input::placeholder{color:var(--steel-d)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--acc)}
+.form-card .btn-p{width:100%;justify-content:center;margin-top:6px}
+.form-note{font-family:var(--mono);font-size:12px;color:var(--steel);margin-top:14px;letter-spacing:.02em}
+#visit{background:var(--ink2)}
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.vcard{background:var(--ink);border:1px solid var(--line);padding:34px}
+.vcard h3{font-size:18px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:11px}
+.vcard h3 svg{width:20px;height:20px;color:var(--acc)}
+.vcard p{color:var(--mut);margin-bottom:6px;font-size:15px}
+.hours-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours-row:last-of-type{border-bottom:none}
+.hours-row b{font-family:var(--mono);font-weight:700;letter-spacing:.04em;font-size:13px;text-transform:uppercase;color:var(--steel)}
+.hours-row span{color:var(--txt)}
+.note{color:var(--steel-d);font-family:var(--mono);font-size:12px;margin-top:14px}
+#faq{background:var(--ink)}
+.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-bottom:none}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:var(--disp);font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:14px}
 .faq summary::-webkit-details-marker{display:none}
 .faq .ic{position:relative;width:16px;height:16px;flex:none}
-.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
-.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc)}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}
+.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
 .faq[open] .ic::after{transform:scaleY(0)}
-.faq p{padding:0 24px 22px;color:var(--mut);font-size:15px}
-/* FOOTER */
-footer{background:#0e0c0b;color:var(--mut);text-align:center;padding:40px 28px;font-size:14px;border-top:1px solid var(--line)}
-footer b{color:var(--ink);font-family:var(--disp);letter-spacing:.05em}
-@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:340px}}
-@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+.faq[open] summary{color:var(--acc)}
+.faq p{padding:0 26px 24px;color:var(--mut);font-size:15px}
+footer{background:#0e1012;color:var(--mut);padding:54px 24px 40px;border-top:1px solid var(--line)}
+.foot-top{max-width:var(--maxw);margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.foot-bot{max-width:var(--maxw);margin:24px auto 0;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.foot-bot a:hover{color:var(--acc)}
+.foot-bot .sep{color:var(--steel-d)}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:950;display:none;background:rgba(22,24,27,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:9px 12px;gap:9px}
+.mbar a{flex:1;justify-content:center;padding:13px 10px;font-size:13px}
+.reveal{transition:opacity .6s,transform .6s}
+.js .reveal:not(.in){opacity:0;transform:translateY(20px)}
+@media(max-width:900px){
+  #book .wrap,#about .wrap,#visit .wrap{grid-template-columns:1fr}
+  .hero-sub{grid-template-columns:1fr;gap:26px}
+  .craft-grid,.rev-grid{grid-template-columns:1fr}
+  .rev{border-right:none;border-bottom:1px solid var(--line)}
+  .rev-grid{border-right:1px solid var(--line)}
+  .nav-l{display:none}
+  #about .about-mk{max-width:340px}
+}
+@media(max-width:640px){
+  .sec{padding:64px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .svc{border-right:none}
+  .frow{grid-template-columns:1fr}
+  .nav-ph{display:none}
+  .mbar{display:flex}
+  body{padding-bottom:64px}
+  #book .wrap{gap:36px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .ticker-track{animation:none!important}
+}
 </style>
-<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+<script>document.documentElement.className+=' js';</script>
+
 <nav id="nav"><div class="nav-in">
-  <span class="logo">Real Barbers</span>
-  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
-  <div class="nav-r"><a class="nav-ph" href="tel:13037976066">(303) 797-6066</a><a class="btn btn-p" href="#book">Book</a></div>
+  <a class="logo" href="#main"><span class="mk" aria-hidden="true"></span>Real Barbers</a>
+  <div class="nav-l">
+    <a href="#services">Services</a>
+    <a href="#craft">The Shop</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <div class="nav-r">
+    <a class="nav-ph" href="tel:13037976066">(303) 797-6066</a>
+    <a class="btn btn-p" href="#book">Book a chair</a>
+  </div>
 </div></nav>
 
-<header id="hero"><div class="hero-in">
-  <span class="eyebrow" data-aos="fade-up">Littleton, Colorado · Barbershop</span>
-  <h1 data-aos="fade-up" data-aos-delay="60">Real Barbers</h1>
-  <div class="tagline" data-aos="fade-up" data-aos-delay="120">Sharp Cuts. Classic Service.</div>
-  <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
-    <a class="btn btn-p" href="#book">Book Your Cut</a>
-    <a class="btn btn-o" href="tel:13037976066">Call (303) 797-6066</a>
+<main id="main">
+<header id="hero">
+  <div class="hero-in">
+    <div class="hero-meta reveal">
+      <span class="label">Littleton, Colorado</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="label" style="color:var(--steel)">Barbershop</span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="label" style="color:var(--steel)">Walk-ins Welcome</span>
+    </div>
+    <h1 class="reveal">Real<br>Barbers<span class="o">.</span></h1>
+    <div class="hero-sub">
+      <div class="tag reveal">Sharp <b>fades</b>, clean <b>beard work</b>, and honest-to-goodness <b>hot-towel shaves</b>.</div>
+      <div class="hero-copy reveal">
+        <p>A no-fuss Littleton barbershop. Sit down, get a cut done right, walk out looking like yourself — sharper.</p>
+        <div class="hero-actions">
+          <a class="btn btn-p" href="#book">Book a chair
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-o" href="tel:13037976066">Call (303) 797-6066</a>
+        </div>
+        <div class="hero-rating">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          </span>
+          <span>4.8 / 5 &middot; 52 Google reviews</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <span class="chip">★ 4.8 · 52 Google reviews</span>
-</div></header>
+</header>
 
-<div class="strip"><div class="wrap">
-  <b>★ 4.8 on Google</b><b>52 Reviews</b><b>Walk-ins Welcome</b><b>Beard &amp; Shaves</b><b>Littleton &amp; Metro</b>
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span class="gap"></span><span>Skin Fades</span><span class="gap"></span><span>Beard Work</span><span class="gap"></span><span>Hot-Towel Shaves</span><span class="gap"></span><span>Kids Cuts</span><span class="gap"></span><span>Walk-ins Welcome</span><span class="gap"></span><span>Skin Fades</span><span class="gap"></span><span>Beard Work</span><span class="gap"></span><span>Hot-Towel Shaves</span><span class="gap"></span><span>Kids Cuts</span><span class="gap"></span><span>Walk-ins Welcome</span><span class="gap"></span>
 </div></div>
 
 <section id="services" class="sec"><div class="wrap">
-  <div class="head"><h2>Cuts &amp; Services</h2></div>
-  <div class="svc-grid"><div class="svc" data-aos="fade-up" data-aos-delay="0">
-        <div class="svc-h"><h3>Signature Haircut</h3><span class="price">$35</span></div><p>Consultation, cut, and style tailored to you.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="70">
-        <div class="svc-h"><h3>Skin Fade</h3><span class="price">$40</span></div><p>Crisp, blended fade. High, mid, or low.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="140">
-        <div class="svc-h"><h3>Beard Trim & Shape</h3><span class="price">$20</span></div><p>Lineup and shape for a sharp finish.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="0">
-        <div class="svc-h"><h3>Hot Towel Shave</h3><span class="price">$35</span></div><p>Classic straight-razor shave, hot towel.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="70">
-        <div class="svc-h"><h3>Cut + Beard Combo</h3><span class="price">$55</span></div><p>The full reset: hair and beard.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="140">
-        <div class="svc-h"><h3>Kids Cut</h3><span class="price">$25</span></div><p>Ages 12 & under, no fuss.</p></div></div>
+  <div class="head reveal">
+    <span class="label">01 / The Menu</span>
+    <h2>Cuts &amp; Services</h2>
+    <p>Everything you need to stay sharp — chosen and shaped to fit you, not a stopwatch.</p>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc">
+      <div class="svc-top"><span class="num">01</span><span class="pill">By appointment / walk-in</span></div>
+      <h3>Signature Haircut</h3>
+      <p>A proper consultation, a clean cut, and a finish styled the way you actually wear it.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-top"><span class="num">02</span><span class="pill">High / mid / low</span></div>
+      <h3>Skin Fade</h3>
+      <p>Crisp, seamlessly blended fades — taken down to the skin and dialed to your taste.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-top"><span class="num">03</span><span class="pill">Lineup &amp; shape</span></div>
+      <h3>Beard Trim &amp; Shape</h3>
+      <p>Sharp lines and a clean shape that frames the face — not just a quick once-over.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-top"><span class="num">04</span><span class="pill">Straight razor</span></div>
+      <h3>Hot-Towel Shave</h3>
+      <p>The classic: hot towels, straight razor, and a close, comfortable finish.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-top"><span class="num">05</span><span class="pill">Cut + beard</span></div>
+      <h3>The Full Reset</h3>
+      <p>Hair and beard handled together so everything lines up and works as one look.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-top"><span class="num">06</span><span class="pill">12 &amp; under</span></div>
+      <h3>Kids Cut</h3>
+      <p>An easy, no-stress chair for the little ones — in and out, looking sharp.</p>
+    </div>
+  </div>
+  <p class="svc-note reveal">Pricing varies by barber and service — call <a href="tel:13037976066" style="color:var(--acc)">(303) 797-6066</a> or ask when you book and we'll give you an exact quote.</p>
 </div></section>
 
-<section id="gallery" class="sec"><div class="wrap">
-  <div class="head"><h2>Fresh From the Chair</h2></div>
-  <div class="gal"></div>
+<section id="craft" class="sec"><div class="wrap">
+  <div class="head reveal">
+    <span class="label">02 / Why Real Barbers</span>
+    <h2>Done Right, Not Rushed</h2>
+  </div>
+  <div class="craft-grid">
+    <div class="craft-card reveal">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></span>
+      <h3>Skilled Hands</h3>
+      <p>Barbers who take the time to get the detail right — clean fades, crisp lines, and shapes that hold up between cuts.</p>
+    </div>
+    <div class="craft-card reveal">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <h3>No Stopwatch</h3>
+      <p>You're not a number on a queue. Every chair gets a real consultation and the time the cut actually needs.</p>
+    </div>
+    <div class="craft-card reveal">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>
+      <h3>Neighborhood Shop</h3>
+      <p>A local Littleton barbershop with regulars who keep coming back — walk in, book ahead, either way you're welcome.</p>
+    </div>
+  </div>
 </div></section>
 
 <section id="about" class="sec"><div class="wrap">
-  <img src="" alt="Real Barbers" data-aos="fade-right"/>
-  <div data-aos="fade-left">
+  <div class="about-mk reveal" aria-hidden="true">
+    <span class="pole"></span>
+    <span class="est">Real Barbers &mdash; Littleton, CO</span>
+  </div>
+  <div class="reveal">
+    <span class="label" style="display:block;margin-bottom:16px">03 / The Shop</span>
     <h2>A Real Littleton Barbershop</h2>
-    <p>Real Barbers is where Littleton comes for a cut done right. No rushing, no guesswork. Just skilled barbers who take the time to get your look exactly the way you want it.</p>
+    <p>Real Barbers is where Littleton comes for a cut done right. No rushing, no guesswork — just barbers who take the time to get your look exactly the way you want it.</p>
     <p>Whether it's a sharp skin fade, a clean beard line, or a classic hot-towel shave, you'll leave looking like the best version of yourself. That's the standard at every chair.</p>
-    <div class="about-tags"><span>Master Barbers</span><span>Skin Fades</span><span>Beard Work</span><span>Hot-Towel Shaves</span></div>
+    <div class="about-tags">
+      <span>Skin Fades</span><span>Beard Work</span><span>Hot-Towel Shaves</span><span>Kids Cuts</span>
+    </div>
   </div>
 </div></section>
 
-<section id="reviews" class="sec" style="background:var(--bg2)"><div class="wrap">
-  <div class="head"><h2>What Clients Say</h2></div>
-  <div class="rev-grid"><figure class="rev" data-aos="fade-up" data-aos-delay="0">
-        <div class="stars">★★★★★</div><blockquote>Best fade I've gotten in Denver, hands down. Clean shop, great conversation, and they take their time.</blockquote><figcaption>Marcus T., Google review</figcaption></figure><figure class="rev" data-aos="fade-up" data-aos-delay="90">
-        <div class="stars">★★★★★</div><blockquote>Been coming here for years. Always consistent, always sharp. Wouldn't trust anyone else with my beard.</blockquote><figcaption>Devon R., Google review</figcaption></figure><figure class="rev" data-aos="fade-up" data-aos-delay="180">
-        <div class="stars">★★★★★</div><blockquote>Walked in, didn't wait long, walked out looking fresh. Real barbers who know what they're doing.</blockquote><figcaption>Anthony G., Google review</figcaption></figure></div>
+<section id="reviews" class="sec"><div class="wrap">
+  <div class="head reveal">
+    <span class="label">04 / Reviews</span>
+    <h2>What the Chair Says</h2>
+  </div>
+  <div class="rev-top reveal">
+    <div class="rev-score">
+      <span class="big">4.8</span>
+      <div class="meta">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+        </span>
+        <span class="mono">Rated 4.8 out of 5 &middot; 52 Google reviews</span>
+      </div>
+    </div>
+    <a class="btn btn-o" href="https://maps.google.com/?cid=18135318242321162203" target="_blank" rel="noopener">Read reviews on Google
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+  <div class="rev-grid reveal">
+    <figure class="rev">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>"Clean shop, no rushing, and they take their time to get the fade exactly right. Easily my go-to in the area."</blockquote>
+      <figcaption>Representative of recent feedback</figcaption>
+    </figure>
+    <figure class="rev">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>"Consistent every single visit. The beard work is sharp and the lineup actually lasts. Wouldn't trust anyone else."</blockquote>
+      <figcaption>Representative of recent feedback</figcaption>
+    </figure>
+    <figure class="rev">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>"Walked in, didn't wait long, walked out fresh. Real barbers who clearly know exactly what they're doing."</blockquote>
+      <figcaption>Representative of recent feedback</figcaption>
+    </figure>
+  </div>
+  <p class="rev-disc reveal">Sample quotes shown for illustration. See our verified rating and full reviews on <a href="https://maps.google.com/?cid=18135318242321162203" target="_blank" rel="noopener" style="color:var(--acc)">Google</a>.</p>
 </div></section>
 
 <section id="book" class="sec"><div class="wrap">
-  <h2>Ready for a Fresh Cut?</h2>
-  <p>Book in seconds, or just message us and we'll set it up.</p>
-  <div class="actions">
-    <a class="btn btn-d" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
-    <a class="btn btn-d" href="tel:13037976066">Call (303) 797-6066</a>
+  <div class="reveal">
+    <span class="label">05 / Book</span>
+    <h2>Grab a Chair</h2>
+    <p class="lead">Book as a guest — your name and a phone number is all we need. We'll text to confirm. Walk-ins always welcome too.</p>
+    <div class="book-actions">
+      <a class="btn btn-d" href="#" id="book-chat">Book a chair by chat
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.7-.7L3 21l1.4-4.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg></a>
+      <a class="btn btn-d" href="tel:13037976066">Call (303) 797-6066</a>
+    </div>
+    <ul class="book-list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Skin fades, beard work &amp; hot-towel shaves</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Walk-ins welcome — booking guarantees your spot</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cash and all major cards accepted</li>
+    </ul>
   </div>
+  <form class="form-card reveal" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="#book">
+    <input type="hidden" name="form-name" value="booking"/>
+    <p class="hp"><label>Leave blank: <input name="bot-field"/></label></p>
+    <h3>Request a booking</h3>
+    <p class="sub">We'll text you to lock in the time.</p>
+    <div class="frow">
+      <div class="field"><label for="name">Name <span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" required/></div>
+      <div class="field"><label for="phone">Phone <span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required/></div>
+    </div>
+    <div class="field"><label for="service">Service</label>
+      <select id="service" name="service">
+        <option>Signature Haircut</option>
+        <option>Skin Fade</option>
+        <option>Beard Trim &amp; Shape</option>
+        <option>Hot-Towel Shave</option>
+        <option>The Full Reset (Cut + Beard)</option>
+        <option>Kids Cut</option>
+      </select>
+    </div>
+    <div class="frow">
+      <div class="field"><label for="day">Preferred day</label><input id="day" name="preferred_day" type="text" placeholder="e.g. Saturday"/></div>
+      <div class="field"><label for="time">Preferred time</label><input id="time" name="preferred_time" type="text" placeholder="e.g. afternoon"/></div>
+    </div>
+    <button class="btn btn-p" type="submit">Request my chair
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <p class="form-note">No deposit needed. Walk-ins always welcome.</p>
+  </form>
 </div></section>
 
 <section id="visit" class="sec"><div class="wrap">
-  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
-    <p>5192 S Lowell Blvd, Littleton, CO 80123, USA</p><p style="margin-top:14px"><a class="btn btn-o" href="https://maps.google.com/?cid=18135318242321162203&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Get Directions</a></p>
+  <div class="vcard reveal">
+    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Find Us</h3>
+    <p>5192 S Lowell Blvd<br>Littleton, CO 80123</p>
+    <p style="margin-top:18px">
+      <a class="btn btn-o" href="https://maps.google.com/?cid=18135318242321162203" target="_blank" rel="noopener">Get directions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </p>
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iMjYwIiB2aWV3Qm94PSIwIDAgNjQwIDI2MCI+PHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIyNjAiIGZpbGw9IiMxZDIwMjQiLz48ZyBzdHJva2U9IiMzMzM4M2YiIHN0cm9rZS13aWR0aD0iMSI+PHBhdGggZD0iTTAgNjVINjQwTTAgMTMwSDY0ME0wIDE5NUg2NDBNMTYwIDBWMjYwTTMyMCAwVjI2ME00ODAgMFYyNjAiLz48L2c+PHBhdGggZD0iTTAgMTYwTDE3MCAxMTBMMzQwIDE1MEw2NDAgODAiIHN0cm9rZT0iIzZiNzI3YSIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTI0MCAyNjBMMzMwIDExMEw0NjAgMCIgc3Ryb2tlPSIjNmI3MjdhIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz48Y2lyY2xlIGN4PSIzMjAiIGN5PSIxMzAiIHI9IjIyIiBmaWxsPSIjZmY1YTFmIi8+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMTMwIiByPSI4IiBmaWxsPSIjMTYxODFiIi8+PHRleHQgeD0iMzIwIiB5PSIxODgiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM5YWEzYWIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjUxOTIgUyBMb3dlbGwgQmx2ZCwgTGl0dGxldG9uLCBDTzwvdGV4dD48L3N2Zz4=" alt="Map showing Real Barbers location at 5192 S Lowell Blvd, Littleton, CO 80123" width="640" height="260" loading="lazy" decoding="async" style="width:100%;height:auto;margin-top:18px;border:1px solid var(--line)"/>
   </div>
-  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
-    <div><b>Mon–Fri</b><span>9:00 AM – 7:00 PM</span></div>
-    <div><b>Saturday</b><span>9:00 AM – 5:00 PM</span></div>
-    <div><b>Sunday</b><span>By Appointment</span></div>
-    <p style="margin-top:14px;font-size:13px">Hours may vary; call ahead to confirm.</p>
+  <div class="vcard reveal">
+    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hours</h3>
+    <div class="hours-row"><b>Mon &ndash; Fri</b><span>9:00 AM &ndash; 7:00 PM</span></div>
+    <div class="hours-row"><b>Saturday</b><span>9:00 AM &ndash; 5:00 PM</span></div>
+    <div class="hours-row"><b>Sunday</b><span>By appointment</span></div>
+    <p class="note">Hours may vary &mdash; call ahead to confirm.</p>
   </div>
 </div></section>
 
-<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
-  <div class="head"><h2>FAQ</h2></div>
-  <div class="faq-list"><details class="faq"><summary>Do you take walk-ins?<span class="ic"></span></summary><p>Walk-ins are welcome, but booking ahead guarantees your spot and barber.</p></details><details class="faq"><summary>How do I book?<span class="ic"></span></summary><p>Tap Book, or just message us right here and our assistant books you in seconds.</p></details><details class="faq"><summary>Do you do beard work and shaves?<span class="ic"></span></summary><p>Absolutely. Beard shaping, lineups, and classic hot-towel straight-razor shaves.</p></details><details class="faq"><summary>What forms of payment do you take?<span class="ic"></span></summary><p>Cash and all major cards. Tips appreciated, never expected.</p></details></div>
+<section id="faq" class="sec"><div class="wrap">
+  <div class="head reveal">
+    <span class="label">06 / Good to Know</span>
+    <h2>FAQ</h2>
+  </div>
+  <div class="faq-list reveal">
+    <details class="faq"><summary>Do you take walk-ins?<span class="ic" aria-hidden="true"></span></summary><p>Walk-ins are welcome, but booking ahead guarantees your spot and your barber.</p></details>
+    <details class="faq"><summary>How do I book?<span class="ic" aria-hidden="true"></span></summary><p>Use the booking request form above, tap "Book a chair by chat," or call us at (303) 797-6066 and we'll set you up.</p></details>
+    <details class="faq"><summary>Do you do beard work and shaves?<span class="ic" aria-hidden="true"></span></summary><p>Absolutely — beard shaping, lineups, and classic hot-towel straight-razor shaves.</p></details>
+    <details class="faq"><summary>What about pricing?<span class="ic" aria-hidden="true"></span></summary><p>Pricing depends on the service and barber. Call (303) 797-6066 or ask when you book and we'll give you an exact quote up front.</p></details>
+    <details class="faq"><summary>What forms of payment do you take?<span class="ic" aria-hidden="true"></span></summary><p>Cash and all major cards. Tips appreciated, never expected.</p></details>
+  </div>
 </div></section>
+</main>
 
-<footer><b>Real Barbers</b> · 5192 S Lowell Blvd, Littleton, CO 80123, USA · © 2026 · Barbershop in Littleton, CO</footer>
-
-
-<!-- ── Bot widget ─────────────────────────────────────────── -->
-<button id="bot-fab" title="Chat with us" style="
-  position:fixed;bottom:28px;right:28px;z-index:9999;
-  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
-  background:#7d8aa0;color:#fff;font-size:26px;
-  box-shadow:0 4px 20px rgba(0,0,0,.30);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .2s,box-shadow .2s;
-">💬</button>
-
-<div id="bot-panel" style="
-  display:none;flex-direction:column;
-  position:fixed;bottom:100px;right:28px;z-index:9998;
-  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
-  box-shadow:0 8px 40px rgba(0,0,0,.22);
-  font-family:inherit;
-">
-  <div style="background:#7d8aa0;color:#fff;padding:14px 18px;
-              display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-weight:700;font-size:15px;">💬 Book an Appointment</span>
-    <button id="bot-close" style="background:none;border:none;color:#fff;
-      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+<footer>
+  <div class="foot-top">
+    <a class="logo" href="#main"><span class="mk" aria-hidden="true"></span>Real Barbers</a>
+    <a class="btn btn-p" href="#book">Book a chair</a>
   </div>
-  <div id="bot-messages" style="
-    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
-    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
-  "></div>
-  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
-              display:flex;gap:8px;align-items:center;">
-    <input id="bot-input" type="text" placeholder="Type your message…" style="
-      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
-      font-size:14px;outline:none;font-family:inherit;
-    "/>
-    <button id="bot-send" style="
-      padding:10px 18px;background:#7d8aa0;color:#fff;border:none;
-      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
-    ">Send</button>
+  <div class="foot-bot">
+    <span>5192 S Lowell Blvd, Littleton, CO 80123</span>
+    <span class="sep" aria-hidden="true">/</span>
+    <a href="tel:13037976066">(303) 797-6066</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <span>4.8 &middot; 52 Google reviews</span>
+    <span class="sep" aria-hidden="true">/</span>
+    <span>&copy; 2026 Real Barbers &middot; Barbershop in Littleton, CO</span>
   </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-o" href="tel:13037976066">Call</a>
+  <a class="btn btn-p" href="#book">Book a chair</a>
 </div>
 
-<style>
-  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
-  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
-  .msg-user{ background:#7d8aa0;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
-  .typing{ opacity:.6;font-style:italic; }
-  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
-  #bot-fab.pulse{ animation:pulse 2s infinite; }
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #7d8aa080}50%{box-shadow:0 0 0 12px #7d8aa000}}
-</style>
-
-<script>
-// ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://api.itsfixedltd.com";
-var BOT_SITE_ID  = "real-barbers";
-var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
-
-// ── State ──────────────────────────────────────────────────────────────────
-var botOpen = false;
-var botBusy = false;
-
-// ── DOM refs ───────────────────────────────────────────────────────────────
-var botFab, botPanel, botMessages, botInput, botSend, botClose;
-
-document.addEventListener("DOMContentLoaded", function() {
-  botFab      = document.getElementById("bot-fab");
-  botPanel    = document.getElementById("bot-panel");
-  botMessages = document.getElementById("bot-messages");
-  botInput    = document.getElementById("bot-input");
-  botSend     = document.getElementById("bot-send");
-  botClose    = document.getElementById("bot-close");
-
-  botFab.addEventListener("click", toggleBot);
-  botClose.addEventListener("click", toggleBot);
-  botSend.addEventListener("click", sendMessage);
-  botInput.addEventListener("keydown", function(e){
-    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
-  });
-
-  // Greeting after 2 s
-  setTimeout(function(){
-    addMessage("bot", "Hi! I\'m the Real Barbers booking assistant. How can I help you today?");
-  }, 2000);
-
-  // Pulse the FAB after 4 s
-  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
-});
-
-function toggleBot(){
-  botOpen = !botOpen;
-  botPanel.style.display = botOpen ? "flex" : "none";
-  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
-}
-
-function addMessage(role, text){
-  var div = document.createElement("div");
-  div.className = "msg msg-" + role;
-  div.textContent = text;
-  botMessages.appendChild(div);
-  botMessages.scrollTop = botMessages.scrollHeight;
-}
-
-async function sendMessage(){
-  var msg = botInput.value.trim();
-  if(!msg || botBusy) return;
-  botInput.value = "";
-  addMessage("user", msg);
-  botBusy = true;
-  botSend.disabled = true;
-
-  var typing = document.createElement("div");
-  typing.className = "msg msg-bot typing";
-  typing.textContent = "…";
-  botMessages.appendChild(typing);
-  botMessages.scrollTop = botMessages.scrollHeight;
-
-  try{
-    var r = await fetch(BOT_API_BASE + "/chat", {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
-    });
-    var data = await r.json();
-    typing.remove();
-    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
-    if(data.booked){
-      addMessage("bot", "✅ Your appointment is confirmed! We\'ll call you to confirm details.");
-    }
-  } catch(e){
-    typing.remove();
-    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
-  }
-
-  botBusy = false;
-  botSend.disabled = false;
-  botInput.focus();
-}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarberShop","name":"Real Barbers","image":"https://realbarbers.example/og.jpg","telephone":"+13037976066","url":"https://realbarbers.example/","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"5192 S Lowell Blvd","addressLocality":"Littleton","addressRegion":"CO","postalCode":"80123","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.6285,"longitude":-105.0314},"areaServed":["Littleton","Denver Metro","Columbine","Bow Mar","Columbine Valley"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"52"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"17:00"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you take walk-ins?","acceptedAnswer":{"@type":"Answer","text":"Walk-ins are welcome, but booking ahead guarantees your spot and your barber."}},{"@type":"Question","name":"How do I book?","acceptedAnswer":{"@type":"Answer","text":"Use the booking request form, tap Book a chair by chat, or call (303) 797-6066 and we'll set you up."}},{"@type":"Question","name":"Do you do beard work and shaves?","acceptedAnswer":{"@type":"Answer","text":"Yes — beard shaping, lineups, and classic hot-towel straight-razor shaves."}},{"@type":"Question","name":"What about pricing?","acceptedAnswer":{"@type":"Answer","text":"Pricing depends on the service and barber. Call (303) 797-6066 or ask when you book for an exact quote."}},{"@type":"Question","name":"What forms of payment do you take?","acceptedAnswer":{"@type":"Answer","text":"Cash and all major cards. Tips appreciated, never expected."}}]}
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>try{AOS.init({duration:680,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var bc=document.getElementById('book-chat');
+  if(bc){bc.addEventListener('click',function(ev){ev.preventDefault();var f=document.getElementById('cbot-fab');if(f)f.click();});}
+})();
+</script>
+<style>:root{--cbot-accent:#ff5a1f}</style>
+<!--CBOT START : accessible scheduling / customer-service bot (no deps, SVG only)-->
+<style>
+.cbot-fab{position:fixed;bottom:22px;right:22px;z-index:9990;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;background:var(--cbot-accent,#2563eb);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.45);transition:transform .18s ease,box-shadow .18s ease}
+.cbot-fab:hover{transform:translateY(-2px) scale(1.04)}
+.cbot-fab svg{width:27px;height:27px}
+.cbot-fab .cbot-dot{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#ef4444;border:2px solid #fff}
+.cbot-panel{position:fixed;bottom:92px;right:22px;z-index:9991;width:min(360px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 120px));background:#fff;color:#1b202a;border-radius:18px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 24px 70px -18px rgba(0,0,0,.5);font-family:inherit}
+.cbot-panel.open{display:flex}
+.cbot-hd{background:var(--cbot-accent,#2563eb);color:#fff;padding:15px 18px;display:flex;align-items:center;gap:11px}
+.cbot-hd .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex:none}
+.cbot-hd .av svg{width:20px;height:20px}
+.cbot-hd b{font-size:.98rem;line-height:1.1;display:block}
+.cbot-hd small{font-size:.74rem;opacity:.85}
+.cbot-x{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;padding:4px;border-radius:6px;display:flex}
+.cbot-x svg{width:20px;height:20px}
+.cbot-x:hover{background:rgba(255,255,255,.18)}
+.cbot-body{flex:1;overflow-y:auto;padding:16px;background:#f6f7f9;display:flex;flex-direction:column;gap:10px}
+.cbot-msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:.9rem;line-height:1.5}
+.cbot-bot{align-self:flex-start;background:#fff;border:1px solid #e7e9ee;border-bottom-left-radius:4px;color:#1b202a}
+.cbot-user{align-self:flex-end;background:var(--cbot-accent,#2563eb);color:#fff;border-bottom-right-radius:4px}
+.cbot-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.cbot-chip{background:#fff;border:1.5px solid var(--cbot-accent,#2563eb);color:var(--cbot-accent,#2563eb);font:inherit;font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:50px;cursor:pointer;transition:background .15s,color .15s}
+.cbot-chip:hover{background:var(--cbot-accent,#2563eb);color:#fff}
+.cbot-foot{display:flex;gap:8px;padding:11px;background:#fff;border-top:1px solid #e7e9ee}
+.cbot-foot input{flex:1;min-height:42px;padding:9px 13px;border:1.5px solid #dfe3e8;border-radius:22px;font:inherit;font-size:.92rem;color:#1b202a}
+.cbot-foot input:focus{outline:none;border-color:var(--cbot-accent,#2563eb);box-shadow:0 0 0 3px color-mix(in srgb,var(--cbot-accent,#2563eb) 20%,transparent)}
+.cbot-send{flex:none;width:42px;height:42px;border-radius:50%;border:none;background:var(--cbot-accent,#2563eb);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cbot-send svg{width:18px;height:18px}
+.cbot-fab:focus-visible,.cbot-x:focus-visible,.cbot-chip:focus-visible,.cbot-send:focus-visible,.cbot-foot input:focus-visible{outline:3px solid var(--cbot-accent,#2563eb);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.cbot-fab,.cbot-chip{transition:none}}
+</style>
+<button class="cbot-fab" id="cbot-fab" aria-label="Open booking and help chat for Real Barbers" aria-expanded="false" aria-controls="cbot-panel">
+  <span class="cbot-dot" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.7-.7L3 21l1.4-4.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+</button>
+<div class="cbot-panel" id="cbot-panel" role="dialog" aria-modal="false" aria-label="Booking and help chat">
+  <div class="cbot-hd">
+    <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3M16 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="m9 14 2 2 4-4"/></svg></span>
+    <span><b>Real Barbers</b><small>Booking &amp; questions</small></span>
+    <button class="cbot-x" id="cbot-x" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="cbot-body" id="cbot-msgs" aria-live="polite"></div>
+  <form class="cbot-foot" id="cbot-foot" autocomplete="off">
+    <label for="cbot-input" class="cbot-sr" style="position:absolute;left:-9999px">Type your message</label>
+    <input id="cbot-input" type="text" placeholder="Type your message…"/>
+    <button class="cbot-send" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></button>
+  </form>
+</div>
+<script>
+(function(){
+  var CFG={name:"Real Barbers",tel:"13037976066",book:"#book",services:"#services",visit:"#visit",verb:"Book a chair"};
+  var fab=document.getElementById('cbot-fab'),panel=document.getElementById('cbot-panel'),msgs=document.getElementById('cbot-msgs'),foot=document.getElementById('cbot-foot'),input=document.getElementById('cbot-input'),X=document.getElementById('cbot-x');
+  var started=false, flow=null, data={};
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function add(t,who){var m=document.createElement('div');m.className='cbot-msg '+(who==='user'?'cbot-user':'cbot-bot');m.innerHTML=t;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m;}
+  function chips(items){var w=document.createElement('div');w.className='cbot-chips';items.forEach(function(it){var b=document.createElement('button');b.type='button';b.className='cbot-chip';b.textContent=it.label;b.onclick=function(){it.act(it.label);};w.appendChild(b);});msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;}
+  function scrollTo(sel){var el=sel&&document.querySelector(sel);if(el){panel.classList.remove('open');fab.setAttribute('aria-expanded','false');el.scrollIntoView({behavior:'smooth'});}}
+  function menu(){
+    var items=[{label:CFG.verb,act:startBook}];
+    if(CFG.services)items.push({label:'Services & pricing',act:function(){add('Sure — here’s our full list.','bot');scrollTo(CFG.services);}});
+    if(CFG.visit)items.push({label:'Hours & location',act:function(){add('Here are our hours and where to find us.','bot');scrollTo(CFG.visit);}});
+    items.push({label:'Call us',act:function(){add('You can reach us anytime at <a href="tel:'+CFG.tel+'">'+CFG.tel.replace('+1','')+'</a>.','bot');}});
+    chips(items);
+  }
+  function startBook(){flow={step:'name'};data={};add('Great! What’s your name?','bot');input.focus();}
+  function prefill(){
+    try{
+      var f=document.querySelector('form[data-netlify], form[name]');
+      function set(sel,v){var e=document.querySelector(sel);if(e&&v){e.value=v;}}
+      set('#name',data.name);set('input[name=name]',data.name);
+      set('#phone',data.phone);set('input[name=phone]',data.phone);
+      set('#time',data.time);set('#preferred_time',data.time);set('input[name=preferred_time]',data.time);
+    }catch(e){}
+  }
+  function handle(text){
+    add(esc(text),'user');
+    if(flow){
+      if(flow.step==='name'){data.name=text;flow.step='phone';add('Thanks, '+esc(text)+'! What’s the best phone number to reach you?','bot');return;}
+      if(flow.step==='phone'){data.phone=text;flow.step='time';add('Got it. What day/time works best for you?','bot');return;}
+      if(flow.step==='time'){data.time=text;flow=null;prefill();
+        add('Perfect — we’ll reach out at <b>'+esc(data.phone)+'</b> to confirm <b>'+esc(data.time)+'</b>. I’ve started a request for you below.','bot');
+        var w=document.createElement('div');w.className='cbot-chips';
+        var b1=document.createElement('button');b1.type='button';b1.className='cbot-chip';b1.textContent='Open the form';b1.onclick=function(){scrollTo(CFG.book);};w.appendChild(b1);
+        var a=document.createElement('button');a.type='button';a.className='cbot-chip';a.textContent='Call now';a.onclick=function(){location.href='tel:'+CFG.tel;};w.appendChild(a);
+        msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;return;}
+    }
+    var t=text.toLowerCase();
+    if(/(book|appoint|schedul|quote|estimate|chair|cut)/.test(t)){startBook();return;}
+    if(/(hour|open|close|where|location|address|direction)/.test(t)&&CFG.visit){add('Here are our hours and location.','bot');scrollTo(CFG.visit);return;}
+    if(/(price|cost|service|menu)/.test(t)&&CFG.services){add('Here’s what we offer.','bot');scrollTo(CFG.services);return;}
+    if(/(call|phone|number)/.test(t)){add('Reach us at <a href="tel:'+CFG.tel+'">'+CFG.tel.replace('+1','')+'</a>.','bot');return;}
+    add('Happy to help! I can get you booked, share our services, or our hours — what would you like?','bot');menu();
+  }
+  function open(){panel.classList.add('open');fab.setAttribute('aria-expanded','true');if(!started){started=true;add('Hi! Welcome to '+esc(CFG.name)+'. How can I help today?','bot');menu();}setTimeout(function(){X.focus();},60);}
+  function close(){panel.classList.remove('open');fab.setAttribute('aria-expanded','false');fab.focus();}
+  fab.addEventListener('click',function(){panel.classList.contains('open')?close():open();});
+  X.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))close();});
+  foot.addEventListener('submit',function(e){e.preventDefault();var v=input.value.trim();if(!v)return;input.value='';handle(v);});
+})();
+</script>
+<!--CBOT END-->
 </body></html>

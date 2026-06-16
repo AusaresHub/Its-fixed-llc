@@ -1,322 +1,718 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>K2's Massage & Bodywork Studio | Massage Therapy in Aurora, CO</title>
-<meta name="description" content="K2's Massage & Bodywork Studio: therapeutic massage in Aurora. Deep tissue, Swedish, hot stone, prenatal. Book your session in seconds."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>K2's Massage &amp; Bodywork Studio | Deep-Tissue &amp; Recovery Massage in Aurora, CO</title>
+<meta name="description" content="Therapeutic, deep-tissue and recovery-focused massage in Aurora, CO. K2's Massage &amp; Bodywork Studio helps you release chronic tension, recover from training, and move better. Book a session in seconds."/>
+<link rel="canonical" href="https://k2smassage.com/"/>
+<meta name="theme-color" content="#15252b"/>
+<meta property="og:title" content="K2's Massage &amp; Bodywork Studio | Therapeutic Massage in Aurora, CO"/>
+<meta property="og:description" content="Deep-tissue, sports recovery, and clinical bodywork in Aurora, CO. Strong, focused work to release tension and restore range of motion."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="K2's Massage &amp; Bodywork Studio"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--acc:#5e7d6e;--accd:#4b6458;--accl:#e6ebe9;--bg:#f6f6f3;--bg2:#eeefe9;--card:#fff;--ink:#26302b;--mut:#5f6b63;--line:#e1e3da;--disp:'Marcellus',Georgia,serif}
+:root{
+  --slate:#15252b;--slate2:#1d3138;--slate3:#26424b;
+  --pine:#0f8c7a;--pine-d:#0a6b5d;--pine-l:#7fd6c6;
+  --stone:#f4f2ed;--stone2:#e9e6df;--stone3:#dcd8cf;
+  --ink:#16211f;--mut:#5a6b67;--line:#d6d2c8;--card:#ffffff;
+  --disp:'Sora',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-h1,h2,h3{font-family:var(--disp);font-weight:500;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
-.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
-.eyebrow{font-family:var(--disp);font-style:italic;font-size:18px;color:var(--acc)}
-.sec{padding:104px 0}
-.head{text-align:center;max-width:620px;margin:0 auto 60px}
-.head h2{font-size:clamp(30px,4.4vw,46px)}
+body{font-family:var(--body);background:var(--stone);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--disp);font-weight:700;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+.sec{padding:96px 0}
+.eyebrow{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--pine-d)}
+.head{max-width:680px;margin:0 auto 56px;text-align:center}
+.head h2{font-size:clamp(28px,4.2vw,44px)}
 .head p{color:var(--mut);font-size:18px;margin-top:14px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-weight:500;font-size:15px;padding:15px 30px;border-radius:999px;cursor:pointer;border:none;transition:transform .2s,background .2s,color .2s}
-.btn-p{background:var(--acc);color:#fff}.btn-p:hover{transform:translateY(-2px);background:var(--accd)}
-.btn-o{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn-o:hover{border-color:var(--acc);color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:15px;padding:15px 28px;border-radius:10px;cursor:pointer;border:none;transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-p{background:var(--pine);color:#fff;box-shadow:0 8px 22px -10px rgba(15,140,122,.7)}
+.btn-p:hover{transform:translateY(-2px);background:var(--pine-d)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-o:hover{border-color:var(--pine);color:var(--pine-d)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--pine-l);outline-offset:3px}
 .actions{display:flex;gap:14px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.85);border:1px solid var(--line);padding:7px 15px;border-radius:999px;font-size:13.5px;color:var(--ink)}
-/* NAV */
-#nav{position:sticky;top:0;z-index:900;background:rgba(246,246,243,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1140px;margin:0 auto;height:72px;padding:0 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--disp);font-size:23px;font-weight:600}
-.nav-l{display:flex;gap:28px;align-items:center}.nav-l a{font-size:14.5px;color:var(--mut);transition:color .2s}.nav-l a:hover{color:var(--acc)}
-.nav-r{display:flex;gap:16px;align-items:center}.nav-ph{font-size:15px}
-/* HERO */
-#hero{position:relative;min-height:88vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--accd),var(--acc));color:#fff}
-.hero-in{max-width:1140px;margin:0 auto;width:100%;padding:0 28px}
-.hero-in .eyebrow{color:#fff;opacity:.92}
-#hero h1{font-size:clamp(40px,6.5vw,78px);font-weight:500;margin:14px 0 18px;max-width:14ch}
-#hero .lede{font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.9);max-width:30ch;margin-bottom:30px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
-.hero-actions .btn-o{color:#fff;border-color:rgba(255,255,255,.5)}.hero-actions .btn-o:hover{background:rgba(255,255,255,.12);color:#fff}
-.chip{}
-#hero .chip{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25);color:#fff}
-/* STRIP */
-.strip{background:var(--accl)}
-.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-around;gap:14px;padding:20px 28px;text-align:center}
-.strip b{font-family:var(--disp);font-size:18px;color:var(--accd);font-weight:600}
-/* SERVICES */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 30px;transition:transform .2s,box-shadow .25s}
-.svc:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(38,48,43,.4)}
-.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
-.svc-h h3{font-size:23px}.price{font-family:var(--disp);color:var(--acc);font-size:21px}
-.svc p{color:var(--mut);font-size:15px}
-/* GALLERY */
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.gal figure{overflow:hidden;border-radius:14px;aspect-ratio:3/4;background:var(--bg2)}
-.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.gal figure:hover img{transform:scale(1.05)}
-/* ABOUT */
-#about{background:var(--bg2)}
-#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-#about img{border-radius:16px;width:100%;height:540px;object-fit:cover}
-#about h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:18px}
-#about p{color:var(--mut);font-size:17px;margin-bottom:16px}
-/* REVIEWS */
+.reveal{transition:opacity .6s ease,transform .6s ease}
+.js .reveal:not(.in){opacity:0;transform:translateY(20px)}
+#nav{position:sticky;top:0;z-index:900;background:rgba(244,242,237,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1160px;margin:0 auto;height:70px;padding:0 26px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mark{width:34px;height:34px;flex:none}
+.brand .nm{font-family:var(--disp);font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.05}
+.nav-l{display:flex;gap:30px;align-items:center}
+.nav-l a{font-size:14.5px;font-weight:500;color:var(--slate2);transition:color .2s}
+.nav-l a:hover{color:var(--pine-d)}
+.nav-r{display:flex;gap:14px;align-items:center}
+.nav-ph{font-family:var(--disp);font-weight:600;font-size:14.5px;color:var(--slate);display:inline-flex;align-items:center;gap:7px}
+.nav-ph svg{width:15px;height:15px}
+#hero{position:relative;background:var(--slate);color:#fff;overflow:hidden}
+#hero .topo{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+#hero .glow{position:absolute;right:-10%;top:-20%;width:60vw;height:60vw;background:radial-gradient(circle,rgba(15,140,122,.35),transparent 62%);pointer-events:none}
+.hero-in{position:relative;max-width:1160px;margin:0 auto;padding:118px 26px 104px;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero-copy .eyebrow{color:var(--pine-l)}
+#hero h1{font-size:clamp(38px,6vw,72px);font-weight:800;margin:16px 0 20px;letter-spacing:-.03em}
+#hero h1 em{font-style:normal;color:var(--pine-l)}
+#hero .lede{font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,.82);max-width:46ch;margin-bottom:32px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:30px}
+.hero-actions .btn-o{color:#fff;border-color:rgba(255,255,255,.32)}
+.hero-actions .btn-o:hover{background:rgba(255,255,255,.08);border-color:#fff;color:#fff}
+.rating{display:inline-flex;align-items:center;gap:11px;flex-wrap:wrap}
+.rating .stars{display:inline-flex;gap:2px}
+.rating .stars svg{width:18px;height:18px}
+.rating b{font-family:var(--disp);font-weight:700;font-size:16px}
+.rating span{color:rgba(255,255,255,.72);font-size:14px}
+.rating a{color:var(--pine-l);font-size:14px;border-bottom:1px solid rgba(127,214,198,.4);transition:color .2s}
+.rating a:hover{color:#fff}
+.hero-card{background:var(--slate2);border:1px solid rgba(127,214,198,.18);border-radius:18px;padding:30px 30px 26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.hero-card h3{font-size:19px;margin-bottom:6px}
+.hero-card .sub{color:rgba(255,255,255,.6);font-size:13.5px;margin-bottom:20px}
+.hc-row{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-top:1px solid rgba(255,255,255,.08)}
+.hc-row:first-of-type{border-top:none}
+.hc-ic{width:38px;height:38px;flex:none;border-radius:10px;background:rgba(15,140,122,.18);display:flex;align-items:center;justify-content:center}
+.hc-ic svg{width:19px;height:19px;color:var(--pine-l)}
+.hc-row .t{font-family:var(--disp);font-weight:600;font-size:14.5px;color:#fff}
+.hc-row .d{font-size:13px;color:rgba(255,255,255,.62);line-height:1.5}
+.strip{background:var(--slate3);color:#fff}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px;padding:22px 26px;text-align:center}
+.strip .item{display:inline-flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:600;font-size:14.5px}
+.strip .item svg{width:18px;height:18px;color:var(--pine-l);flex:none}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px}
+.svc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;transition:transform .22s ease,box-shadow .25s ease,border-color .2s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 26px 50px -32px rgba(21,37,43,.5);border-color:var(--pine-l)}
+.svc-ic{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--pine),var(--pine-d));display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-ic svg{width:24px;height:24px;color:#fff}
+.svc-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:9px}
+.svc-h h3{font-size:21px}
+.price{font-family:var(--disp);font-weight:700;color:var(--pine-d);font-size:19px;white-space:nowrap}
+.svc p{color:var(--mut);font-size:14.5px}
+.svc .dur{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--slate3);font-family:var(--disp);font-weight:600}
+.svc .dur svg{width:14px;height:14px}
+.note{text-align:center;color:var(--mut);font-size:14px;margin-top:30px}
+#approach{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+#approach .topo{position:absolute;inset:0;opacity:.18;pointer-events:none}
+#approach .wrap{position:relative}
+#approach .head h2{color:#fff}
+#approach .head p{color:rgba(255,255,255,.7)}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.step{background:var(--slate2);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px}
+.step .n{font-family:var(--disp);font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--pine-l)}
+.step h3{font-size:19px;margin:14px 0 9px}
+.step p{color:rgba(255,255,255,.7);font-size:14.5px}
+#about{background:var(--stone2)}
+#about .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
+#about .panel{background:var(--slate);border-radius:20px;padding:6px;box-shadow:0 30px 60px -34px rgba(21,37,43,.6)}
+#about .panel-in{border:1px solid rgba(127,214,198,.18);border-radius:16px;padding:38px 34px;position:relative;overflow:hidden}
+#about .panel .topo{position:absolute;inset:0;opacity:.3}
+#about .panel .pc{position:relative}
+#about .panel .stat{font-family:var(--disp);font-weight:800;font-size:clamp(40px,7vw,64px);color:#fff;letter-spacing:-.03em;line-height:1}
+#about .panel .stat em{font-style:normal;color:var(--pine-l)}
+#about .panel .lbl{color:rgba(255,255,255,.72);font-size:14.5px;margin-top:8px;max-width:30ch}
+#about .panel hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:26px 0}
+#about .panel .mini{display:flex;gap:30px;flex-wrap:wrap}
+#about .panel .mini .v{font-family:var(--disp);font-weight:700;font-size:24px;color:#fff}
+#about .panel .mini .k{color:rgba(255,255,255,.6);font-size:12.5px}
+#about h2{font-size:clamp(27px,3.6vw,42px);margin-bottom:18px}
+#about p{color:var(--mut);font-size:16.5px;margin-bottom:16px}
+#about .feats{list-style:none;margin:22px 0 26px;display:grid;gap:13px}
+#about .feats li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+#about .feats svg{width:21px;height:21px;color:var(--pine);flex:none;margin-top:2px}
+.rev-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:48px}
+.rev-score{display:inline-flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 26px}
+.rev-score .big{font-family:var(--disp);font-weight:800;font-size:42px;color:var(--slate);line-height:1}
+.rev-score .meta .stars{display:flex;gap:2px;margin-bottom:5px}
+.rev-score .meta .stars svg{width:18px;height:18px}
+.rev-score .meta span{font-size:13.5px;color:var(--mut)}
 .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.rev{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px}
-.rev .stars{color:var(--acc);letter-spacing:3px;margin-bottom:14px}
-.rev blockquote{font-family:var(--disp);font-size:19px;line-height:1.5;margin-bottom:16px;color:var(--ink)}
-.rev figcaption{color:var(--mut);font-size:14px}
-/* BOOK */
-#book{background:var(--accd);color:#fff;text-align:center}
-#book h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px;color:#fff}
-#book p{font-size:18px;opacity:.9;margin-bottom:30px}
-#book .actions{justify-content:center}
-#book .btn-w{background:#fff;color:var(--accd)}#book .btn-w:hover{transform:translateY(-2px);background:var(--bg)}
-#book .btn-o{color:#fff;border-color:rgba(255,255,255,.5)}
-/* VISIT */
-#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px}
-.visit-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px}
-.visit-card h3{font-size:22px;margin-bottom:14px;color:var(--acc)}
-.visit-card p{color:var(--mut);margin-bottom:8px}
-.hours div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
-/* FAQ */
-.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.rev{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+.rev .stars{display:flex;gap:2px;margin-bottom:14px}
+.rev .stars svg{width:16px;height:16px}
+.rev blockquote{font-size:16px;line-height:1.6;color:var(--ink);font-style:italic}
+.rev figcaption{color:var(--mut);font-size:13px;margin-top:16px}
+.rev-foot{text-align:center;margin-top:14px;font-size:13px;color:var(--mut)}
+#book{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+#book .topo{position:absolute;inset:0;opacity:.2;pointer-events:none}
+#book .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+#book .eyebrow{color:var(--pine-l)}
+#book h2{font-size:clamp(28px,4vw,44px);color:#fff;margin:14px 0 16px}
+#book .lede{color:rgba(255,255,255,.78);font-size:17px;margin-bottom:26px;max-width:42ch}
+#book .contact-row{display:flex;gap:13px;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+#book .contact-row:first-of-type{border-top:none}
+#book .contact-row svg{width:20px;height:20px;color:var(--pine-l);flex:none}
+#book .contact-row a{color:#fff;font-family:var(--disp);font-weight:600;font-size:16px}
+#book .contact-row .lab{display:block;font-size:12.5px;color:rgba(255,255,255,.6);font-family:var(--body);font-weight:400}
+form{background:var(--card);border-radius:18px;padding:32px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+form h3{color:var(--ink);font-size:21px;margin-bottom:6px}
+form .fsub{color:var(--mut);font-size:14px;margin-bottom:20px}
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--disp);font-weight:600;font-size:13px;color:var(--slate2);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--stone);transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pine);outline:none}
+.field textarea{resize:vertical;min-height:88px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form .btn-p{width:100%;justify-content:center;margin-top:6px}
+form .fineprint{font-size:12px;color:var(--mut);text-align:center;margin-top:12px}
+.hidden{position:absolute;left:-9999px}
+#visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.visit-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px}
+.visit-card h3{font-size:20px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.visit-card h3 svg{width:20px;height:20px;color:var(--pine)}
+.visit-card p{color:var(--mut);margin-bottom:8px;font-size:15px}
+.hours div{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.hours div:last-child{border-bottom:none}
+.hours .d{color:var(--slate2);font-family:var(--disp);font-weight:600}
+.hours .t{color:var(--mut)}
+#faq{background:var(--stone2)}
+.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
 .faq{background:var(--card);border:1px solid var(--line);border-radius:12px}
-.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:var(--disp);font-size:20px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq summary{list-style:none;cursor:pointer;padding:22px 26px;font-family:var(--disp);font-weight:600;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
 .faq .ic{position:relative;width:16px;height:16px;flex:none}
-.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--acc);border-radius:2px}
-.faq .ic::before{top:7px;left:0;width:16px;height:2px}.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
+.faq .ic::before,.faq .ic::after{content:"";position:absolute;background:var(--pine);border-radius:2px}
+.faq .ic::before{top:7px;left:0;width:16px;height:2px}
+.faq .ic::after{left:7px;top:0;width:2px;height:16px;transition:transform .25s}
 .faq[open] .ic::after{transform:scaleY(0)}
-.faq p{padding:0 26px 24px;color:var(--mut);font-size:15.5px}
-/* FOOTER */
-footer{background:#26302b;color:rgba(255,255,255,.6);text-align:center;padding:42px 28px;font-size:14px}
-footer b{color:#fff;font-family:var(--disp)}
-@media(max-width:820px){#about .wrap,#visit .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nav-l{display:none}#about img{height:360px}.sec{padding:76px 0}}
-@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}[data-aos]{opacity:1!important;transform:none!important}}
+.faq p{padding:0 26px 24px;color:var(--mut);font-size:15px}
+footer{background:var(--slate);color:rgba(255,255,255,.6);padding:54px 26px 38px}
+.foot-in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.foot-in .brand .nm{color:#fff}
+footer h4{font-family:var(--disp);color:#fff;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+footer a{color:rgba(255,255,255,.62);display:block;padding:4px 0;font-size:14.5px;transition:color .2s}
+footer a:hover{color:var(--pine-l)}
+footer .desc{font-size:14px;margin-top:14px;max-width:34ch;line-height:1.6}
+.foot-bottom{max-width:1160px;margin:36px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;text-align:center;color:rgba(255,255,255,.5)}
+.mbar{display:none}
+@media(max-width:760px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:950;background:var(--slate);border-top:1px solid rgba(255,255,255,.12);padding:10px 12px;gap:10px}
+  .mbar a{flex:1;justify-content:center;font-size:14px;padding:13px 10px}
+  .mbar .btn-call{background:rgba(255,255,255,.1);color:#fff}
+  body{padding-bottom:70px}
+}
+@media(max-width:960px){
+  .hero-in{grid-template-columns:1fr;gap:40px;padding:84px 26px 80px}
+  #about .wrap,#book .wrap,#visit .wrap{grid-template-columns:1fr;gap:40px}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-l{display:none}
+  .nav-ph .num{display:none}
+  .sec{padding:68px 0}
+  .grid2{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
 </style>
-<noscript><style>[data-aos]{opacity:1!important;transform:none!important}</style></noscript>
-<style>img[src='']{display:none}#about .wrap{grid-template-columns:1fr!important}#about img{display:none}</style></head>
+<script>document.documentElement.className+=' js';</script>
+</head>
 <body>
+
 <nav id="nav"><div class="nav-in">
-  <span class="logo">K2's Massage & Bodywork Studio</span>
-  <div class="nav-l"><a href="#services">Services</a><a href="#gallery">Space</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
-  <div class="nav-r"><a class="nav-ph" href="tel:17204043583">(720) 404-3583</a><a class="btn btn-p" href="#book">Book</a></div>
+  <a class="brand" href="#top" aria-label="K2's Massage and Bodywork Studio home">
+    <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#15252b"/><path d="M7 29 L16 14 L21 22 L26 12 L33 29 Z" fill="#0f8c7a"/><path d="M16 14 L21 22 L26 12 L24 12 L21 18 L17 12 Z" fill="#7fd6c6"/></svg>
+    <span class="nm">K2's Massage<br>&amp; Bodywork</span>
+  </a>
+  <div class="nav-l">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </div>
+  <div class="nav-r">
+    <a class="nav-ph" href="tel:+17204043583"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="num">(720) 404-3583</span></a>
+    <a class="btn btn-p" href="#book">Book a session</a>
+  </div>
 </div></nav>
 
-<header id="hero"><div class="hero-in">
-  <span class="eyebrow" data-aos="fade-up">Aurora, Colorado</span>
-  <h1 data-aos="fade-up" data-aos-delay="60">K2's Massage & Bodywork Studio</h1>
-  <p class="lede" data-aos="fade-up" data-aos-delay="120">Your calm, restored.</p>
-  <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
-    <a class="btn btn-p" href="#book">Book a Session</a>
-    <a class="btn btn-o" href="tel:17204043583">Call (720) 404-3583</a>
+<header id="hero"><a id="top"></a>
+  <svg class="topo" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <g stroke="#0f8c7a" stroke-width="1.2" opacity="0.55">
+      <path d="M0 520 Q300 460 600 500 T1200 470"/>
+      <path d="M0 470 Q300 400 600 450 T1200 410"/>
+      <path d="M0 420 Q320 340 600 400 T1200 350"/>
+      <path d="M0 370 Q300 290 600 350 T1200 295"/>
+      <path d="M0 320 Q330 230 600 300 T1200 240"/>
+      <path d="M0 270 Q300 180 600 250 T1200 185"/>
+      <path d="M0 220 Q340 130 600 200 T1200 135"/>
+      <path d="M0 170 Q300 90 600 150 T1200 90"/>
+      <path d="M0 120 Q330 50 600 105 T1200 55"/>
+    </g>
+  </svg>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Aurora, Colorado &middot; Therapeutic Bodywork</span>
+      <h1>Strong hands.<br>Real <em>recovery.</em></h1>
+      <p class="lede">Deep-tissue and recovery-focused massage that releases chronic tension, undoes the damage of hard training and long days, and gets you moving the way you're meant to.</p>
+      <div class="hero-actions">
+        <a class="btn btn-p" href="#book">Book a session
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-o" href="tel:+17204043583">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (720) 404-3583</a>
+      </div>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+        </span>
+        <b>4.8</b><span>&middot; 16 Google reviews</span>
+        <a href="https://maps.google.com/?cid=17764779433881428857" target="_blank" rel="noopener">Read on Google</a>
+      </div>
+    </div>
+    <aside class="hero-card reveal" aria-label="What to expect">
+      <h3>Bodywork with a purpose</h3>
+      <p class="sub">Every session is built around what your body needs that day.</p>
+      <div class="hc-row">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div><span class="t">Targeted, not generic</span><span class="d">We find the source of the tension instead of working the whole body the same way.</span></div>
+      </div>
+      <div class="hc-row">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
+        <div><span class="t">Pressure dialed to you</span><span class="d">From relaxing to deep clinical work &mdash; you set the depth, we read the muscle.</span></div>
+      </div>
+      <div class="hc-row">
+        <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <div><span class="t">No upsell, no rush</span><span class="d">Just focused, professional bodywork in a calm, private space.</span></div>
+      </div>
+    </aside>
   </div>
-  <span class="chip">★ 4.8 · 16 Google reviews</span>
-</div></header>
+</header>
 
 <div class="strip"><div class="wrap">
-  <b>★ 4.8 on Google</b><b>16 Reviews</b><b>Licensed Therapists</b><b>By Appointment</b><b>Aurora &amp; Metro</b>
+  <span class="item"><svg viewBox="0 0 24 24" fill="#f5c451" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>4.8 on Google</span>
+  <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Licensed therapists</span>
+  <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>By appointment</span>
+  <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Aurora &amp; Denver Metro</span>
 </div></div>
 
+<main>
 <section id="services" class="sec"><div class="wrap">
-  <div class="head"><h2>Massage, Tailored to You</h2><p>Every session is shaped around what your body needs that day.</p></div>
-  <div class="svc-grid"><div class="svc" data-aos="fade-up" data-aos-delay="0">
-        <div class="svc-h"><h3>Swedish Massage</h3><span class="price">$90</span></div><p>Gentle, flowing pressure to ease stress and restore calm.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="70">
-        <div class="svc-h"><h3>Deep Tissue</h3><span class="price">$100</span></div><p>Focused work that releases chronic tension and knots.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="140">
-        <div class="svc-h"><h3>Hot Stone</h3><span class="price">$120</span></div><p>Warm basalt stones melt deep muscle tightness away.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="0">
-        <div class="svc-h"><h3>Prenatal Massage</h3><span class="price">$95</span></div><p>Safe, supported relief for expecting mothers.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="70">
-        <div class="svc-h"><h3>Sports Recovery</h3><span class="price">$105</span></div><p>Targeted therapy to recover, prevent injury, and perform.</p></div><div class="svc" data-aos="fade-up" data-aos-delay="140">
-        <div class="svc-h"><h3>Couples Massage</h3><span class="price">$180</span></div><p>Side-by-side relaxation, shared with someone you love.</p></div></div>
+  <div class="head reveal">
+    <span class="eyebrow">Services</span>
+    <h2>Massage, built around your body</h2>
+    <p>Whether you're recovering from training, fighting daily desk tension, or just need to fully unload &mdash; there's a session for that.</p>
+  </div>
+  <div class="svc-grid">
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-4 6-4 9 0s6 4 9 0M3 18c3-4 6-4 9 0s6 4 9 0M3 6c3-4 6-4 9 0s6 4 9 0"/></svg></span>
+      <div class="svc-h"><h3>Swedish Massage</h3><span class="price">$90</span></div>
+      <p>Long, flowing strokes to calm the nervous system, ease everyday stress, and reset.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min session</span>
+    </article>
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2 18 5.5 9.5 14l-3.5.5.5-3.5L14.5 2z"/><path d="M3 21l6-2"/></svg></span>
+      <div class="svc-h"><h3>Deep Tissue</h3><span class="price">$100</span></div>
+      <p>Slow, firm pressure into the deeper layers to break up chronic knots and adhesions.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min session</span>
+    </article>
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/><circle cx="9" cy="8" r="2"/><circle cx="15" cy="8" r="2"/><circle cx="12" cy="5" r="2"/></svg></span>
+      <div class="svc-h"><h3>Hot Stone</h3><span class="price">$120</span></div>
+      <p>Warm basalt stones soften tight muscle deeply so the work can go further with less force.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>75 min session</span>
+    </article>
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+      <div class="svc-h"><h3>Prenatal Massage</h3><span class="price">$95</span></div>
+      <p>Safe, fully supported relief for expecting mothers, with careful positioning throughout.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min session</span>
+    </article>
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-3 7h5l-3 7M5 13l-2 4M19 9l2-4"/><circle cx="5" cy="11" r="1.5"/><circle cx="19" cy="7" r="1.5"/></svg></span>
+      <div class="svc-h"><h3>Sports Recovery</h3><span class="price">$105</span></div>
+      <p>Targeted work to flush fatigue, restore range of motion, and keep you training.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min session</span>
+    </article>
+    <article class="svc reveal">
+      <span class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+      <div class="svc-h"><h3>Couples Massage</h3><span class="price">$180</span></div>
+      <p>Two therapists, side by side &mdash; a shared reset for you and someone you love.</p>
+      <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60 min &middot; 2 guests</span>
+    </article>
+  </div>
+  <p class="note">Not sure which session fits? Call us at <a href="tel:+17204043583" style="color:var(--pine-d);font-weight:600">(720) 404-3583</a> and we'll point you the right way.</p>
 </div></section>
 
+<section id="approach" class="sec">
+  <svg class="topo" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <g stroke="#7fd6c6" stroke-width="1"><path d="M0 320 Q300 260 600 300 T1200 270"/><path d="M0 270 Q300 200 600 250 T1200 210"/><path d="M0 220 Q320 140 600 200 T1200 150"/><path d="M0 170 Q300 90 600 150 T1200 95"/><path d="M0 120 Q330 50 600 105 T1200 55"/></g>
+  </svg>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow" style="color:var(--pine-l)">The K2 Approach</span>
+      <h2>Clinical, but human</h2>
+      <p>We treat bodywork like the recovery tool it is &mdash; structured, intentional, and centered on results you can feel.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step reveal"><span class="n">01 / ASSESS</span><h3>We listen first</h3><p>Before any oil hits skin, we talk through what's tight, what hurts, and what you want out of the hour.</p></div>
+      <div class="step reveal"><span class="n">02 / RELEASE</span><h3>We work the source</h3><p>Focused, properly-paced pressure into the muscles and fascia that are actually holding the tension.</p></div>
+      <div class="step reveal"><span class="n">03 / RESTORE</span><h3>We rebuild range</h3><p>Gentle mobilization and flushing strokes to leave you looser, lighter, and moving freely.</p></div>
+      <div class="step reveal"><span class="n">04 / GUIDE</span><h3>We send you off ready</h3><p>Simple aftercare and stretch pointers so the relief from today's session actually sticks around.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="about" class="sec"><div class="wrap">
-  <img src="" alt="K2's Massage & Bodywork Studio" data-aos="fade-right"/>
-  <div data-aos="fade-left">
-    <h2>Calm, Skilled, and Genuinely Yours</h2>
-    <p>K2's Massage & Bodywork Studio is a quiet retreat from a loud world. Our licensed therapists take the time to understand your body and tailor every session, so you leave lighter than you came.</p>
-    <p>No rushing, no upselling. Just intentional, therapeutic work in a space designed to help you fully exhale.</p>
-    <p style="margin-top:8px"><a class="btn btn-p" href="#book">Book Your Session</a></p>
+  <div class="panel reveal">
+    <div class="panel-in">
+      <svg class="topo" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true"><g stroke="#0f8c7a" stroke-width="1.2"><path d="M0 300 Q100 250 200 290 T400 270"/><path d="M0 250 Q120 190 200 240 T400 210"/><path d="M0 200 Q100 140 200 190 T400 150"/><path d="M0 150 Q120 90 200 130 T400 95"/><path d="M0 100 Q100 50 200 90 T400 55"/></g></svg>
+      <div class="pc">
+        <div class="stat">4.8<em>&#9733;</em></div>
+        <p class="lbl">Rated by clients across 16 verified Google reviews.</p>
+        <hr/>
+        <div class="mini">
+          <div><div class="v">6</div><div class="k">Session types</div></div>
+          <div><div class="v">7 days</div><div class="k">Open weekly</div></div>
+          <div><div class="v">100%</div><div class="k">By appointment</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <span class="eyebrow">About the studio</span>
+    <h2>Grounded, skilled, and genuinely yours</h2>
+    <p>K2's Massage &amp; Bodywork Studio is a calm, private space in Aurora built for one thing: helping your body let go of what it's holding onto. Like the peak we're named for, the work is strong, deliberate, and worth the climb.</p>
+    <p>Our licensed therapists take the time to understand your body and tailor every session, so you leave looser, lighter, and ready to move &mdash; not rushed out the door.</p>
+    <ul class="feats">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Licensed, experienced massage therapists</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pressure tailored to you &mdash; relaxing to deep clinical</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Quiet, private treatment space &mdash; no rush, no upsell</span></li>
+    </ul>
+    <a class="btn btn-p" href="#book">Book your session
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </div></section>
 
 <section id="reviews" class="sec"><div class="wrap">
-  <div class="head"><h2>What Clients Say</h2></div>
-  <div class="rev-grid"><figure class="rev" data-aos="fade-up" data-aos-delay="0">
-        <div class="stars">★★★★★</div><blockquote>I left feeling completely renewed. The space is serene and my therapist truly listened to what my body needed.</blockquote><figcaption>Rebecca M., Google review</figcaption></figure><figure class="rev" data-aos="fade-up" data-aos-delay="90">
-        <div class="stars">★★★★★</div><blockquote>The best deep tissue work I've found in Denver. I came in with months of tension and walked out loose and calm.</blockquote><figcaption>Daniel K., Google review</figcaption></figure><figure class="rev" data-aos="fade-up" data-aos-delay="180">
-        <div class="stars">★★★★★</div><blockquote>A genuine sanctuary. From the moment you walk in, everything is calm, clean, and intentional. I rebook every time.</blockquote><figcaption>Priya S., Google review</figcaption></figure></div>
+  <div class="rev-top reveal">
+    <span class="eyebrow">Reviews</span>
+    <h2 style="font-size:clamp(28px,4.2vw,44px)">What clients say</h2>
+    <div class="rev-score">
+      <span class="big">4.8</span>
+      <span class="meta">
+        <span class="stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+        </span>
+        <span>Average of 16 Google reviews</span>
+      </span>
+    </div>
+  </div>
+  <div class="rev-grid">
+    <figure class="rev reveal">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>&ldquo;Came in with months of built-up tension and walked out genuinely loose. The deep-tissue work here is the real deal.&rdquo;</blockquote>
+      <figcaption>Representative of client feedback</figcaption>
+    </figure>
+    <figure class="rev reveal">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>&ldquo;They actually listened to where I was hurting and worked it instead of giving a one-size-fits-all rubdown. My recovery sessions are non-negotiable now.&rdquo;</blockquote>
+      <figcaption>Representative of client feedback</figcaption>
+    </figure>
+    <figure class="rev reveal">
+      <span class="stars" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="#f5c451"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      </span>
+      <blockquote>&ldquo;Calm, clean, and professional from the second you walk in. No upsell, no rush &mdash; just skilled hands. I rebook every time.&rdquo;</blockquote>
+      <figcaption>Representative of client feedback</figcaption>
+    </figure>
+  </div>
+  <p class="rev-foot">Quotes are representative of client feedback. See our full, verified rating &mdash;
+    <a href="https://maps.google.com/?cid=17764779433881428857" target="_blank" rel="noopener" style="color:var(--pine-d);font-weight:600">read our 16 reviews on Google</a>.</p>
 </div></section>
 
-<section id="book" class="sec"><div class="wrap">
-  <h2>Give Your Body the Reset It Deserves</h2>
-  <p>Book in seconds, or message us and we'll find your time.</p>
-  <div class="actions">
-    <a class="btn btn-w" href="#" onclick="document.getElementById('bot-fab').click();return false;">Book by Chat</a>
-    <a class="btn btn-o" href="tel:17204043583">Call (720) 404-3583</a>
+<section id="book" class="sec">
+  <svg class="topo" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+    <g stroke="#0f8c7a" stroke-width="1.2" opacity="0.6"><path d="M0 320 Q300 260 600 300 T1200 270"/><path d="M0 260 Q300 190 600 240 T1200 200"/><path d="M0 200 Q320 130 600 190 T1200 140"/><path d="M0 140 Q300 70 600 130 T1200 80"/></g>
+  </svg>
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Book a session</span>
+      <h2>Give your body the reset it's earned</h2>
+      <p class="lede">Send a request below and we'll confirm your time, or call and we'll book you on the spot. Prefer to chat? Use the assistant in the corner.</p>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+17204043583"><span class="lab">Call or text</span>(720) 404-3583</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?cid=17764779433881428857" target="_blank" rel="noopener"><span class="lab">Visit the studio</span>3000 S Jamaica Ct #195, Aurora, CO 80014</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <a href="#visit"><span class="lab">Open 7 days a week</span>Mon&ndash;Fri 9&ndash;8 &middot; Sat 9&ndash;6 &middot; Sun 10&ndash;5</a>
+      </div>
+    </div>
+    <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="reveal">
+      <input type="hidden" name="form-name" value="booking"/>
+      <p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field"/></label></p>
+      <h3>Request a session</h3>
+      <p class="fsub">We'll reach out to confirm your time within business hours.</p>
+      <div class="grid2">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required/></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(720) 000-0000" required/></div>
+      </div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com"/></div>
+      <div class="field"><label for="f-svc">Session</label>
+        <select id="f-svc" name="service">
+          <option>Swedish Massage &mdash; $90</option>
+          <option>Deep Tissue &mdash; $100</option>
+          <option>Hot Stone &mdash; $120</option>
+          <option>Prenatal Massage &mdash; $95</option>
+          <option>Sports Recovery &mdash; $105</option>
+          <option>Couples Massage &mdash; $180</option>
+          <option>Not sure &mdash; help me choose</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-msg">Anything we should know?</label><textarea id="f-msg" name="message" placeholder="Preferred days/times, problem areas, pressure preference..."></textarea></div>
+      <button class="btn btn-p" type="submit">Request my session
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="fineprint">By submitting you agree to be contacted about your booking. No spam, ever.</p>
+    </form>
   </div>
-</div></section>
+</section>
 
 <section id="visit" class="sec"><div class="wrap">
-  <div class="visit-card" data-aos="fade-up"><h3>Find Us</h3>
-    <p>3000 S Jamaica Ct #195, Aurora, CO 80014, USA</p><p style="margin-top:14px"><a class="btn btn-o" href="https://maps.google.com/?cid=17764779433881428857&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA" target="_blank" rel="noopener">Get Directions</a></p>
+  <div class="visit-card reveal">
+    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Find the studio</h3>
+    <p>3000 S Jamaica Ct #195<br>Aurora, CO 80014</p>
+    <p style="margin-top:6px">Convenient to the Denver Tech Center and the wider Denver metro &mdash; free parking on site.</p>
+    <p style="margin-top:18px"><a class="btn btn-o" href="https://maps.google.com/?cid=17764779433881428857" target="_blank" rel="noopener">Get directions
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div>
-  <div class="visit-card hours" data-aos="fade-up" data-aos-delay="80"><h3>Hours</h3>
-    <div><span>Mon–Fri</span><span>9:00 AM – 8:00 PM</span></div>
-    <div><span>Saturday</span><span>9:00 AM – 6:00 PM</span></div>
-    <div><span>Sunday</span><span>10:00 AM – 5:00 PM</span></div>
-    <p style="margin-top:14px;font-size:13px;color:var(--mut)">Hours may vary; call ahead to confirm.</p>
+  <div class="visit-card hours reveal">
+    <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hours</h3>
+    <div><span class="d">Mon &ndash; Fri</span><span class="t">9:00 AM &ndash; 8:00 PM</span></div>
+    <div><span class="d">Saturday</span><span class="t">9:00 AM &ndash; 6:00 PM</span></div>
+    <div><span class="d">Sunday</span><span class="t">10:00 AM &ndash; 5:00 PM</span></div>
+    <p style="margin-top:16px;font-size:13px;color:var(--mut)">By appointment. Hours may vary &mdash; call ahead to confirm.</p>
   </div>
 </div></section>
 
-<section id="faq" class="sec" style="background:var(--bg2)"><div class="wrap">
-  <div class="head"><h2>Good to Know</h2></div>
-  <div class="faq-list"><details class="faq"><summary>Do I need an appointment?<span class="ic"></span></summary><p>Booking ahead is best so we can hold your time and therapist. You can book right here in seconds.</p></details><details class="faq"><summary>What should I expect on my first visit?<span class="ic"></span></summary><p>We'll talk through your goals and any problem areas, then tailor the session to you.</p></details><details class="faq"><summary>What do I wear?<span class="ic"></span></summary><p>Undress to your comfort level. You're always professionally draped throughout the session.</p></details><details class="faq"><summary>What's your cancellation policy?<span class="ic"></span></summary><p>Life happens. Just give us a heads up 24 hours ahead and we'll happily reschedule.</p></details></div>
+<section id="faq" class="sec"><div class="wrap">
+  <div class="head reveal"><span class="eyebrow">FAQ</span><h2>Good to know</h2></div>
+  <div class="faq-list">
+    <details class="faq reveal"><summary>Do I need an appointment?<span class="ic" aria-hidden="true"></span></summary><p>Yes &mdash; we work by appointment so we can hold your time and therapist. You can request a session through the form above, call us, or book via the chat assistant in seconds.</p></details>
+    <details class="faq reveal"><summary>How is deep tissue different from a regular massage?<span class="ic" aria-hidden="true"></span></summary><p>Deep tissue uses slower, firmer pressure that reaches the deeper muscle and fascia layers to break up chronic knots. A Swedish session is lighter and more about relaxation. We'll match the pressure to your body and your goals.</p></details>
+    <details class="faq reveal"><summary>What should I expect on my first visit?<span class="ic" aria-hidden="true"></span></summary><p>We'll talk through your goals and any problem areas first, then tailor the session to you. Arrive a few minutes early so you're not rushed.</p></details>
+    <details class="faq reveal"><summary>What do I wear?<span class="ic" aria-hidden="true"></span></summary><p>Undress to your comfort level. You're always professionally draped throughout the entire session &mdash; only the area being worked on is ever uncovered.</p></details>
+    <details class="faq reveal"><summary>What's your cancellation policy?<span class="ic" aria-hidden="true"></span></summary><p>Life happens. Just give us a heads up at least 24 hours ahead and we'll happily reschedule you.</p></details>
+  </div>
 </div></section>
+</main>
 
-<footer><b>K2's Massage & Bodywork Studio</b> · 3000 S Jamaica Ct #195, Aurora, CO 80014, USA · © 2026 · Massage Therapy in Aurora, CO</footer>
-
-
-<!-- ── Bot widget ─────────────────────────────────────────── -->
-<button id="bot-fab" title="Chat with us" style="
-  position:fixed;bottom:28px;right:28px;z-index:9999;
-  width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;
-  background:#5e7d6e;color:#fff;font-size:26px;
-  box-shadow:0 4px 20px rgba(0,0,0,.30);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform .2s,box-shadow .2s;
-">💬</button>
-
-<div id="bot-panel" style="
-  display:none;flex-direction:column;
-  position:fixed;bottom:100px;right:28px;z-index:9998;
-  width:340px;max-height:520px;border-radius:18px;overflow:hidden;
-  box-shadow:0 8px 40px rgba(0,0,0,.22);
-  font-family:inherit;
-">
-  <div style="background:#5e7d6e;color:#fff;padding:14px 18px;
-              display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-weight:700;font-size:15px;">💬 Book an Appointment</span>
-    <button id="bot-close" style="background:none;border:none;color:#fff;
-      font-size:20px;cursor:pointer;padding:0;line-height:1;">×</button>
+<footer>
+  <div class="foot-in">
+    <div>
+      <a class="brand" href="#top" aria-label="K2's Massage and Bodywork Studio home">
+        <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#1d3138"/><path d="M7 29 L16 14 L21 22 L26 12 L33 29 Z" fill="#0f8c7a"/><path d="M16 14 L21 22 L26 12 L24 12 L21 18 L17 12 Z" fill="#7fd6c6"/></svg>
+        <span class="nm">K2's Massage<br>&amp; Bodywork</span>
+      </a>
+      <p class="desc">Therapeutic, recovery-focused massage and bodywork in Aurora, Colorado. Strong hands, real results.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#services">Services</a>
+      <a href="#approach">Our approach</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit &amp; hours</a>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <a href="tel:+17204043583">(720) 404-3583</a>
+      <a href="https://maps.google.com/?cid=17764779433881428857" target="_blank" rel="noopener">3000 S Jamaica Ct #195<br>Aurora, CO 80014</a>
+      <a href="#book">Book a session</a>
+    </div>
   </div>
-  <div id="bot-messages" style="
-    flex:1;overflow-y:auto;padding:16px;background:#f8f9fa;
-    display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:340px;
-  "></div>
-  <div style="padding:12px;background:#fff;border-top:1px solid #e9ecef;
-              display:flex;gap:8px;align-items:center;">
-    <input id="bot-input" type="text" placeholder="Type your message…" style="
-      flex:1;padding:10px 14px;border:1px solid #dee2e6;border-radius:24px;
-      font-size:14px;outline:none;font-family:inherit;
-    "/>
-    <button id="bot-send" style="
-      padding:10px 18px;background:#5e7d6e;color:#fff;border:none;
-      border-radius:24px;font-weight:600;font-size:14px;cursor:pointer;
-    ">Send</button>
-  </div>
+  <div class="foot-bottom">&copy; 2026 K2's Massage &amp; Bodywork Studio &middot; Massage Therapy in Aurora, CO &middot; Serving Aurora &amp; the Denver Metro</div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-call" href="tel:+17204043583">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+  <a class="btn btn-p" href="#book">Book a session</a>
 </div>
 
-<style>
-  .msg{ padding:10px 14px;border-radius:16px;max-width:85%;font-size:14px;line-height:1.5; }
-  .msg-bot{ background:#fff;border:1px solid #e9ecef;align-self:flex-start;border-bottom-left-radius:4px; }
-  .msg-user{ background:#5e7d6e;color:#fff;align-self:flex-end;border-bottom-right-radius:4px; }
-  .typing{ opacity:.6;font-style:italic; }
-  #bot-fab:hover{ transform:scale(1.08);box-shadow:0 6px 28px rgba(0,0,0,.35); }
-  #bot-fab.pulse{ animation:pulse 2s infinite; }
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 #5e7d6e80}50%{box-shadow:0 0 0 12px #5e7d6e00}}
-</style>
-
-<script>
-// ── Bot Configuration ──────────────────────────────────────────────────────
-var BOT_API_BASE = "https://api.itsfixedltd.com";
-var BOT_SITE_ID  = "k2-s-massage-bodywork-studio";
-var BOT_SESSION  = "s-" + Math.random().toString(36).slice(2);
-
-// ── State ──────────────────────────────────────────────────────────────────
-var botOpen = false;
-var botBusy = false;
-
-// ── DOM refs ───────────────────────────────────────────────────────────────
-var botFab, botPanel, botMessages, botInput, botSend, botClose;
-
-document.addEventListener("DOMContentLoaded", function() {
-  botFab      = document.getElementById("bot-fab");
-  botPanel    = document.getElementById("bot-panel");
-  botMessages = document.getElementById("bot-messages");
-  botInput    = document.getElementById("bot-input");
-  botSend     = document.getElementById("bot-send");
-  botClose    = document.getElementById("bot-close");
-
-  botFab.addEventListener("click", toggleBot);
-  botClose.addEventListener("click", toggleBot);
-  botSend.addEventListener("click", sendMessage);
-  botInput.addEventListener("keydown", function(e){
-    if(e.key==="Enter" && !e.shiftKey){ e.preventDefault(); sendMessage(); }
-  });
-
-  // Greeting after 2 s
-  setTimeout(function(){
-    addMessage("bot", "Hi! I\'m the K2's Massage & Bodywork Studio booking assistant. How can I help you today?");
-  }, 2000);
-
-  // Pulse the FAB after 4 s
-  setTimeout(function(){ botFab.classList.add("pulse"); }, 4000);
-});
-
-function toggleBot(){
-  botOpen = !botOpen;
-  botPanel.style.display = botOpen ? "flex" : "none";
-  if(botOpen){ botFab.classList.remove("pulse"); botInput.focus(); }
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"DaySpa",
+  "name":"K2's Massage & Bodywork Studio",
+  "description":"Therapeutic, deep-tissue and recovery-focused massage and bodywork in Aurora, Colorado.",
+  "image":"https://k2smassage.com/og.jpg",
+  "url":"https://k2smassage.com/",
+  "telephone":"+1-720-404-3583",
+  "priceRange":"$$",
+  "address":{"@type":"PostalAddress","streetAddress":"3000 S Jamaica Ct #195","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80014","addressCountry":"US"},
+  "geo":{"@type":"GeoCoordinates","latitude":39.6478,"longitude":-104.8378},
+  "areaServed":[{"@type":"City","name":"Aurora"},{"@type":"City","name":"Denver"}],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"16","bestRating":"5"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"20:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"17:00"}
+  ],
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Massage Services","itemListElement":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Swedish Massage"},"price":"90","priceCurrency":"USD"},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Deep Tissue Massage"},"price":"100","priceCurrency":"USD"},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Hot Stone Massage"},"price":"120","priceCurrency":"USD"},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Prenatal Massage"},"price":"95","priceCurrency":"USD"},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sports Recovery Massage"},"price":"105","priceCurrency":"USD"},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Couples Massage"},"price":"180","priceCurrency":"USD"}
+  ]}
 }
-
-function addMessage(role, text){
-  var div = document.createElement("div");
-  div.className = "msg msg-" + role;
-  div.textContent = text;
-  botMessages.appendChild(div);
-  botMessages.scrollTop = botMessages.scrollHeight;
-}
-
-async function sendMessage(){
-  var msg = botInput.value.trim();
-  if(!msg || botBusy) return;
-  botInput.value = "";
-  addMessage("user", msg);
-  botBusy = true;
-  botSend.disabled = true;
-
-  var typing = document.createElement("div");
-  typing.className = "msg msg-bot typing";
-  typing.textContent = "…";
-  botMessages.appendChild(typing);
-  botMessages.scrollTop = botMessages.scrollHeight;
-
-  try{
-    var r = await fetch(BOT_API_BASE + "/chat", {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({site_id:BOT_SITE_ID, session_id:BOT_SESSION, message:msg})
-    });
-    var data = await r.json();
-    typing.remove();
-    addMessage("bot", data.reply || "Sorry, I had trouble with that. Please try again.");
-    if(data.booked){
-      addMessage("bot", "✅ Your appointment is confirmed! We\'ll call you to confirm details.");
-    }
-  } catch(e){
-    typing.remove();
-    addMessage("bot", "Sorry, something went wrong. Please call us directly.");
-  }
-
-  botBusy = false;
-  botSend.disabled = false;
-  botInput.focus();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Do I need an appointment?","acceptedAnswer":{"@type":"Answer","text":"Yes — we work by appointment so we can hold your time and therapist. You can request a session through the form, call us, or book via the chat assistant in seconds."}},
+    {"@type":"Question","name":"How is deep tissue different from a regular massage?","acceptedAnswer":{"@type":"Answer","text":"Deep tissue uses slower, firmer pressure that reaches the deeper muscle and fascia layers to break up chronic knots, while a Swedish session is lighter and more relaxation-focused. We match the pressure to your body and goals."}},
+    {"@type":"Question","name":"What should I expect on my first visit?","acceptedAnswer":{"@type":"Answer","text":"We talk through your goals and any problem areas first, then tailor the session to you. Arrive a few minutes early so you're not rushed."}},
+    {"@type":"Question","name":"What do I wear?","acceptedAnswer":{"@type":"Answer","text":"Undress to your comfort level. You're always professionally draped throughout the session — only the area being worked on is ever uncovered."}},
+    {"@type":"Question","name":"What's your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Give us at least 24 hours notice and we'll happily reschedule you."}}
+  ]
 }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>try{AOS.init({duration:720,once:true,offset:60,easing:'ease-out-cubic'});}catch(e){document.querySelectorAll('[data-aos]').forEach(function(el){el.style.opacity=1;el.style.transform='none';});}</script>
-</body></html>
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  function showAll(){els.forEach(function(e){e.classList.add('in')});}
+  if(!('IntersectionObserver' in window)){showAll();return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{threshold:.08,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // Safety net: never leave content hidden if the observer is bypassed (e.g. headless capture, no-scroll)
+  window.addEventListener('load',function(){setTimeout(showAll,1200);});
+})();
+</script>
+<style>:root{--cbot-accent:#0f8c7a}</style>
+<!--CBOT START : accessible scheduling / customer-service bot (no deps, SVG only)-->
+<style>
+.cbot-fab{position:fixed;bottom:22px;right:22px;z-index:9990;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;background:var(--cbot-accent,#2563eb);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.45);transition:transform .18s ease,box-shadow .18s ease}
+.cbot-fab:hover{transform:translateY(-2px) scale(1.04)}
+.cbot-fab svg{width:27px;height:27px}
+.cbot-fab .cbot-dot{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#ef4444;border:2px solid #fff}
+.cbot-panel{position:fixed;bottom:92px;right:22px;z-index:9991;width:min(360px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 120px));background:#fff;color:#1b202a;border-radius:18px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 24px 70px -18px rgba(0,0,0,.5);font-family:inherit}
+.cbot-panel.open{display:flex}
+.cbot-hd{background:var(--cbot-accent,#2563eb);color:#fff;padding:15px 18px;display:flex;align-items:center;gap:11px}
+.cbot-hd .av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex:none}
+.cbot-hd .av svg{width:20px;height:20px}
+.cbot-hd b{font-size:.98rem;line-height:1.1;display:block}
+.cbot-hd small{font-size:.74rem;opacity:.85}
+.cbot-x{margin-left:auto;background:none;border:none;color:#fff;cursor:pointer;padding:4px;border-radius:6px;display:flex}
+.cbot-x svg{width:20px;height:20px}
+.cbot-x:hover{background:rgba(255,255,255,.18)}
+.cbot-body{flex:1;overflow-y:auto;padding:16px;background:#f6f7f9;display:flex;flex-direction:column;gap:10px}
+.cbot-msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:.9rem;line-height:1.5}
+.cbot-bot{align-self:flex-start;background:#fff;border:1px solid #e7e9ee;border-bottom-left-radius:4px;color:#1b202a}
+.cbot-user{align-self:flex-end;background:var(--cbot-accent,#2563eb);color:#fff;border-bottom-right-radius:4px}
+.cbot-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.cbot-chip{background:#fff;border:1.5px solid var(--cbot-accent,#2563eb);color:var(--cbot-accent,#2563eb);font:inherit;font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:50px;cursor:pointer;transition:background .15s,color .15s}
+.cbot-chip:hover{background:var(--cbot-accent,#2563eb);color:#fff}
+.cbot-foot{display:flex;gap:8px;padding:11px;background:#fff;border-top:1px solid #e7e9ee}
+.cbot-foot input{flex:1;min-height:42px;padding:9px 13px;border:1.5px solid #dfe3e8;border-radius:22px;font:inherit;font-size:.92rem;color:#1b202a}
+.cbot-foot input:focus{outline:none;border-color:var(--cbot-accent,#2563eb);box-shadow:0 0 0 3px color-mix(in srgb,var(--cbot-accent,#2563eb) 20%,transparent)}
+.cbot-send{flex:none;width:42px;height:42px;border-radius:50%;border:none;background:var(--cbot-accent,#2563eb);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cbot-send svg{width:18px;height:18px}
+.cbot-fab:focus-visible,.cbot-x:focus-visible,.cbot-chip:focus-visible,.cbot-send:focus-visible,.cbot-foot input:focus-visible{outline:3px solid var(--cbot-accent,#2563eb);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.cbot-fab,.cbot-chip{transition:none}}
+</style>
+<button class="cbot-fab" id="cbot-fab" aria-label="Open booking and help chat for K2's Massage & Bodywork Studio" aria-expanded="false" aria-controls="cbot-panel">
+  <span class="cbot-dot" aria-hidden="true"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.7-.7L3 21l1.4-4.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+</button>
+<div class="cbot-panel" id="cbot-panel" role="dialog" aria-modal="false" aria-label="Booking and help chat">
+  <div class="cbot-hd">
+    <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3M16 2v3M3 9h18M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="m9 14 2 2 4-4"/></svg></span>
+    <span><b>K2's Massage & Bodywork Studio</b><small>Booking &amp; questions</small></span>
+    <button class="cbot-x" id="cbot-x" aria-label="Close chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="cbot-body" id="cbot-msgs" aria-live="polite"></div>
+  <form class="cbot-foot" id="cbot-foot" autocomplete="off">
+    <label for="cbot-input" class="cbot-sr" style="position:absolute;left:-9999px">Type your message</label>
+    <input id="cbot-input" type="text" placeholder="Type your message…"/>
+    <button class="cbot-send" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg></button>
+  </form>
+</div>
+<script>
+(function(){
+  var CFG={name:"K2's Massage & Bodywork Studio",tel:"+17204043583",book:"#book",services:"#services",visit:"#visit",verb:"Book a session"};
+  var fab=document.getElementById('cbot-fab'),panel=document.getElementById('cbot-panel'),msgs=document.getElementById('cbot-msgs'),foot=document.getElementById('cbot-foot'),input=document.getElementById('cbot-input'),X=document.getElementById('cbot-x');
+  var started=false, flow=null, data={};
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function add(t,who){var m=document.createElement('div');m.className='cbot-msg '+(who==='user'?'cbot-user':'cbot-bot');m.innerHTML=t;msgs.appendChild(m);msgs.scrollTop=msgs.scrollHeight;return m;}
+  function chips(items){var w=document.createElement('div');w.className='cbot-chips';items.forEach(function(it){var b=document.createElement('button');b.type='button';b.className='cbot-chip';b.textContent=it.label;b.onclick=function(){it.act(it.label);};w.appendChild(b);});msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;}
+  function scrollTo(sel){var el=sel&&document.querySelector(sel);if(el){panel.classList.remove('open');fab.setAttribute('aria-expanded','false');el.scrollIntoView({behavior:'smooth'});}}
+  function menu(){
+    var items=[{label:CFG.verb,act:startBook}];
+    if(CFG.services)items.push({label:'Services & pricing',act:function(){add('Sure — here’s our full list.','bot');scrollTo(CFG.services);}});
+    if(CFG.visit)items.push({label:'Hours & location',act:function(){add('Here are our hours and where to find us.','bot');scrollTo(CFG.visit);}});
+    items.push({label:'Call us',act:function(){add('You can reach us anytime at <a href="tel:'+CFG.tel+'">'+CFG.tel.replace('+1','')+'</a>.','bot');}});
+    chips(items);
+  }
+  function startBook(){flow={step:'name'};data={};add('Great! What’s your name?','bot');input.focus();}
+  function prefill(){
+    try{
+      var f=document.querySelector('form[data-netlify], form[name]');
+      function set(sel,v){var e=document.querySelector(sel);if(e&&v){e.value=v;}}
+      set('#name',data.name);set('input[name=name]',data.name);
+      set('#phone',data.phone);set('input[name=phone]',data.phone);
+      set('#time',data.time);set('#preferred_time',data.time);set('input[name=preferred_time]',data.time);
+    }catch(e){}
+  }
+  function handle(text){
+    add(esc(text),'user');
+    if(flow){
+      if(flow.step==='name'){data.name=text;flow.step='phone';add('Thanks, '+esc(text)+'! What’s the best phone number to reach you?','bot');return;}
+      if(flow.step==='phone'){data.phone=text;flow.step='time';add('Got it. What day/time works best for you?','bot');return;}
+      if(flow.step==='time'){data.time=text;flow=null;prefill();
+        add('Perfect — we’ll reach out at <b>'+esc(data.phone)+'</b> to confirm <b>'+esc(data.time)+'</b>. I’ve started a request for you below.','bot');
+        var w=document.createElement('div');w.className='cbot-chips';
+        var b1=document.createElement('button');b1.type='button';b1.className='cbot-chip';b1.textContent='Open the form';b1.onclick=function(){scrollTo(CFG.book);};w.appendChild(b1);
+        var a=document.createElement('button');a.type='button';a.className='cbot-chip';a.textContent='Call now';a.onclick=function(){location.href='tel:'+CFG.tel;};w.appendChild(a);
+        msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;return;}
+    }
+    var t=text.toLowerCase();
+    if(/(book|appoint|schedul|quote|estimate)/.test(t)){startBook();return;}
+    if(/(hour|open|close|where|location|address|direction)/.test(t)&&CFG.visit){add('Here are our hours and location.','bot');scrollTo(CFG.visit);return;}
+    if(/(price|cost|service|menu)/.test(t)&&CFG.services){add('Here’s what we offer.','bot');scrollTo(CFG.services);return;}
+    if(/(call|phone|number)/.test(t)){add('Reach us at <a href="tel:'+CFG.tel+'">'+CFG.tel.replace('+1','')+'</a>.','bot');return;}
+    add('Happy to help! I can get you booked, share our services, or our hours — what would you like?','bot');menu();
+  }
+  function open(){panel.classList.add('open');fab.setAttribute('aria-expanded','true');if(!started){started=true;add('Hi! Welcome to '+esc(CFG.name)+'. How can I help today?','bot');menu();}setTimeout(function(){X.focus();},60);}
+  function close(){panel.classList.remove('open');fab.setAttribute('aria-expanded','false');fab.focus();}
+  fab.addEventListener('click',function(){panel.classList.contains('open')?close():open();});
+  X.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))close();});
+  foot.addEventListener('submit',function(e){e.preventDefault();var v=input.value.trim();if(!v)return;input.value='';handle(v);});
+})();
+</script>
+<!--CBOT END-->
+
+</body>
+</html>
